@@ -1,10 +1,9 @@
 const client = require("../db/client");
-const util = require("./util");
 
 const getAllCharacters = async () => {
   try {
     const { rows } = await client.query(`
-        SELECT * FROM Character;
+        SELECT * FROM character;
         `);
     return rows;
   } catch (error) {
@@ -17,7 +16,7 @@ const getCharacterById = async (characterId) => {
     const {
       rows: [character],
     } = await client.query(`
-    SELECT * FROM Character WHERE "id" = ${characterId};
+    SELECT * FROM character WHERE "id" = ${characterId};
  `);
     return character;
   } catch (error) {
