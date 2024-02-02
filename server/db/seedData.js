@@ -4,8 +4,8 @@ async function dropTables() {
   try {
     console.log('Dropping All Tables...');
     await client.query(`
-      DROP TABLE IF EXISTS player CASCADE;
-      DROP TABLE IF EXISTS character CASCADE;
+      DROP TABLE IF EXISTS player;
+      DROP TABLE IF EXISTS character;
     `);
   } catch (error) {
     throw error;
