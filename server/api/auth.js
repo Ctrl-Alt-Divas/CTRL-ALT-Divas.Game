@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { JWT_SECRET, COOKIE_SECRET } = require('dotenv').config({path: '../.env' })
+// const { JWT_SECRET, COOKIE_SECRET } = require('dotenv').config({path: '../.env' })
+require('dotenv').config({ path: './.env' });
 const SALT = 10
 
 const { createPlayer, getPlayerByUsername } = require('../helpers/auth')
@@ -22,7 +23,7 @@ router.post('/register', async(req, res, next) => {
         const player = await createPlayer({ username, password: hashedPw});
         delete player.password;
 
-        const token = jwt.sign(player, JWT_SECRET)
+        const token = jwt.sign(player, process.env.JWT_SECRET)
 
         res.cookie("token", token, {
             sameSite: "strict",
@@ -52,7 +53,7 @@ router.post('/login', async (req, res, next) => {
             throw new Error('Invalid password');
         }
         if (validPw) {
-            const token = jwt.sign(player, JWT_SECRET)
+            const token = jwt.sign(player, process.env.JWT_SECRET)
 
             res.cookie('token', token, {
                 sameSite: "strict",
