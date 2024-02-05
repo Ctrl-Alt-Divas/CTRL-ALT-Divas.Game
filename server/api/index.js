@@ -1,8 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-router.use('/players', require('./players'));
+router.get("/health", (req, res, next) => {
+    res.send("healthly route!");
+});
 
-// need to add for characters and auth
+router.use(express.json());
+router.use("/characters", require("./characters"));
+router.use('/players', require('./players'));
+router.use('/auth', require('./auth'));
 
 module.exports = router;
