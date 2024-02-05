@@ -19,9 +19,9 @@ async function createTables() {
       CREATE TABLE player (
         id SERIAL PRIMARY KEY,
         username VARCHAR(255) UNIQUE NOT NULL,
-        token VARCHAR(255) NOT NULL,
-        score INTEGER NOT NULL,
-        image VARCHAR(255) NOT NULL
+        password TEXT NOT NULL,
+        score INTEGER,
+        image VARCHAR(255)
         );
       CREATE TABLE character (
         id SERIAL PRIMARY KEY,
