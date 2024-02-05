@@ -4,7 +4,7 @@ const router = express.Router();
 const { getAllCharacters, getCharacterById } = require("../helpers/characters");
 
 //GET - /api/characters - get all characters
-router.get("/characters", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const characters = await getAllCharacters();
     res.send(characters);
@@ -14,7 +14,7 @@ router.get("/characters", async (req, res, next) => {
 });
 
 //GET - /api/characters - get character by id
-router.get("/characters/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const character = await getCharacterById(req.params.id);
     res.send(character);
