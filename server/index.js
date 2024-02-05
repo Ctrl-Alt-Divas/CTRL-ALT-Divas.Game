@@ -21,6 +21,11 @@ app.use(cors());
 const client = require('./db/client');
 client.connect();
 
+// cookie parser and secret
+require('dotenv').config({path: './.env' })
+const cookieParser = require('cookie-parser')
+app.use(cookieParser(process.env.COOKIE_SECRET))
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
