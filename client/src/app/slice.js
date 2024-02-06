@@ -37,6 +37,6 @@ const slice = createSlice({
   },
 });
 
-export const { updatePlayer, updateLeaderboard } = slice.actions;
+export const { updatePlayer, updateLeaderboard, setCredentials, setToken } = slice.actions;
 
 export default slice.reducer;
