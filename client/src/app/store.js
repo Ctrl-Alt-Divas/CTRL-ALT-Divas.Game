@@ -4,7 +4,7 @@ import slice from './slice';
 
 const store = configureStore({
     reducer: {
-        state: createSlice,
+        state: slice,
         [divasApi.reducerPath]: divasApi.reducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(divasApi.middleware),
