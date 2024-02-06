@@ -1,6 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {updatePlayer} from '../app/slice';
+import {setToken, updatePlayer} from '../app/slice';
 
 function Navbar() {
     // token should be on the player object which is set on login
@@ -12,6 +12,7 @@ function Navbar() {
     // update player in state to be empty
     function logout() {
         dispatch(updatePlayer(''));
+        dispatch(setToken(''));
         navigate('/');
     }
 

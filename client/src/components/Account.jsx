@@ -13,7 +13,7 @@ function Account() {
                 width={250}
             />
             <div className='flex flex-col items-start'>
-                <h1 className='text-4xl text-slate-300'>{player.username}Players Name</h1>
+                <h1 className='text-4xl text-slate-300'>{player.username}</h1>
                 {/* <p className='text-slate-400'>Rank: {leaderboard.findIndex(it => it.username === player.username) + 1 }</p> */}
                 <p className='text-slate-400'>Score: {player.score} </p>
             </div>

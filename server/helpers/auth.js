@@ -2,15 +2,15 @@ const client = require('../db/client');
 const util = require("../api/utils");
 
 //currently deleted the token stuff because I don't fully understand it or how to implement it
-async function createPlayer({ username, password }) {
+async function createPlayer({ username, password, score, image }) {
     try {
         const { 
             rows: [player],
         } = await client.query(`
-        INSERT INTO player(username, password)
-        VALUES ($1, $2)
+        INSERT INTO player(username, password, score, image)
+        VALUES ($1, $2, $3, $4)
         RETURNING *;
-        `, [username, password])
+        `, [username, password, score, image])
         return player;
     } catch(error) {
         throw error;
