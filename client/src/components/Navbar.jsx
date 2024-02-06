@@ -4,7 +4,7 @@ import {updatePlayer} from '../app/slice';
 
 function Navbar() {
     // token should be on the player object which is set on login
-    const token = useSelector((it) => it.state.player?.token);
+    const token = useSelector((it) => it.state?.token);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
