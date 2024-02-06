@@ -18,8 +18,8 @@ function Navbar() {
     return (
         <div className='bg-purple-500 h-14 flex justify-between items-center pl-10 pr-10'>
             <div className='flex gap-2 items-center'>
-                <img src='https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png' width={30}></img>
-                <p className='text-xl text-fuchsia-500'>CTRL-ALT-DIVAS</p>
+                <img src='https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png' width={30}/>
+                <p className='text-xl'>CTRL-ALT-DIVAS</p>
             </div>
             <div className='flex gap-10'>
                 <Link to='/'>Home</Link>
