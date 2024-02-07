@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Gameplay from './components/Gameplay';
 import Account from './components/Account';
+import Leaderboard from './components/Leaderboard';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path='/register' element={<Register />} />
                     <Route path='/account' element={<Account />} />
                     <Route path='/gameplay' element={<Gameplay />} />
+                    <Route path='/leaderboard' element={<Leaderboard />} />
                 </Routes>
             </div>
             <Footer />
