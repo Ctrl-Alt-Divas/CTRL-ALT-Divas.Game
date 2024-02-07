@@ -20,7 +20,7 @@ async function updateImage(token, body) {
     const decodedPlayer = jwt.verify(token, process.env.JWT_SECRET);
 
     if (decodedPlayer.id !== body.id) {
-      throw new Error('Invalid user');
+      throw new Error('Invalid player');
     }
 
     const {
