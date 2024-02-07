@@ -20,7 +20,7 @@ router.post('/register', async(req, res, next) => {
         }
 
         const hashedPw = await bcrypt.hash(password, SALT);
-        const player = await createPlayer({ username, password: hashedPw});
+        const player = await createPlayer({ username, password: hashedPw, score: 0, image: 'default.png'});
         delete player.password;
 
         const token = jwt.sign(player, process.env.JWT_SECRET)
