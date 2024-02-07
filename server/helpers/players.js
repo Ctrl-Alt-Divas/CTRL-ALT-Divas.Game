@@ -1,4 +1,5 @@
 const client = require('../db/client');
+const jwt = require('jsonwebtoken');
 
 // function to save score for players
 async function saveScore(body) {
@@ -16,19 +17,19 @@ async function saveScore(body) {
 // function to update a players profile pic
 async function updateImage(token, body) {
   try {
-    const {
-      rows: [player],
-    } = await client.query('SELECT * FROM player WHERE password = $1', [token]);
+    const decodedPlayer = jwt.verify(token, process.env.JWT_SECRET);
 
-    if (player.id !== body.id) {
+    if (decodedPlayer.id !== body.id) {
       throw new Error('Invalid player');
     }
 
     const {
       rows: [updatedPlayer],
     } = await client.query('UPDATE player SET image = $1 WHERE id = $2 RETURNING *', [body.image, body.id]);
+
     return updatedPlayer;
   } catch (error) {
+    console.error(error);
     throw new Error('Unable to update player image');
   }
 }
