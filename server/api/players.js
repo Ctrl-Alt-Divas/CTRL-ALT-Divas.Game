@@ -14,6 +14,7 @@ router.post('/score', async (req, res, next) => {
 
 router.patch('/image', async (req, res, next) => {
   try {
+    console.log(req.headers.authorization.replace('Bearer ', ''))
     const player = await updateImage(req.headers.authorization.replace('Bearer ', ''), req.body);
     res.send(player);
   } catch (error) {

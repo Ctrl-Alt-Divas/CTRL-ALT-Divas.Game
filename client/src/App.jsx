@@ -10,7 +10,7 @@ import Account from './components/Account';
 
 function App() {
     return (
-        <div className='h-full min-h-full m-0 p-0 flex flex-col justify-between'>
+        <div className='min-h-[100vh] m-0 p-0 flex flex-col justify-between'>
             <Navbar />
             <div className='mb-auto flex-1 bg-slate-900'>
                 <Routes>

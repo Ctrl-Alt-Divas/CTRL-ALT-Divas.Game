@@ -28,6 +28,7 @@ const slice = createSlice({
       state.player = player;
       state.token = token;
       sessionStorage.setItem('player', JSON.stringify(state.player));
+      sessionStorage.setItem('token', JSON.stringify(state.token));
     },
     setToken: (state, action) => {
       const { token } = action.payload;
