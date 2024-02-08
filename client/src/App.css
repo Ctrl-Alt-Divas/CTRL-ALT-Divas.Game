@@ -3,3 +3,13 @@
   padding: 0;
   text-align: center;
 }
+.carousel-container{
+  margin: auto;
+  padding: 1em 0;
+  width: 50%;
+  background-color: #c8b6ff;
+  border-radius: .5em;
+}
+iframe{
+  margin: auto;
+}
