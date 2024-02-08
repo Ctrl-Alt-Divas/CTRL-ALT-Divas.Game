@@ -8,6 +8,7 @@ import Register from './components/Register';
 import Gameplay from './components/Gameplay';
 import Account from './components/Account';
 import Leaderboard from './components/Leaderboard';
+import Character from './components/Character';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path='/account' element={<Account />} />
                     <Route path='/gameplay' element={<Gameplay />} />
                     <Route path='/leaderboard' element={<Leaderboard />} />
+                    <Route path='/characters/:id' element={<Character />} />
                 </Routes>
             </div>
             <Footer />
