@@ -81,14 +81,12 @@ function Home() {
                         </Link>
                     </div>
                     <div className='flex flex-col basis-1/4 items-center border-2 border-cyan-400'>
-                        <div className='text-pink-500 text-2xl mb-5 mt-2'>Leaderboards</div>
+                        <div className='text-pink-500 text-2xl mb-5 mt-2'>Top Players</div>
                         {leaderboard && leaderboard.length > 0 && (
                             <div className='flex flex-col gap-3'>{createLeaderboard()}</div>
                         )}
                     </div>
                 </div>
-
-                <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
 
                 <div className='flex flex-col gap-10 items-center'>
                     <h2 className='text-purple-500 text-3xl'>Characters</h2>
