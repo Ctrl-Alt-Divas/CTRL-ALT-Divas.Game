@@ -17,11 +17,13 @@ function Navbar() {
     }
 
     return (
-        <Link to='/' className='bg-indigo-950 h-14 flex justify-between items-center pl-10 pr-10'>
-            <div className='flex gap-2 items-center hover:bg-fuchsia-600 hover:rounded-md p-1'>
-                <img src='https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png' width={30} />
-                <p className='text-2xl text-fuchsia-600 hover:text-slate-950'>CTRL-ALT-DIVAS</p>
-            </div>
+        <div className='bg-indigo-950 h-14 flex justify-between items-center pl-10 pr-10'>
+            <Link to='/' >
+                <div className='flex gap-2 items-center hover:bg-fuchsia-600 hover:rounded-md p-1'>
+                    <img src='https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png' width={30} />
+                    <p className='text-2xl text-fuchsia-600 hover:text-slate-950'>CTRL-ALT-DIVAS</p>
+                </div>
+            </Link>
             <div className='flex gap-10'>
                 <Link to='/' className='text-xl text-fuchsia-600 hover:text-cyan-500'>
                     Home
@@ -55,7 +57,7 @@ function Navbar() {
                     </>
                 )}
             </div>
-        </Link>
+        </div>
     );
 }
 
