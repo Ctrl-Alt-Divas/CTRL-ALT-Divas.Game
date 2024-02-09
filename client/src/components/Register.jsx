@@ -12,7 +12,7 @@ function Register() {
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [register, {data, isSuccess}] = useRegisterMutation();
+    const [register, {data, error, isSuccess, isError}] = useRegisterMutation();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,13 +31,14 @@ function Register() {
         if (errors.length > 0) {
             setErrors(errors);
             return;
+        } else {
+            setErrors([]);
         }
 
         await register({
             username,
             password,
-        }).unwrap();
-        setPlayer({username: '', password: ''});
+        });
     };
 
     useEffect(() => {
@@ -47,10 +48,22 @@ function Register() {
         }
     }, [isSuccess]);
 
+    useEffect(() => {
+        if (isError) {
+            const newErrors = [...errors];
+            newErrors.push(error.data.error);
+            setErrors(newErrors);
+        }
+    }, [isError]);
+
     function displayErrors() {
         const rows = [];
         for (const error of errors) {
-            rows.push(<p key={error} className='text-red-600'>{error}</p>);
+            rows.push(
+                <p key={error} className='text-red-600'>
+                    {error}
+                </p>
+            );
         }
         return rows;
     }
