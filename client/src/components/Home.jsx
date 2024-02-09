@@ -29,58 +29,51 @@ function Home() {
     fetchData().catch(console.error);
   }, []);
 
-  function createLeaderboard() {
-    const rows = [];
-    let counter = 0;
-    for (const player of leaderboard) {
-      if (counter === 10) break;
-      rows.push(
-        <div className="flex gap-10 items-center justify-between">
-          <div className="flex gap-10 items-center">
-            <p className="text-xl text-pink-400">
-              {leaderboard.indexOf(player) + 1}
-            </p>
-            <div className="flex items-center gap-2">
-              <img
-                className="rounded-full h-[50px] border-2"
-                src={
-                  new URL(
-                    `../assets/images/profile/${player.image}`,
-                    import.meta.url
-                  ).href
-                }
-                width={50}
-              />
-              <p className="text-xl text-pink-400">{player.username}</p>
-            </div>
-          </div>
-          <p className="text-xl text-cyan-400">{player.score}</p>
-        </div>
-      );
-      counter++;
+    function createLeaderboard() {
+        const rows = [];
+        let counter = 0;
+        for (const player of leaderboard) {
+            if (counter === 10) break;
+            rows.push(
+                <div key={player.id} className='flex gap-10 items-center justify-between'>
+                    <div className='flex gap-10 items-center'>
+                        <p className='text-xl text-pink-400'>{leaderboard.indexOf(player) + 1}</p>
+                        <div className='flex items-center gap-2'>
+                            <img
+                                className='rounded-full h-[50px] border-2'
+                                src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
+                                width={50}
+                            />
+                            <p className='text-xl text-pink-400'>{player.username}</p>
+                        </div>
+                    </div>
+                    <p className='text-xl text-cyan-400'>{player.score}</p>
+                </div>
+            );
+            counter++;
+        }
+        return rows;
     }
-    return rows;
-  }
 
-  function createCharacters() {
-    const rows = [];
-    for (const character of characters) {
-      rows.push(
-        <Link to={`/characters/${character.id}`}>
-          <div className="bg-fuchsia-800 w-[250px] flex justify-between flex-col p-5 rounded-md">
-            <p>{character.name}</p>
-            <img
-              src="https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png"
-              width={250}
-            />
-            {/* Maybe add our short description to the seedData? */}
-            <p>Short description</p>
-          </div>
-        </Link>
-      );
+    function createCharacters() {
+        const rows = [];
+        for (const character of characters) {
+            rows.push(
+                <Link key={character.id} to={`/characters/${character.id}`}>
+                    <div className='bg-fuchsia-800 w-[250px] flex justify-between flex-col p-5 rounded-md'>
+                        <p>{character.name}</p>
+                        <img
+                            src='https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png'
+                            width={250}
+                        />
+                        {/* Maybe add our short description to the seedData? */}
+                        <p>Short description</p>
+                    </div>
+                </Link>
+            );
+        }
+        return rows;
     }
-    return rows;
-  }
 
   return (
     <>

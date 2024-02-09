@@ -1,37 +1,40 @@
-const express = require("express");
+
+const express = require('express');
 const router = express.Router();
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 // const { JWT_SECRET, COOKIE_SECRET } = require('dotenv').config({path: '../.env' })
-require("dotenv").config({ path: "./.env" });
+require('dotenv').config({ path: './.env' });
 const SALT = 10;
 
-const { createPlayer, getPlayerByUsername } = require("../helpers/auth");
+const { createPlayer, getPlayerByUsername } = require('../helpers/auth');
 
 //create user account otherwise known register
-router.post("/register", async (req, res, next) => {
+router.post('/register', async (req, res, next) => {
+
   try {
     const { username, password } = req.body;
 
     if (!username) {
-      throw new Error("Username is required to create an account");
+
+      throw new Error('Username is required to create an account');
     } else if (!password) {
-      throw new Error("Password is required to create an account");
+      throw new Error('Password is required to create an account');
     }
 
     const hashedPw = await bcrypt.hash(password, SALT);
-    const player = await createPlayer({
-      username,
-      password: hashedPw,
-      score: 0,
-      image: "default.png",
-    });
+    const player = await createPlayer({ username, password: hashedPw, score: 0, image: 'default.png' });
     delete player.password;
+
+    if (typeof player === 'string') {
+      res.status(500).send({ error: player });
+      return;
+    }
 
     const token = jwt.sign(player, process.env.JWT_SECRET);
 
-    res.cookie("token", token, {
-      sameSite: "strict",
+    res.cookie('token', token, {
+      sameSite: 'strict',
       httpOnly: true,
       signed: true,
     });
@@ -43,7 +46,9 @@ router.post("/register", async (req, res, next) => {
 });
 
 //POST - login player
-router.post("/login", async (req, res, next) => {
+
+router.post('/login', async (req, res, next) => {
+
   try {
     const { username, password } = req.body;
     const player = await getPlayerByUsername(username);
@@ -60,8 +65,9 @@ router.post("/login", async (req, res, next) => {
     if (validPw) {
       const token = jwt.sign(player, process.env.JWT_SECRET);
 
-      res.cookie("token", token, {
-        sameSite: "strict",
+
+      res.cookie('token', token, {
+        sameSite: 'strict',
         httpOnly: true,
         signed: true,
       });
