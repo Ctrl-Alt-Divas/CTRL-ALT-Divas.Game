@@ -49,7 +49,7 @@ function Navbar() {
                 )}
                 {token && (
                     <>
-                        <a onClick={() => logout()} to='/'>
+                        <a onClick={() => logout()} href='/' className='text-xl text-fuchsia-600 hover:text-cyan-500'>
                             Logout
                         </a>
                     </>
