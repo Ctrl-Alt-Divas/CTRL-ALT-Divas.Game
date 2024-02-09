@@ -25,7 +25,7 @@ function Register() {
         if (password === '') {
             errors.push('Password is required');
         } else if (password.length <= 7) {
-            errors.push('Password must be greater than 7 characters');
+            errors.push('Password must be at least 8 characters');
         }
 
         if (errors.length > 0) {
