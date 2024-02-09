@@ -44,7 +44,7 @@ function Login() {
         onSubmit={handleSubmit}
       >
         <h2 className="text-fuchsia-500 text-4xl">Login</h2>
-        {errorMsg && <p>{errorMsg}</p>}
+        {errorMsg && <p className="text-red-600">{errorMsg}</p>}
         <div className="flex gap-5">
           <label className="text-fuchsia-500 text-xl">Username:</label>
           <input
@@ -61,6 +61,9 @@ function Login() {
         <button className="text-white text-xl bg-fuchsia-500 p-1 rounded-lg">
           Login
         </button>
+
+        <p>New to the game?</p>
+        <a href="/register">Sign Up</a>
       </form>
     </div>
   );
