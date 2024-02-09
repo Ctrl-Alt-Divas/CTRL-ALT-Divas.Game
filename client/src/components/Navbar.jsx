@@ -33,11 +33,6 @@ function Navbar() {
                     Leaderboard
                 </Link>
                 {!token && (
-                    <Link to='/register' className='text-xl text-fuchsia-600 hover:text-cyan-500'>
-                        Register
-                    </Link>
-                )}
-                {!token && (
                     <Link to='/login' className='text-xl text-fuchsia-600 hover:text-cyan-500'>
                         Login
                     </Link>
