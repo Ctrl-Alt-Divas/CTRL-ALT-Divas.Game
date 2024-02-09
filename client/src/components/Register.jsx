@@ -33,11 +33,10 @@ function Register() {
             return;
         }
 
-        const response = await register({
+        await register({
             username,
             password,
         }).unwrap();
-        console.log(response);
         setPlayer({username: '', password: ''});
     };
 
