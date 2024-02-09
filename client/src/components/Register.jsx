@@ -50,7 +50,7 @@ function Register() {
     function displayErrors() {
         const rows = [];
         for (const error of errors) {
-            rows.push(<p className='text-red-600'>{error}</p>);
+            rows.push(<p key={error} className='text-red-600'>{error}</p>);
         }
         return rows;
     }

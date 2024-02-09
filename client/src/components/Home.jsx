@@ -31,7 +31,7 @@ function Home() {
         for (const player of leaderboard) {
             if (counter === 10) break;
             rows.push(
-                <div className='flex gap-10 items-center justify-between'>
+                <div key={player.id} className='flex gap-10 items-center justify-between'>
                     <div className='flex gap-10 items-center'>
                         <p className='text-xl text-pink-400'>{leaderboard.indexOf(player) + 1}</p>
                         <div className='flex items-center gap-2'>
@@ -55,7 +55,7 @@ function Home() {
         const rows = [];
         for (const character of characters) {
             rows.push(
-                <Link to={`/characters/${character.id}`}>
+                <Link key={character.id} to={`/characters/${character.id}`}>
                     <div className='bg-fuchsia-800 w-[250px] flex justify-between flex-col p-5 rounded-md'>
                         <p>{character.name}</p>
                         <img
