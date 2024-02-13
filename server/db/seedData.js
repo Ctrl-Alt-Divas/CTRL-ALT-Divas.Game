@@ -28,7 +28,7 @@ async function createTables() {
         name VARCHAR(255) UNIQUE NOT NULL,
         description TEXT NOT NULL,
         shrtdescription TEXT NOT NULL,
-        image VARCHAR(255),
+        image VARCHAR(255) NOT NULL,
         speed INTEGER NOT NULL,
         jump INTEGER NOT NULL
         );
