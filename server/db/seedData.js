@@ -60,7 +60,7 @@ async function createInitialData() {
         
         Though her jumps may lack height, Lilypad compensates with lightning-fast agility, darting through obstacles with ease. But don''t underestimate her – her fiery spirit manifests in her ability to hurl scorching fireballs at adversaries, turning the tide of battle in her favor.
         
-        Lilypad isn''t just a character; she''s an inspiration, challenging stereotypes and breaking barriers as she paves her way to victory in both the virtual and real worlds.','Meet Lilypad, a formidable feminist protagonist', 'image.png', 50, 50),
+        Lilypad isn''t just a character; she''s an inspiration, challenging stereotypes and breaking barriers as she paves her way to victory in both the virtual and real worlds.','Meet Lilypad, a formidable feminist protagonist', 'lilypad.png', 50, 50),
 
         ('Fancypants', 'Fancypants is a captivating video game character, a determined redhead with a heart as sweet as her demeanor. Despite her shy nature, Fancypants harbors an unwavering passion for coding, driven by an unrelenting ambition to become the best developer in the realm. Clad in distinctive, stylish attire that reflects her unique personality, Fancypants navigates the digital world with a quiet confidence, overcoming challenges and mastering coding languages with finesse. Her journey unfolds as she tackles obstacles, demonstrating that beneath her demure exterior lies an unstoppable force fueled by a love for programming and an unwavering dedication to achieving greatness in the coding realm.  She kills her enemies with kindness, by throwing hearts at them.','Meet Fancypants, a determined redhead with a heart as sweet as her demeanor', 'avatar.png', 50, 50)
         `);
