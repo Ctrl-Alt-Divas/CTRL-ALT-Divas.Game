@@ -67,7 +67,7 @@ function Home() {
                             width={250}
                         />
                         {/* Maybe add our short description to the seedData? */}
-                        <p>Short description</p>
+                        <p>{character.shrtdescription}</p>
                     </div>
                 </Link>
             );
