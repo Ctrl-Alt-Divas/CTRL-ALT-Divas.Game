@@ -5,6 +5,7 @@ import { useGetCharacterByIdQuery } from "../../api/divasApi";
 function Character() {
   const { id } = useParams();
   const { data = {} } = useGetCharacterByIdQuery(id);
+
   return (
     <>
       {data && (
@@ -12,7 +13,7 @@ function Character() {
           <p className="text-white text-3xl">{data.name}</p>
           <div className="flex gap-20">
             <img
-              src="https://freepngtransparent.com/wp-content/uploads/2023/03/mario-png-62.png"
+              src={new URL(`../assets/images/${data.image}`, import.meta.url).href}
               width={200}
             />
             <div className="flex flex-col gap-10 justify-center">
