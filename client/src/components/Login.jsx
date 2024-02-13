@@ -48,6 +48,7 @@ function Login() {
         <div className="flex gap-5">
           <label className="text-fuchsia-500 text-xl">Username:</label>
           <input
+            autoFocus
             onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
         </div>
@@ -61,9 +62,16 @@ function Login() {
         <button className="text-white text-xl bg-fuchsia-500 p-1 rounded-lg">
           Login
         </button>
-
-        <p>New to the game?</p>
-        <a href="/register">Sign Up</a>
+        <div className="flex gap-3">
+          {" "}
+          <p className="text-xl text-fuchsia-600">New to the game?</p>
+          <a
+            className="text-xl text-fuchsia-600 hover:text-cyan-500"
+            href="/register"
+          >
+            Sign Up
+          </a>
+        </div>
       </form>
     </div>
   );
