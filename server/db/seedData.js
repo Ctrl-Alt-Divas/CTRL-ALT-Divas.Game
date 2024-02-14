@@ -1,8 +1,8 @@
-const client = require('./client');
+const client = require("./client");
 
 async function dropTables() {
   try {
-    console.log('Dropping All Tables...');
+    console.log("Dropping All Tables...");
     await client.query(`
       DROP TABLE IF EXISTS player;
       DROP TABLE IF EXISTS character;
@@ -14,7 +14,7 @@ async function dropTables() {
 
 async function createTables() {
   try {
-    console.log('Building All Tables...');
+    console.log("Building All Tables...");
     await client.query(`
       CREATE TABLE player (
         id SERIAL PRIMARY KEY,
@@ -40,7 +40,7 @@ async function createTables() {
 
 async function createInitialData() {
   try {
-    console.log('Creating Initial Data...');
+    console.log("Creating Initial Data...");
     await client.query(`
       INSERT INTO character (name, description, shrtdescription, image, speed, jump)
       VALUES
@@ -52,7 +52,7 @@ async function createInitialData() {
         
         In the CTRL-ALT-Divas universe, Lani stands as a symbol of empowerment, embracing their non-binary identity while breaking barriers with a combination of technical prowess, artistic flair, and a dash of supernatural intuition. As players embark on adventures with Lani, they''ll witness a character that challenges stereotypes, celebrates diversity, and, above all, demonstrates that strength and beauty can coexist in a virtual world.', 'Meet Lani, a non-binary powerhouse', 'lani.png', -1.5, 15),
 
-        ('Eli', 'Introducing Eli, a Mexican-American woman with a courageous spirit and a background as a former Marine. Having served her country with honor, Eli now embarks on an bold adventure into the realm of web development. In this immersive game, players join Eli on her journey as she navigates the intricacies of coding, design, and problem-solving to master the art of web development. With her military training as a foundation, Eli approaches each challenge with discipline, resilience, and a thirst for knowledge. As players guide her through the game, they''ll witness Eli''s transformation from a skilled Marine to a formidable web developer, proving that with determination and adaptability, one can conquer any battlefield, digital or otherwise. ','Meet Eli, a Mexican-American woman with a courageous spirit', 'image.png', -1.5, 15),
+        ('Eli', 'Introducing Eli, a Mexican-American woman with a courageous spirit and a background as a former Marine. Having served her country with honor, Eli now embarks on an bold adventure into the realm of web development. In this immersive game, players join Eli on her journey as she navigates the intricacies of coding, design, and problem-solving to master the art of web development. With her military training as a foundation, Eli approaches each challenge with discipline, resilience, and a thirst for knowledge. As players guide her through the game, they''ll witness Eli''s transformation from a skilled Marine to a formidable web developer, proving that with determination and adaptability, one can conquer any battlefield, digital or otherwise. ','Meet Eli, a Mexican-American woman with a courageous spirit', 'eli.png', -1.5, 15),
 
         ('Lily Pad', 'Meet Lilypad, a formidable feminist protagonist in the CRTL ALT DIVAS video game world. Hailing from Mexico, Lilypad embodies strength, resilience, and a passion for equality. As a bilingual powerhouse fluent in both Spanish and English, she navigates the realms of software development with unparalleled determination.
 
