@@ -5,8 +5,12 @@ const jwt = require('jsonwebtoken');
 async function saveScore(body) {
   try {
     const {
+      rows: [player],
+    } = await client.query('SELECT * FROM player WHERE id = $1', [body.id]);
+
+    const {
       rows: [updatedPlayer],
-    } = await client.query('UPDATE player SET score = $1 WHERE id = $2 RETURNING *', [body.score, body.id]);
+    } = await client.query('UPDATE player SET score = $1 WHERE id = $2 RETURNING *', [body.score + player.score, body.id]);
     return updatedPlayer;
   } catch (error) {
     console.error(error);

@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
@@ -11,12 +10,10 @@ const { createPlayer, getPlayerByUsername } = require('../helpers/auth');
 
 //create user account otherwise known register
 router.post('/register', async (req, res, next) => {
-
   try {
     const { username, password } = req.body;
 
     if (!username) {
-
       throw new Error('Username is required to create an account');
     } else if (!password) {
       throw new Error('Password is required to create an account');
@@ -48,7 +45,6 @@ router.post('/register', async (req, res, next) => {
 //POST - login player
 
 router.post('/login', async (req, res, next) => {
-
   try {
     const { username, password } = req.body;
     const player = await getPlayerByUsername(username);
@@ -57,14 +53,13 @@ router.post('/login', async (req, res, next) => {
     delete player.password;
 
     if (!player) {
-      res.status(500).send("invalid username");
+      res.status(500).send('invalid username');
     } else if (!validPw) {
       //throw new Error("Invalid password");
-      res.status(500).send("invalid password");
+      res.status(500).send('invalid password');
     }
     if (validPw) {
       const token = jwt.sign(player, process.env.JWT_SECRET);
-
 
       res.cookie('token', token, {
         sameSite: 'strict',

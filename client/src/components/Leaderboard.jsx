@@ -1,7 +1,6 @@
-import {Link} from 'react-router-dom';
 import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {useGetCharactersMutation, useGetLeaderboardMutation} from '../../api/divasApi';
+import {useDispatch} from 'react-redux';
+import {useGetLeaderboardMutation} from '../../api/divasApi';
 import {updateLeaderboard} from '../app/slice';
 
 function Leaderboard() {
