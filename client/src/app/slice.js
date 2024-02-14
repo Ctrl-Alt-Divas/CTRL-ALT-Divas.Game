@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   player: sessionStorage.getItem('player') === null ? '' : JSON.parse(sessionStorage.getItem('player')),
   leaderboards: sessionStorage.getItem('leaderboards') === null ? '' : JSON.parse(sessionStorage.getItem('leaderboards')),
-  token: sessionStorage.getItem('token') === null ? '' : JSON.parse(sessionStorage.getItem('token'))
+  characters: sessionStorage.getItem('characters') === null ? '' : JSON.parse(sessionStorage.getItem('characters')),
+  token: sessionStorage.getItem('token') === null ? '' : JSON.parse(sessionStorage.getItem('token')),
 };
 
 const slice = createSlice({
@@ -35,9 +36,13 @@ const slice = createSlice({
       state.token = token;
       sessionStorage.setItem('token', JSON.stringify(state.token));
     },
+    updateCharacters: (state, { payload }) => {
+      state.characters = payload;
+      sessionStorage.setItem('characters', JSON.stringify(state.characters));
+    },
   },
 });
 
-export const { updatePlayer, updateLeaderboard, setCredentials, setToken } = slice.actions;
+export const { updatePlayer, updateLeaderboard, setCredentials, setToken, updateCharacters } = slice.actions;
 
 export default slice.reducer;

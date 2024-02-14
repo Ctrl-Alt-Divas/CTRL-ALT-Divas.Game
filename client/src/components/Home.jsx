@@ -5,7 +5,6 @@ import {useGetCharactersMutation, useGetLeaderboardMutation} from '../../api/div
 import {updateLeaderboard} from '../app/slice';
 import CarouselVideos from './CarouselVideos';
 
-
 function Home() {
     const [getLeaderboard] = useGetLeaderboardMutation();
     const [getCharacters] = useGetCharactersMutation();
@@ -56,13 +55,11 @@ function Home() {
     function createCharacters() {
         const rows = [];
         for (const character of characters) {
-            console.log(character.image);
             rows.push(
                 <Link key={character.id} to={`/characters/${character.id}`}>
                     <div className='bg-fuchsia-800 w-[250px] flex justify-between flex-col p-5 rounded-md'>
                         <p>{character.name}</p>
                         <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href} width={250} />
-                        {/* Maybe add our short description to the seedData? */}
                         <p>{character.shrtdescription}</p>
                     </div>
                 </Link>
@@ -76,7 +73,7 @@ function Home() {
             <div className='flex flex-col gap-20'>
                 <div className='flex w-full border-2 border-cyan-400'>
                     <div className='flex flex-col hero-bg h-[700px] basis-3/4 items-center justify-end'>
-                        <Link to='/gameplay' className='bg-purple-500 w-24 p-2 rounded-md text-lg mb-10'>
+                        <Link to='/character-select' className='bg-purple-500 w-24 p-2 rounded-md text-lg mb-10'>
                             Play Now
                         </Link>
                     </div>
@@ -93,7 +90,7 @@ function Home() {
                     {characters && characters.length > 0 && <div className='flex gap-20'>{createCharacters()}</div>}
                 </div>
                 <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
-                <div className='bg-pink-600 border-2 border-cyan-400 p-5 ml-20 mr-20 mb-20'>
+                <div className='bg-pink-600 border-2 border-cyan-400 p-5 ml-20 mr-20'>
                     <h2 className='text-3xl mb-5'>How to Play</h2>
                     <p className='text-xl'>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -105,6 +102,7 @@ function Home() {
                         Lorem Ipsum.
                     </p>
                 </div>
+                <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
                 <CarouselVideos />
             </div>
         </>
