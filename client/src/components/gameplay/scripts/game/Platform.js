@@ -66,7 +66,7 @@ export class Platform {
   }
 
   createTile(row, col) {
-    const texture = row === 0 ? 'platform' : 'tile';
+    const texture = 'tile';
     const tile = App.sprite(texture);
     this.container.addChild(tile);
     tile.x = col * tile.width;

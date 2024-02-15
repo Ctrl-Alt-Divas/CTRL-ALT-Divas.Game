@@ -8,9 +8,9 @@ export class Platforms {
     this.container = new PIXI.Container();
 
     this.createPlatform({
-      rows: 4,
-      cols: 6,
-      x: 200,
+      rows: 1,
+      cols: 5,
+      x: 0,
     });
   }
 

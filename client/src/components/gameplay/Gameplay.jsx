@@ -18,7 +18,7 @@ const Gameplay = () => {
       fitToContainer(foundCanvas);
       App.run({
         playerId: player.id,
-        bgSpeed: 2,
+        bgSpeed: 0,
         hero: {
           jumpSpeed: character.jump,
           maxJumps: 2,
@@ -31,8 +31,8 @@ const Gameplay = () => {
           moveSpeed: character.speed,
           ranges: {
             rows: {
-              min: 2,
-              max: 6,
+              min: 1,
+              max: 1,
             },
             cols: {
               min: 3,
@@ -40,7 +40,7 @@ const Gameplay = () => {
             },
             offset: {
               min: 60,
-              max: 200,
+              max: 100,
             },
           },
         },
@@ -48,7 +48,7 @@ const Gameplay = () => {
           chance: 0.4,
           offset: {
             min: 100,
-            max: 200,
+            max: 300,
           },
         },
         score: {
@@ -63,10 +63,10 @@ const Gameplay = () => {
           },
         },
         loader: [
-          { key: "bg", data: new URL("./sprites/8.png", import.meta.url).href },
+          { key: "bg", data: new URL("./sprites/bg.png", import.meta.url).href },
           {
             key: "diamond",
-            data: new URL("./sprites/diamond.png", import.meta.url).href,
+            data: new URL("./sprites/vscode.png", import.meta.url).href,
           },
           {
             key: "hero",
