@@ -72,7 +72,7 @@ function Home() {
         <>
             <div className='flex flex-col gap-20'>
                 <div className='flex w-full border-2 border-cyan-400'>
-                    <div className='flex flex-col hero-bg h-[700px] basis-3/4 items-center justify-end'>
+                    <div className='flex flex-col hero-bg h-[900px] basis-3/4 items-center justify-end'>
                         <Link to='/character-select' className='bg-purple-500 w-24 p-2 rounded-md text-lg mb-10'>
                             Play Now
                         </Link>
@@ -87,7 +87,7 @@ function Home() {
 
                 <div className='flex flex-col gap-10 items-center'>
                     <h2 className='text-purple-500 text-3xl'>Characters</h2>
-                    {characters && characters.length > 0 && <div className='flex gap-20'>{createCharacters()}</div>}
+                    {characters && characters.length > 0 && <div className='flex gap-20 text-md text-cyan-500 font-semibold'>{createCharacters()}</div>}
                 </div>
                 <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
                 <div className='bg-pink-600 border-2 border-cyan-400 p-5 ml-20 mr-20'>
