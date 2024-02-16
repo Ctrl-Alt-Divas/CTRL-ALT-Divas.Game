@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Diamond } from './Diamond';
+import { Bug } from './Bug';
 
 export class Platform {
   constructor(rows, cols, x) {
@@ -17,15 +18,20 @@ export class Platform {
     this.createBody();
 
     this.diamonds = [];
-    this.createDiamonds();
+
+    this.bugs = [];
+
+    this.createPlatformObjects();
   }
 
-  createDiamonds() {
-    const y = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
+  createPlatformObjects() {
+    const yDiamond = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
 
     for (let i = 0; i < this.cols; i++) {
-      if (Math.random() < App.config.diamonds.chance) {
-        this.createDiamond(this.tileSize * i, -y);
+      if (Math.random() < App.config.bugs.chance) {
+        this.createBug(this.tileSize * i, this.tileSize * -1 - 30);
+      } else if (Math.random() < App.config.diamonds.chance) {
+        this.createDiamond(this.tileSize * i, -yDiamond);
       }
     }
   }
@@ -35,6 +41,13 @@ export class Platform {
     this.container.addChild(diamond.sprite);
     diamond.createBody();
     this.diamonds.push(diamond);
+  }
+
+  createBug(x, y) {
+    const bug = new Bug(x, y);
+    this.container.addChild(bug.sprite);
+    bug.createBody();
+    this.bugs.push(bug);
   }
 
   move() {
@@ -82,6 +95,8 @@ export class Platform {
   destroy() {
     Matter.World.remove(App.physics.world, this.body);
     this.diamonds.forEach((diamond) => diamond.destroy());
+    this.bugs.forEach((bug) => bug.destroy());
+
     this.container.destroy();
   }
 }

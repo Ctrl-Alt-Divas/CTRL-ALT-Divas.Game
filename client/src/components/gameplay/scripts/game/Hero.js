@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
+import { Projectile } from './Projectile';
 
 export class Hero {
   constructor() {
@@ -11,6 +12,8 @@ export class Hero {
     this.maxJumps = App.config.hero.maxJumps;
     this.jumpIndex = 0;
     this.score = 0;
+    this.projectiles = [];
+    this.projectileSpeed = 4;
   }
 
   collectDiamond(diamond) {
@@ -33,6 +36,29 @@ export class Hero {
       ++this.jumpIndex;
       this.platform = null;
       Matter.Body.setVelocity(this.body, { x: 0, y: -this.dy });
+    }
+  }
+
+  fire(x, container, y) {
+    let projectile = new Projectile(x + 30, y + 40);
+    this.projectiles.push(projectile);
+
+    container.addChild(projectile.sprite);
+    this.container = container;
+  }
+
+  updateProjectiles() {
+    for (const projectile of this.projectiles) {
+      projectile.body.position.x += 0.2;
+      projectile.sprite.x = projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
+    }
+
+    for (const projectile of this.projectiles) {
+      // destroy projectiles if off the screen or 300 px in front of char
+      if (projectile.sprite.x > window.innerWidth || projectile.sprite.x > this.sprite.x + 300) {
+        this.container.removeChild(projectile.sprite);
+        this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
+      }
     }
   }
 
@@ -65,6 +91,8 @@ export class Hero {
     if (this.sprite.y > window.innerHeight || (this.sprite && this.sprite?.x <= 0)) {
       this.sprite.emit('die');
     }
+
+    this.updateProjectiles();
   }
 
   destroy() {

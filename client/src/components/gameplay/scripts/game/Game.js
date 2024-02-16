@@ -5,6 +5,10 @@ import { Background } from './Background';
 import { Hero } from './Hero';
 import { Platforms } from './Platforms';
 import { LabelScore } from './LabelScore';
+import { Projectile } from './Projectile';
+import { Bug } from './Bug';
+
+const keys = {};
 
 export class Game extends Scene {
   create() {
@@ -27,11 +31,26 @@ export class Game extends Scene {
     Matter.Events.on(App.physics, 'collisionStart', this.onCollisionStart.bind(this));
   }
 
+  keysDown(e) {
+    if (e.keyCode && e.keyCode === 32) {
+      // keys[e.keyCode] = true;
+      this.hero.fire(keys);
+    }
+  }
+
+  keysUp(e) {
+    if (e.keyCode) {
+      keys[e.keyCode] = false;
+    }
+  }
+
   onCollisionStart(event) {
     const colliders = [event.pairs[0].bodyA, event.pairs[0].bodyB];
     const hero = colliders.find((body) => body.gameHero);
     const platform = colliders.find((body) => body.gamePlatform);
     const diamond = colliders.find((body) => body.gameDiamond);
+    const bug = colliders.find((body) => body.gameBug);
+    const projectile = colliders.find((body) => body.gameProjectile);
 
     if (hero && diamond) {
       this.hero.collectDiamond(diamond.gameDiamond);
@@ -39,6 +58,20 @@ export class Game extends Scene {
 
     if (hero && platform) {
       this.hero.stayOnPlatform(platform.gamePlatform);
+    }
+
+    if (hero && bug) {
+      this.saveScore();
+      App.scenes.start('Game');
+    }
+
+    if (bug && projectile) {
+      console.log(bug.sprite);
+      Matter.World.remove(App.physics.world, bug.gameBug.body);
+      if (bug.sprite) {
+        bug.sprite.destroy();
+        bug.sprite = null;
+      }
     }
   }
 
@@ -59,10 +92,19 @@ export class Game extends Scene {
     this.container.on('pointerdown', () => {
       this.hero.startJump();
     });
+
+    window.addEventListener('keydown', (event) => this.onKeyDown(this.hero, this.container, event));
+
     this.hero.sprite.once('die', () => {
       this.saveScore();
       App.scenes.start('Game');
     });
+  }
+
+  onKeyDown(hero, container, e) {
+    if (e.keyCode === 32) {
+      hero.fire(hero.body.position.x - hero.sprite.width / 2, container, hero.body.position.y - hero.sprite.height / 2);
+    }
   }
 
   async saveScore() {
