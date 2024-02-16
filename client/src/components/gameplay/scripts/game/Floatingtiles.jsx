@@ -7,16 +7,21 @@ export class Floatingtile {
     }
 
     createSprite(x, y) {
-        this.sprite = new PIXI.Sprite.from('floatingtile')
+        try {
+            this.sprite = new PIXI.Sprite.from('floatingtile')
         this.sprite.x = x
         this.sprite.y = y
+        } catch(error) {
+            console.log('this stupid thing didnt create')
+        }
+        
     }
 
     createBody() {
-        this.body = Matter.Bodies.reactangle(this.sprite.width / 2 + this.sprite.x + this.sprite.parent.x, this.sprite.height / 2 +  this.sprite.y + this.sprite.parent.y, this.sprite.width, this.sprite.height, 
-        { friction: 0, isStatic: true} )
-        this.body.gameFloatingTile = this
-        Matter.World.add(App.physics.word, this.body)
+        // this.body = Matter.Bodies.reactangle(this.sprite.width / 2 + this.sprite.x + this.sprite.parent.x, this.sprite.height / 2 +  this.sprite.y + this.sprite.parent.y, this.sprite.width, this.sprite.height, 
+        // { friction: 0, isStatic: true} )
+        // this.body.gameFloatingTile = this
+        // Matter.World.add(App.physics.word, this.body)
     }
 
     update() {
