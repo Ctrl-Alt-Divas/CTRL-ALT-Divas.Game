@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Diamond } from './Diamond';
+import { Floating } from './FloatingTiles';
 
 export class Platform {
   constructor(rows, cols, x) {
@@ -18,8 +19,15 @@ export class Platform {
 
     this.diamonds = [];
     this.createDiamonds();
+    this.createFloating()
   }
 
+  createFloating(x, y) {
+    const floating = new Floating(x, y)
+    this.container.addChild(floating.sprite);
+    
+    
+  }
   createDiamonds() {
     const y = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
 
