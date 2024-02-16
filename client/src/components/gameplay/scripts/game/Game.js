@@ -32,6 +32,7 @@ export class Game extends Scene {
     const hero = colliders.find((body) => body.gameHero);
     const platform = colliders.find((body) => body.gamePlatform);
     const diamond = colliders.find((body) => body.gameDiamond);
+    // const floatingTile = colliders.find((body) => body.gameFloatingTile);
 
     if (hero && diamond) {
       this.hero.collectDiamond(diamond.gameDiamond);
@@ -40,6 +41,10 @@ export class Game extends Scene {
     if (hero && platform) {
       this.hero.stayOnPlatform(platform.gamePlatform);
     }
+
+    // if (hero && floatingTile) {
+    //   this.hero.stayOnPlatform(platform.gameFloatingTile)
+    // }
   }
 
   createBackground() {

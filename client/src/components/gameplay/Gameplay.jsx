@@ -39,12 +39,19 @@ const Gameplay = () => {
               max: 9,
             },
             offset: {
-              min: 60,
-              max: 100,
+              min: 100,
+              max: 250,
             },
           },
         },
         diamonds: {
+          chance: 0.4,
+          offset: {
+            min: 25,
+            max: 200,
+          },
+        },
+        floatingtiles: {
           chance: 0.4,
           offset: {
             min: 100,
@@ -77,7 +84,7 @@ const Gameplay = () => {
             data: new URL("./sprites/jump.png", import.meta.url).href,
           },
           {
-            key: "platform",
+            key: "floatingtile",
             data: new URL("./sprites/platform.png", import.meta.url).href,
           },
           {

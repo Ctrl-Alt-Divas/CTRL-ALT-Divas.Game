@@ -2,7 +2,8 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Diamond } from './Diamond';
-import { Floating } from './FloatingTiles';
+import { Floatingtile } from './Floatingtiles';
+
 
 export class Platform {
   constructor(rows, cols, x) {
@@ -19,14 +20,26 @@ export class Platform {
 
     this.diamonds = [];
     this.createDiamonds();
-    this.createFloating()
+
+    this.floatingtiles = [];
+    this.createFloatingTiles();
+    
   }
 
-  createFloating(x, y) {
-    const floating = new Floating(x, y)
-    this.container.addChild(floating.sprite);
-    
-    
+  createFloatingTiles() {
+    const y = App.config.floatingtiles.offset.min + Math.random() * (App.config.floatingtiles.offset.max - App.config.floatingtiles.offset.min);
+
+    for (let i = 0; i < this.cols; i++) {
+      if (Math.random() < App.config.floatingtiles.chance) {
+        this.createFloatingTile(this.tileSize * i, -y);
+      }
+    }
+  }
+  createFloatingTile(x, y){
+    const floatingTile = new Floatingtile(x, y);
+    this.container.addChild(floatingTile.sprite);
+    floatingTile.createBody();
+    this.floatingtiles.push(floatingTile);
   }
   createDiamonds() {
     const y = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
