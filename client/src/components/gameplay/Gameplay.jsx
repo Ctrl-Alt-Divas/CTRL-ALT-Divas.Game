@@ -93,11 +93,11 @@ const Gameplay = () => {
                     },
                     {
                         key: 'beauty',
-                        data: new URL('./sprites/beauty.png', import.meta.url).href,
+                        data: new URL('./sprites/fancy1.png', import.meta.url).href,
                     },
                     {
                         key: 'beauty2',
-                        data: new URL('./sprites/beauty2.png', import.meta.url).href,
+                        data: new URL('./sprites/fancy2.png', import.meta.url).href,
                     },
                 ],
                 scenes: {
