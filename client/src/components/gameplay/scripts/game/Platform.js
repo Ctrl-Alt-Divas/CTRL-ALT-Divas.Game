@@ -5,9 +5,10 @@ import { Diamond } from './Diamond';
 import { Bug } from './Bug';
 
 export class Platform {
-  constructor(rows, cols, x) {
+  constructor(rows, cols, x, empty) {
     this.rows = rows;
     this.cols = cols;
+    this.empty = empty;
     this.tileSize = PIXI.Texture.from('tile').width;
     this.width = this.tileSize * this.cols;
     this.height = this.tileSize * this.rows;
@@ -21,7 +22,9 @@ export class Platform {
 
     this.bugs = [];
 
-    this.createPlatformObjects();
+    if (!empty) {
+      this.createPlatformObjects();
+    }
   }
 
   createPlatformObjects() {
@@ -52,9 +55,9 @@ export class Platform {
 
   move() {
     if (this.body) {
-      Matter.Body.setPosition(this.body, { x: this.body.position.x + this.dx, y: this.body.position.y });
-      this.container.x = this.body.position.x - this.width / 2;
-      this.container.y = this.body.position.y - this.height / 2;
+      // Matter.Body.setPosition(this.body, { x: this.body.position.x + this.dx, y: this.body.position.y });
+      // this.container.x = this.body.position.x - this.width / 2;
+      // this.container.y = this.body.position.y - this.height / 2;
     }
   }
 

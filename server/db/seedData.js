@@ -1,8 +1,8 @@
-const client = require("./client");
+const client = require('./client');
 
 async function dropTables() {
   try {
-    console.log("Dropping All Tables...");
+    console.log('Dropping All Tables...');
     await client.query(`
       DROP TABLE IF EXISTS player;
       DROP TABLE IF EXISTS character;
@@ -14,7 +14,7 @@ async function dropTables() {
 
 async function createTables() {
   try {
-    console.log("Building All Tables...");
+    console.log('Building All Tables...');
     await client.query(`
       CREATE TABLE player (
         id SERIAL PRIMARY KEY,
@@ -40,7 +40,7 @@ async function createTables() {
 
 async function createInitialData() {
   try {
-    console.log("Creating Initial Data...");
+    console.log('Creating Initial Data...');
     await client.query(`
       INSERT INTO character (name, description, shrtdescription, image, speed, jump)
       VALUES
@@ -54,13 +54,13 @@ async function createInitialData() {
 
         ('Eli', 'Introducing Eli, a Mexican-American woman with a courageous spirit and a background as a former Marine. Having served her country with honor, Eli now embarks on an bold adventure into the realm of web development. In this immersive game, players join Eli on her journey as she navigates the intricacies of coding, design, and problem-solving to master the art of web development. With her military training as a foundation, Eli approaches each challenge with discipline, resilience, and a thirst for knowledge. As players guide her through the game, they''ll witness Eli''s transformation from a skilled Marine to a formidable web developer, proving that with determination and adaptability, one can conquer any battlefield, digital or otherwise. ','Meet Eli, a Mexican-American woman with a courageous spirit', 'eli.png', -1.5, 15),
 
-        ('Lily Pad', 'Meet Lilypad, a formidable feminist protagonist in the CRTL ALT DIVAS video game world. Hailing from Mexico, Lilypad embodies strength, resilience, and a passion for equality. As a bilingual powerhouse fluent in both Spanish and English, she navigates the realms of software development with unparalleled determination.
+        ('Lilypad', 'Meet Lilypad, a formidable feminist protagonist in the CRTL ALT DIVAS video game world. Hailing from Mexico, Lilypad embodies strength, resilience, and a passion for equality. As a bilingual powerhouse fluent in both Spanish and English, she navigates the realms of software development with unparalleled determination.
 
         Her unique ability lies in conquering the digital landscape, one coding program at a time. With each new skill she acquires, Lilypad gains mastery over the virtual world, unlocking its secrets and bending it to her will.
         
         Though her jumps may lack height, Lilypad compensates with lightning-fast agility, darting through obstacles with ease. But don''t underestimate her – her fiery spirit manifests in her ability to hurl scorching fireballs at adversaries, turning the tide of battle in her favor.
         
-        Lilypad isn''t just a character; she''s an inspiration, challenging stereotypes and breaking barriers as she paves her way to victory in both the virtual and real worlds.','Meet Lilypad, a formidable feminist protagonist', 'lilypad.png', 1.5, 15),
+        Lilypad isn''t just a character; she''s an inspiration, challenging stereotypes and breaking barriers as she paves her way to victory in both the virtual and real worlds.','Meet Lilypad, a formidable feminist protagonist', 'lilypad.png', -1.5, 15),
 
         ('Fancypants', 'Fancypants is a captivating video game character, a determined redhead with a heart as sweet as her demeanor. Despite her shy nature, Fancypants harbors an unwavering passion for coding, driven by an unrelenting ambition to become the best developer in the realm. Clad in distinctive, stylish attire that reflects her unique personality, Fancypants navigates the digital world with a quiet confidence, overcoming challenges and mastering coding languages with finesse. Her journey unfolds as she tackles obstacles, demonstrating that beneath her demure exterior lies an unstoppable force fueled by a love for programming and an unwavering dedication to achieving greatness in the coding realm.  She kills her enemies with kindness, by throwing hearts at them.','Meet Fancypants, a determined redhead with a heart as sweet as her demeanor', 'avatar.png', -1.5, 15)
         `);

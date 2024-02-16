@@ -26,6 +26,21 @@ export class Hero {
     this.sprite.emit('score');
   }
 
+  killBugAndProjectile(bug, projectile) {
+    Matter.World.remove(App.physics.world, bug.body);
+    Matter.World.remove(App.physics.world, projectile.body);
+
+    if (bug.sprite) {
+      bug.sprite.destroy();
+      bug.sprite = null;
+    }
+
+    if (projectile.sprite) {
+      projectile.sprite.destroy();
+      projectile.sprite = null;
+    }
+  }
+
   stayOnPlatform(platform) {
     this.platform = platform;
     this.jumpIndex = 0;
@@ -42,22 +57,28 @@ export class Hero {
   fire(x, container, y) {
     let projectile = new Projectile(x + 30, y + 40);
     this.projectiles.push(projectile);
-
     container.addChild(projectile.sprite);
     this.container = container;
   }
 
   updateProjectiles() {
     for (const projectile of this.projectiles) {
-      projectile.body.position.x += 0.2;
-      projectile.sprite.x = projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
+      if (projectile.sprite) {
+        projectile.body.position.x += 0.2;
+        projectile.sprite.x = projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
+      } else {
+        this.container.removeChild(projectile.sprite);
+        this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
+        Matter.World.remove(App.physics.world, projectile.body);
+      }
     }
 
     for (const projectile of this.projectiles) {
-      // destroy projectiles if off the screen or 300 px in front of char
-      if (projectile.sprite.x > window.innerWidth || projectile.sprite.x > this.sprite.x + 300) {
+      if (projectile.sprite.x > window.innerWidth) {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
+        console.log(projectile.body);
+        Matter.World.remove(App.physics.world, projectile.body);
       }
     }
   }
@@ -75,7 +96,7 @@ export class Hero {
   }
 
   createSprite() {
-    this.sprite = new PIXI.AnimatedSprite([App.res('beauty'), App.res('beauty2')]);
+    this.sprite = new PIXI.AnimatedSprite([App.res(`${App.config.characterName}-walk1`), App.res(`${App.config.characterName}-walk2`)]);
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
@@ -97,7 +118,7 @@ export class Hero {
 
   destroy() {
     App.app.ticker.remove(this.update, this);
-    Matter.World.add(App.physics.world, this.body);
+    Matter.World.remove(App.physics.world, this.body);
     this.sprite.destroy();
   }
 }

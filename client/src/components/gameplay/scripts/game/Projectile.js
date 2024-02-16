@@ -9,7 +9,7 @@ export class Projectile {
   }
 
   createSprite(x, y) {
-    this.sprite = App.sprite('diamond');
+    this.sprite = App.sprite(`projectile-${App.config.characterName}`);
     this.sprite.anchor.set(0.5);
     this.sprite.x = x;
     this.sprite.y = y;
@@ -30,12 +30,12 @@ export class Projectile {
   }
 
   update() {
-    // if (this.sprite) {
-    //   Matter.Body.setPosition(this.body, {
-    //     x: this.sprite.width / 2 + this.sprite.x + this.sprite.parent.x,
-    //     y: this.sprite.height / 2 + this.sprite.y + this.sprite.parent.y,
-    //   });
-    // }
+    if (this.sprite) {
+      Matter.Body.setPosition(this.body, {
+        x: this.sprite.width / 2 + this.sprite.x,
+        y: this.sprite.height / 2 + this.sprite.y,
+      });
+    }
   }
 
   destroy() {

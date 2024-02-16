@@ -15,8 +15,20 @@ const Gameplay = () => {
         if (foundCanvas && characters && characters?.length > 0 && id && player) {
             const character = characters.find((it) => parseInt(it.id) == id);
 
+            window.addEventListener(
+                'keydown',
+                function (evt) {
+                    window.focus();
+                    evt.preventDefault();
+                    evt.stopPropagation();
+                    evt.target.style.cursor = 'default';
+                },
+                false
+            );
+
             fitToContainer(foundCanvas);
             App.run({
+                characterName: character.name,
                 playerId: player.id,
                 bgSpeed: 2,
                 hero: {
@@ -76,8 +88,24 @@ const Gameplay = () => {
                         data: new URL('./sprites/diamond.png', import.meta.url).href,
                     },
                     {
-                        key: 'hero',
-                        data: new URL('./sprites/hero.png', import.meta.url).href,
+                        key: 'projectile-Fancypants',
+                        data: new URL('./sprites/projectiles/projectile-Fancypants.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'projectile-Lilypad',
+                        data: new URL('./sprites/projectiles/projectile-Lilypad.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'projectile-Lani',
+                        data: new URL('./sprites/projectiles/projectile-Lani.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'projectile-Eli',
+                        data: new URL('./sprites/projectiles/projectile-Eli.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'creature',
+                        data: new URL('./sprites/creature.png', import.meta.url).href,
                     },
                     {
                         key: 'jump',
@@ -92,12 +120,36 @@ const Gameplay = () => {
                         data: new URL('./sprites/tile3.png', import.meta.url).href,
                     },
                     {
-                        key: 'beauty',
-                        data: new URL('./sprites/fancy1.png', import.meta.url).href,
+                        key: 'Fancypants-walk1',
+                        data: new URL('./sprites/characters/fancy1.png', import.meta.url).href,
                     },
                     {
-                        key: 'beauty2',
-                        data: new URL('./sprites/fancy2.png', import.meta.url).href,
+                        key: 'Fancypants-walk2',
+                        data: new URL('./sprites/characters/fancy2.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk1',
+                        data: new URL('./sprites/characters/lani1.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk2',
+                        data: new URL('./sprites/characters/lani2.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk1',
+                        data: new URL('./sprites/characters/lilypad1.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk2',
+                        data: new URL('./sprites/characters/lilypad2.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk1',
+                        data: new URL('./sprites/characters/Eli1.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk2',
+                        data: new URL('./sprites/characters/Eli2.png', import.meta.url).href,
                     },
                 ],
                 scenes: {

@@ -13,7 +13,7 @@ class Application {
     this.config = config;
 
     this.app = new PIXI.Application({ resizeTo: window, clearBeforeRender: true, view: document.getElementById('game-canvas') });
-
+    globalThis.__PIXI_APP__ = this.app;
     const container = document.getElementById('container');
 
     if (container) {

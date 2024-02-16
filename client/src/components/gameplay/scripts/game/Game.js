@@ -66,12 +66,7 @@ export class Game extends Scene {
     }
 
     if (bug && projectile) {
-      console.log(bug.sprite);
-      Matter.World.remove(App.physics.world, bug.gameBug.body);
-      if (bug.sprite) {
-        bug.sprite.destroy();
-        bug.sprite = null;
-      }
+      this.hero.killBugAndProjectile(bug.gameBug, projectile.gameProjectile)
     }
   }
 
@@ -103,7 +98,7 @@ export class Game extends Scene {
 
   onKeyDown(hero, container, e) {
     if (e.keyCode === 32) {
-      hero.fire(hero.body.position.x - hero.sprite.width / 2, container, hero.body.position.y - hero.sprite.height / 2);
+      hero.fire(hero.body.position.x - 96 / 2, container, hero.body.position.y - 96 / 2);
     }
   }
 
@@ -120,6 +115,11 @@ export class Game extends Scene {
   }
 
   update(dt) {
+    const foundCanvas = document.querySelector('canvas');
+    if (!foundCanvas) {
+      App.app.stop();
+      App.app.destroy();
+    }
     this.bg.update(dt);
     this.platfroms.update(dt);
   }

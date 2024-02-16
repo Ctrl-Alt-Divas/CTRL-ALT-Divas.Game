@@ -25,7 +25,7 @@ export class Bug {
   }
 
   createSprite(x, y) {
-    this.sprite = App.sprite('hero');
+    this.sprite = App.sprite('creature');
     this.sprite.x = x;
     this.sprite.y = y;
   }
