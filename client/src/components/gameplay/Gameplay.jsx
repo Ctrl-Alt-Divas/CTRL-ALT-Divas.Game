@@ -40,7 +40,7 @@ const Gameplay = () => {
             },
             offset: {
               min: 100,
-              max: 250,
+              max: 150,
             },
           },
         },

@@ -9,7 +9,7 @@ export class Platforms {
 
     this.createPlatform({
       rows: 1,
-      cols: 5,
+      cols: 8,
       x: 0,
     });
   }
