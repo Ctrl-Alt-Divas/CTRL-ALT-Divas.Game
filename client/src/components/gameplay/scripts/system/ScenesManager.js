@@ -11,6 +11,7 @@ export class ScenesManager {
   start(scene) {
     if (this.scene) {
       this.scene.remove();
+      this.container.removeChildren();
     }
 
     this.scene = new App.config.scenes[scene]();
