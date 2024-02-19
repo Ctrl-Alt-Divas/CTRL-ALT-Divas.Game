@@ -39,10 +39,31 @@ export class Floatings {
   }
 
   update() {
+    // Calculate the visible area of the screen
+    const visibleArea = {
+      minX: -this.container.x, // Left edge of the screen
+      maxX: -this.container.x + window.innerWidth, // Right edge of the screen
+    };
+
     if (this.current.container.x + this.current.container.width < window.innerWidth && this.current.container.y + this.current.container.height < window.innerHeight) {
       this.createPlatform(this.randomData);
     }
-    this.floatings.forEach((platform) => platform.move());
+   // Iterate through each platform to move left and check if it's within the visible area
+    for (let i = this.floatings.length - 1; i >= 0; i--) {
+      const platform = this.floatings[i];
+
+      // Move the platform
+      platform.move();
+      //this.floatings.forEach((platform) => platform.move());
+
+      // Check if the platform is completely outside the left edge of the visible area
+      if (platform.container.x + platform.container.width < visibleArea.minX) {
+        // Remove the platform from the container and the floatings array
+        this.container.removeChild(platform.container);
+        this.floatings.splice(i, 1);
+        console.log(this.floatings);
+      }
+    } 
   }
 
   destroy() {
