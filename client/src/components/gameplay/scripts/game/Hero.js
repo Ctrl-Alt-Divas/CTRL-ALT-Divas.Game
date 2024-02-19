@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
+import { Projectile } from './Projectile';
 
 export class Hero {
   constructor() {
@@ -11,6 +12,7 @@ export class Hero {
     this.maxJumps = App.config.hero.maxJumps;
     this.jumpIndex = 0;
     this.score = 0;
+    this.projectiles = [];
   }
 
   collectDiamond(diamond) {
@@ -23,6 +25,22 @@ export class Hero {
     this.sprite.emit('score');
   }
 
+  // destroys bug and projectile sprite
+  killBugAndProjectile(bug, projectile) {
+    Matter.World.remove(App.physics.world, bug.body);
+    Matter.World.remove(App.physics.world, projectile.body);
+
+    if (bug.sprite) {
+      bug.sprite.destroy();
+      bug.sprite = null;
+    }
+
+    if (projectile.sprite) {
+      projectile.sprite.destroy();
+      projectile.sprite = null;
+    }
+  }
+
   stayOnPlatform(platform) {
     this.platform = platform;
     this.jumpIndex = 0;
@@ -33,6 +51,36 @@ export class Hero {
       ++this.jumpIndex;
       this.platform = null;
       Matter.Body.setVelocity(this.body, { x: 0, y: -this.dy });
+    }
+  }
+
+  // creates the projectile and the direction
+  fire(x, container, y) {
+    let projectile = new Projectile(x + 30, y + 40);
+    this.projectiles.push(projectile);
+    container.addChild(projectile.sprite);
+    this.container = container;
+  }
+
+  updateProjectiles() {
+    for (const projectile of this.projectiles) {
+      if (projectile.sprite) {
+        projectile.body.position.x += 0.2;
+        projectile.sprite.x = projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
+      } else {
+        this.container.removeChild(projectile.sprite);
+        this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
+        Matter.World.remove(App.physics.world, projectile.body);
+      }
+    }
+
+    for (const projectile of this.projectiles) {
+      if (projectile.sprite.x > window.innerWidth) {
+        this.container.removeChild(projectile.sprite);
+        this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
+        console.log(projectile.body);
+        Matter.World.remove(App.physics.world, projectile.body);
+      }
     }
   }
 
@@ -49,7 +97,7 @@ export class Hero {
   }
 
   createSprite() {
-    this.sprite = new PIXI.AnimatedSprite([App.res('beauty'), App.res('beauty2')]);
+    this.sprite = new PIXI.AnimatedSprite([App.res(`${App.config.characterName}-walk1`), App.res(`${App.config.characterName}-walk2`)]);
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
@@ -65,11 +113,13 @@ export class Hero {
     if (this.sprite.y > window.innerHeight || (this.sprite && this.sprite?.x <= 0)) {
       this.sprite.emit('die');
     }
+
+    this.updateProjectiles();
   }
 
   destroy() {
     App.app.ticker.remove(this.update, this);
-    Matter.World.add(App.physics.world, this.body);
+    Matter.World.remove(App.physics.world, this.body);
     this.sprite.destroy();
   }
 }

@@ -7,10 +7,12 @@ export class Platforms {
     this.platforms = [];
     this.container = new PIXI.Container();
 
+    // added empty attribute
     this.createPlatform({
       rows: 1,
       cols: 8,
       x: 200,
+      empty: true,
     });
   }
 
@@ -28,7 +30,7 @@ export class Platforms {
   }
 
   createPlatform(data) {
-    const platform = new Platform(data.rows, data.cols, data.x);
+    const platform = new Platform(data.rows, data.cols, data.x, data.empty);
     this.container.addChild(platform.container);
     this.platforms.push(platform);
     this.current = platform;

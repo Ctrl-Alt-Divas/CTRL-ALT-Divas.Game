@@ -7,6 +7,7 @@ import { Platforms } from './Platforms';
 import { Floatings } from './Floatings';
 import { LabelScore } from './LabelScore';
 
+const keys = {};
 
 export class Game extends Scene {
   create() {
@@ -30,12 +31,26 @@ export class Game extends Scene {
     Matter.Events.on(App.physics, 'collisionStart', this.onCollisionStart.bind(this));
   }
 
+  // if you press spacebar projectile happens
+  keysDown(e) {
+    if (e.keyCode && e.keyCode === 32) {
+      this.hero.fire(keys);
+    }
+  }
+
+  keysUp(e) {
+    if (e.keyCode) {
+      keys[e.keyCode] = false;
+    }
+  }
+
   onCollisionStart(event) {
     const colliders = [event.pairs[0].bodyA, event.pairs[0].bodyB];
     const hero = colliders.find((body) => body.gameHero);
     const platform = colliders.find((body) => body.gamePlatform);
     const diamond = colliders.find((body) => body.gameDiamond);
-    // const floatingTile = colliders.find((body) => body.gameFloatingTile);
+    const bug = colliders.find((body) => body.gameBug);
+    const projectile = colliders.find((body) => body.gameProjectile);
 
     if (hero && diamond) {
       this.hero.collectDiamond(diamond.gameDiamond);
@@ -45,9 +60,16 @@ export class Game extends Scene {
       this.hero.stayOnPlatform(platform.gamePlatform);
     }
 
-    // if (hero && floatingTile) {
-    //   this.hero.stayOnPlatform(platform.gameFloatingTile)
-    // }
+    // if we collide with bug restart game
+    if (hero && bug) {
+      this.saveScore();
+      App.scenes.start('Game');
+    }
+
+    // if projectile collides with bug, remove bug
+    if (bug && projectile) {
+      this.hero.killBugAndProjectile(bug.gameBug, projectile.gameProjectile)
+    }
   }
 
   createBackground() {
@@ -69,10 +91,20 @@ export class Game extends Scene {
     this.container.on('pointerdown', () => {
       this.hero.startJump();
     });
+
+    // key down listener
+    window.addEventListener('keydown', (event) => this.onKeyDown(this.hero, this.container, event));
+
     this.hero.sprite.once('die', () => {
       this.saveScore();
       App.scenes.start('Game');
     });
+  }
+
+  onKeyDown(hero, container, e) {
+    if (e.keyCode === 32) {
+      hero.fire(hero.body.position.x - 96 / 2, container, hero.body.position.y - 96 / 2);
+    }
   }
 
   async saveScore() {
@@ -87,7 +119,13 @@ export class Game extends Scene {
     }
   }
 
+  // if you can't find canvas, stop game
   update(dt) {
+    const foundCanvas = document.querySelector('canvas');
+    if (!foundCanvas) {
+      App.app.stop();
+      App.app.destroy();
+    }
     this.bg.update(dt);
     this.platfroms.update(dt);
     this.floatings.update(dt)
