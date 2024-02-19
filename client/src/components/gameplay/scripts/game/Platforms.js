@@ -7,10 +7,12 @@ export class Platforms {
     this.platforms = [];
     this.container = new PIXI.Container();
 
+    // added empty attribute
     this.createPlatform({
-      rows: 4,
-      cols: 6,
+      rows: 1,
+      cols: 8,
       x: 200,
+      empty: true,
     });
   }
 
@@ -28,17 +30,42 @@ export class Platforms {
   }
 
   createPlatform(data) {
-    const platform = new Platform(data.rows, data.cols, data.x);
+    const platform = new Platform(data.rows, data.cols, data.x, data.empty);
     this.container.addChild(platform.container);
     this.platforms.push(platform);
     this.current = platform;
   }
 
   update() {
-    if (this.current.container.x + this.current.container.width < window.innerWidth) {
+
+
+    // Calculate the visible area of the screen
+    const visibleArea = {
+      minX: -this.container.x, // Left edge of the screen
+      maxX: -this.container.x + window.innerWidth, // Right edge of the screen
+    };
+
+    // Generate and add new platforms if needed
+    if (this.container.x + this.container.width < window.innerWidth) {
       this.createPlatform(this.randomData);
     }
-    this.platforms.forEach((platform) => platform.move());
+
+    // Iterate through each platform to move left and check if it's within the visible area
+    for (let i = this.platforms.length - 1; i >= 0; i--) {
+      const platform = this.platforms[i];
+
+      // Move the platform
+      platform.move();
+      //this.platforms.forEach((platform) => platform.move());
+
+      // Check if the platform is completely outside the left edge of the visible area
+      if (platform.container.x + platform.container.width < visibleArea.minX) {
+        // Remove the platform from the container and the platforms array
+        this.container.removeChild(platform.container);
+        this.platforms.splice(i, 1);
+        console.log(this.platforms);
+      }
+    } 
   }
 
   destroy() {

@@ -2,11 +2,14 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Diamond } from './Diamond';
+import { Bug } from './Bug';
 
+// empty makes first platform empty
 export class Platform {
-  constructor(rows, cols, x) {
+  constructor(rows, cols, x, empty) {
     this.rows = rows;
     this.cols = cols;
+    this.empty = empty;
     this.tileSize = PIXI.Texture.from('tile').width;
     this.width = this.tileSize * this.cols;
     this.height = this.tileSize * this.rows;
@@ -17,15 +20,23 @@ export class Platform {
     this.createBody();
 
     this.diamonds = [];
-    this.createDiamonds();
+
+    this.bugs = [];
+
+    if (!empty) {
+      this.createPlatformObjects();
+    }
   }
 
-  createDiamonds() {
-    const y = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
+  createPlatformObjects() {
+    const yDiamond = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
 
+    // keeps diamonds and bugs off same row
     for (let i = 0; i < this.cols; i++) {
-      if (Math.random() < App.config.diamonds.chance) {
-        this.createDiamond(this.tileSize * i, -y);
+      if (Math.random() < App.config.bugs.chance) {
+        this.createBug(this.tileSize * i, this.tileSize * -1 - 30);
+      } else if (Math.random() < App.config.diamonds.chance) {
+        this.createDiamond(this.tileSize * i, -yDiamond);
       }
     }
   }
@@ -35,6 +46,14 @@ export class Platform {
     this.container.addChild(diamond.sprite);
     diamond.createBody();
     this.diamonds.push(diamond);
+  }
+
+  // creates the bug
+  createBug(x, y) {
+    const bug = new Bug(x, y);
+    this.container.addChild(bug.sprite);
+    bug.createBody();
+    this.bugs.push(bug);
   }
 
   move() {
@@ -66,7 +85,7 @@ export class Platform {
   }
 
   createTile(row, col) {
-    const texture = row === 0 ? 'platform' : 'tile';
+    const texture = 'tile';
     const tile = App.sprite(texture);
     this.container.addChild(tile);
     tile.x = col * tile.width;
@@ -82,6 +101,8 @@ export class Platform {
   destroy() {
     Matter.World.remove(App.physics.world, this.body);
     this.diamonds.forEach((diamond) => diamond.destroy());
+    this.bugs.forEach((bug) => bug.destroy());
+
     this.container.destroy();
   }
 }
