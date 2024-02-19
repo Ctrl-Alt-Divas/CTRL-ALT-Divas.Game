@@ -7,6 +7,7 @@ export class Platforms {
     this.platforms = [];
     this.container = new PIXI.Container();
 
+    // added empty attribute
     this.createPlatform({
       rows: 4,
       cols: 6,

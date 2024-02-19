@@ -37,12 +37,6 @@ export class Bug {
         y: this.sprite.height / 2 + this.sprite.y + this.sprite.parent.y,
       });
     }
-    // if (this.sprite) {
-    //   Matter.Body.setPosition(this.body, {
-    //     x: this.sprite.width / 2 + this.sprite.x + this.sprite.parent.x,
-    //     y: this.sprite.height / 2 + this.sprite.y + this.sprite.parent.y,
-    //   });
-    // }
   }
 
   destroy() {

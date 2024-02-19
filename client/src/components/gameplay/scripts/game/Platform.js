@@ -4,6 +4,7 @@ import Matter from 'matter-js';
 import { Diamond } from './Diamond';
 import { Bug } from './Bug';
 
+// empty makes first platform empty
 export class Platform {
   constructor(rows, cols, x, empty) {
     this.rows = rows;
@@ -30,6 +31,7 @@ export class Platform {
   createPlatformObjects() {
     const yDiamond = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
 
+    // keeps diamonds and bugs off same row
     for (let i = 0; i < this.cols; i++) {
       if (Math.random() < App.config.bugs.chance) {
         this.createBug(this.tileSize * i, this.tileSize * -1 - 30);
@@ -46,6 +48,7 @@ export class Platform {
     this.diamonds.push(diamond);
   }
 
+  // creates the bug
   createBug(x, y) {
     const bug = new Bug(x, y);
     this.container.addChild(bug.sprite);
@@ -55,9 +58,9 @@ export class Platform {
 
   move() {
     if (this.body) {
-      // Matter.Body.setPosition(this.body, { x: this.body.position.x + this.dx, y: this.body.position.y });
-      // this.container.x = this.body.position.x - this.width / 2;
-      // this.container.y = this.body.position.y - this.height / 2;
+      Matter.Body.setPosition(this.body, { x: this.body.position.x + this.dx, y: this.body.position.y });
+      this.container.x = this.body.position.x - this.width / 2;
+      this.container.y = this.body.position.y - this.height / 2;
     }
   }
 

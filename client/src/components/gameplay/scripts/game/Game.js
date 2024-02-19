@@ -5,8 +5,6 @@ import { Background } from './Background';
 import { Hero } from './Hero';
 import { Platforms } from './Platforms';
 import { LabelScore } from './LabelScore';
-import { Projectile } from './Projectile';
-import { Bug } from './Bug';
 
 const keys = {};
 
@@ -31,9 +29,9 @@ export class Game extends Scene {
     Matter.Events.on(App.physics, 'collisionStart', this.onCollisionStart.bind(this));
   }
 
+  // if you press spacebar projectile happens
   keysDown(e) {
     if (e.keyCode && e.keyCode === 32) {
-      // keys[e.keyCode] = true;
       this.hero.fire(keys);
     }
   }
@@ -60,11 +58,13 @@ export class Game extends Scene {
       this.hero.stayOnPlatform(platform.gamePlatform);
     }
 
+    // if we collide with bug restart game
     if (hero && bug) {
       this.saveScore();
       App.scenes.start('Game');
     }
 
+    // if projectile collides with bug, remove bug
     if (bug && projectile) {
       this.hero.killBugAndProjectile(bug.gameBug, projectile.gameProjectile)
     }
@@ -88,6 +88,7 @@ export class Game extends Scene {
       this.hero.startJump();
     });
 
+    // key down listener
     window.addEventListener('keydown', (event) => this.onKeyDown(this.hero, this.container, event));
 
     this.hero.sprite.once('die', () => {
@@ -114,6 +115,7 @@ export class Game extends Scene {
     }
   }
 
+  // if you can't find canvas, stop game
   update(dt) {
     const foundCanvas = document.querySelector('canvas');
     if (!foundCanvas) {

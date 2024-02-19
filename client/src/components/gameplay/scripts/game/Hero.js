@@ -13,7 +13,6 @@ export class Hero {
     this.jumpIndex = 0;
     this.score = 0;
     this.projectiles = [];
-    this.projectileSpeed = 4;
   }
 
   collectDiamond(diamond) {
@@ -26,6 +25,7 @@ export class Hero {
     this.sprite.emit('score');
   }
 
+  // destroys bug and projectile sprite
   killBugAndProjectile(bug, projectile) {
     Matter.World.remove(App.physics.world, bug.body);
     Matter.World.remove(App.physics.world, projectile.body);
@@ -54,6 +54,7 @@ export class Hero {
     }
   }
 
+  // creates the projectile and the direction
   fire(x, container, y) {
     let projectile = new Projectile(x + 30, y + 40);
     this.projectiles.push(projectile);

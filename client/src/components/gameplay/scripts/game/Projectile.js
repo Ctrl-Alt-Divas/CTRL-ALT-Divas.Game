@@ -8,6 +8,7 @@ export class Projectile {
     App.app.ticker.add(this.update.bind(this));
   }
 
+  // changes projectile to character
   createSprite(x, y) {
     this.sprite = App.sprite(`projectile-${App.config.characterName}`);
     this.sprite.anchor.set(0.5);

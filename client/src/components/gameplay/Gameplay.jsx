@@ -10,11 +10,12 @@ const Gameplay = () => {
     const characters = useSelector((it) => it.state.characters);
     const player = useSelector((it) => it.state.player);
 
+    // added checking for which character is selected
     useEffect(() => {
         const foundCanvas = document.querySelector('canvas');
         if (foundCanvas && characters && characters?.length > 0 && id && player) {
             const character = characters.find((it) => parseInt(it.id) == id);
-
+            // focusses the game so that when you are jumping or shooting it doesn't move your scroll bar
             window.addEventListener(
                 'keydown',
                 function (evt) {
