@@ -35,8 +35,8 @@ const Gameplay = () => {
               max: 1,
             },
             cols: {
-              min: 3,
-              max: 9,
+              min: 4,
+              max: 10,
             },
             offset: {
               min: 100,
@@ -51,11 +51,21 @@ const Gameplay = () => {
             max: 200,
           },
         },
-        floatingtiles: {
-          chance: 0.4,
-          offset: {
-            min: 100,
-            max: 300,
+        floatings: {
+          moveSpeed: character.speed,
+          ranges: {
+            rows: {
+              min: 1,
+              max: 1,
+            },
+            cols: {
+              min: 1,
+              max: 4,
+            },
+            offset: {
+              min: 300,
+              max: 500,
+            },
           },
         },
         score: {

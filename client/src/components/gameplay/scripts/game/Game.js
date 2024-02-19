@@ -4,7 +4,9 @@ import { Scene } from '../system/Scene';
 import { Background } from './Background';
 import { Hero } from './Hero';
 import { Platforms } from './Platforms';
+import { Floatings } from './Floatings';
 import { LabelScore } from './LabelScore';
+
 
 export class Game extends Scene {
   create() {
@@ -13,6 +15,7 @@ export class Game extends Scene {
     this.createPlatforms();
     this.setEvents();
     this.createUI();
+
   }
 
   createUI() {
@@ -53,8 +56,10 @@ export class Game extends Scene {
   }
 
   createPlatforms() {
+    this.floatings = new Floatings();
     this.platfroms = new Platforms();
     this.container.addChild(this.platfroms.container);
+    this.container.addChild(this.floatings.container);
   }
 
   createHero() {
@@ -85,6 +90,7 @@ export class Game extends Scene {
   update(dt) {
     this.bg.update(dt);
     this.platfroms.update(dt);
+    this.floatings.update(dt)
   }
 
   destroy() {
@@ -93,6 +99,7 @@ export class Game extends Scene {
     this.bg.destroy();
     this.hero.destroy();
     this.platfroms.destroy();
+    this.floatings.destroy();
     this.labelScore.destroy();
   }
 }
