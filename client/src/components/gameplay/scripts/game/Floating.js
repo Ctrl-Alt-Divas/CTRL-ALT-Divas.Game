@@ -2,7 +2,6 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Diamond } from './Diamond';
-// import { Floatingtile } from './Floatingtiles';
 
 
 export class Floating { 
@@ -10,7 +9,6 @@ export class Floating {
     this.rows = rows;
     this.cols = cols;
     this.tileSize = PIXI.Texture.from('floatingtile').width;
-    // this.floatingTileSize = PIXI.Texture.from('floatingtile').width;
     this.width = this.tileSize * this.cols;
     this.height = this.tileSize * this.rows;
     this.createContainer(x, y);
@@ -22,28 +20,9 @@ export class Floating {
     this.diamonds = [];
     this.createDiamonds();
 
-    // this.floatingtiles = [];
-    // this.createFloatingTiles();
     
   }
 
-  // createFloatingTiles() {
-  //   const y = App.config.floatingtiles.offset.min + Math.random() * (App.config.floatingtiles.offset.max - App.config.floatingtiles.offset.min);
-
-  //   for (let i = 0; i < this.cols; i++) {
-  //     if (Math.random() < App.config.floatingtiles.chance) {
-  //       this.createFloatingTile(this.floatingTileSizetileSize * i, -y);
-  //     }
-  //   }
-  // }
-  // createFloatingTile(x, y){
-  //   const floatingTile = new PIXI.Sprite.from('floatingtile');
-  //   this.floatingTile.x = x;
-  //   this.floatingTile.y = y
-  //   this.container.addChild(floatingTile.sprite);
-  //   floatingTile.createBody();
-  //   this.floatingtiles.push(floatingTile);
-  // }
   createDiamonds() {
     const y = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
 

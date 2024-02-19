@@ -11,7 +11,7 @@ export class Floatings {
       rows: 1,
       cols: 2,
       x: 200,
-      y: 500
+      y: 800
     });
 
     
@@ -24,7 +24,7 @@ export class Floatings {
     const offset = this.ranges.offset.min + Math.round(Math.random() * (this.ranges.offset.max - this.ranges.offset.min));
 
     data.x = this.current.container.x + this.current.container.width + offset;
-    data.y = this.current.container.height + 200;
+    data.y = this.current.container.height + (600);
     data.cols = this.ranges.cols.min + Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
     data.rows = this.ranges.rows.min + Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
 
