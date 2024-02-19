@@ -56,10 +56,12 @@ export class Hero {
 
   // creates the projectile and the direction
   fire(x, container, y) {
-    let projectile = new Projectile(x + 30, y + 40);
-    this.projectiles.push(projectile);
-    container.addChild(projectile.sprite);
-    this.container = container;
+    if (this.projectiles.length < 1) {
+      let projectile = new Projectile(x + 30, y + 40);
+      this.projectiles.push(projectile);
+      container.addChild(projectile.sprite);
+      this.container = container;
+    }
   }
 
   updateProjectiles() {
