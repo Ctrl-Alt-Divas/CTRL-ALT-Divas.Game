@@ -73,6 +73,7 @@ const Gameplay = () => {
                 },
                 floatings: {
           moveSpeed: character.speed,
+          chance: 0.01,
           ranges: {
             rows: {
               min: 1,
