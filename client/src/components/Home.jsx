@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   useGetCharactersMutation,
   useGetLeaderboardMutation,
@@ -131,9 +131,8 @@ function Home() {
           </p>
         </div>
         <hr className="border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto" />
-        {
-          // <CarouselVideos />
-        }
+
+        <CarouselVideos />
       </div>
     </>
   );
