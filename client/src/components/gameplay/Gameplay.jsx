@@ -114,6 +114,7 @@ const Gameplay = () => {
                 loader: [
                     {key: 'bg', data: new URL('./sprites/bg.png', import.meta.url).href},
                     {key: 'bg2', data: new URL('./sprites/bg2.png', import.meta.url).href},
+                    {key: 'bg3', data: new URL('./sprites/bg3.png', import.meta.url).href},
                     {
                         key: 'diamond',
                         data: new URL('./sprites/vscode.png', import.meta.url).href,

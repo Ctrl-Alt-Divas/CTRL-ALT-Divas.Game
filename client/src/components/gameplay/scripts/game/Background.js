@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
+import { applyMiddleware } from 'redux';
 
 export class Background {
   constructor() {
@@ -43,8 +44,11 @@ export class Background {
     this.sprites.forEach((sprite) => {
       this.move(sprite, offset);
     });
-    if (App.scenes.scene.hero.score === 1) {
+    if (App.scenes.scene.hero.score === 5) {
       this.createSprites('bg2');
+    }
+    if (App.scenes.scene.hero.score === 15) {
+      this.createSprites('bg3');
     }
   }
 
