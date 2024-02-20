@@ -25,7 +25,7 @@ export class Floatings {
 
     data.x = this.current.container.x + this.current.container.width + offset;
     //mess with this data.y to get the appropriate height for the floating tiles eventually 
-    data.y = this.current.container.height + (400);
+    data.y = window.innerHeight - offset;
     data.cols = this.ranges.cols.min + Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
     data.rows = this.ranges.rows.min + Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
 
@@ -46,7 +46,7 @@ export class Floatings {
       maxX: -this.container.x + window.innerWidth, // Right edge of the screen
     };
 
-    if (this.current.container.x + this.current.container.width < window.innerWidth && this.current.container.y + this.current.container.height < window.innerHeight) {
+    if (this.current.container.x + this.current.container.width < window.innerWidth) {
       this.createPlatform(this.randomData);
     }
    // Iterate through each platform to move left and check if it's within the visible area
