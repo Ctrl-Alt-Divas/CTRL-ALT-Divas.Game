@@ -72,23 +72,23 @@ const Gameplay = () => {
                     },
                 },
                 floatings: {
-          moveSpeed: character.speed,
-          ranges: {
-            rows: {
-              min: 1,
-              max: 1,
-            },
-            cols: {
-              min: 1,
-              max: 4,
-            },
-            offset: {
-              min: 300,
-              max: 500,
-            },
-          },
-        },
-        score: {
+                    moveSpeed: character.speed,
+                    ranges: {
+                        rows: {
+                            min: 1,
+                            max: 1,
+                        },
+                        cols: {
+                            min: 1,
+                            max: 4,
+                        },
+                        offset: {
+                            min: 300,
+                            max: 500,
+                        },
+                    },
+                },
+                score: {
                     x: 10,
                     y: 10,
                     anchor: 0,
@@ -99,8 +99,21 @@ const Gameplay = () => {
                         fill: ['#FF7F50'],
                     },
                 },
+
+                level: {
+                    x: 10,
+                    y: 75,
+                    anchor: 0,
+                    style: {
+                        fontFamily: 'Verdana',
+                        fontWeight: 'bold',
+                        fontSize: 24,
+                        fill: ['#FF7F50'],
+                    },
+                },
                 loader: [
                     {key: 'bg', data: new URL('./sprites/bg.png', import.meta.url).href},
+                    {key: 'bg2', data: new URL('./sprites/bg2.png', import.meta.url).href},
                     {
                         key: 'diamond',
                         data: new URL('./sprites/vscode.png', import.meta.url).href,

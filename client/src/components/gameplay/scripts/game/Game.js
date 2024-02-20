@@ -6,6 +6,7 @@ import { Hero } from './Hero';
 import { Platforms } from './Platforms';
 import { Floatings } from './Floatings';
 import { LabelScore } from './LabelScore';
+import { LevelText } from './LevelText';
 
 const keys = {};
 
@@ -16,14 +17,20 @@ export class Game extends Scene {
     this.createPlatforms();
     this.setEvents();
     this.createUI();
-
   }
 
   createUI() {
     this.labelScore = new LabelScore();
+    this.levelText = new LevelText();
+
     this.container.addChild(this.labelScore);
+    this.container.addChild(this.levelText);
+
     this.hero.sprite.on('score', () => {
       this.labelScore.renderScore(this.hero.score);
+    });
+    this.hero.sprite.on('level', (level) => {
+      this.levelText.renderLevel(level);
     });
   }
 
@@ -68,7 +75,7 @@ export class Game extends Scene {
 
     // if projectile collides with bug, remove bug
     if (bug && projectile) {
-      this.hero.killBugAndProjectile(bug.gameBug, projectile.gameProjectile)
+      this.hero.killBugAndProjectile(bug.gameBug, projectile.gameProjectile);
     }
   }
 
@@ -128,7 +135,7 @@ export class Game extends Scene {
     }
     this.bg.update(dt);
     this.platfroms.update(dt);
-    this.floatings.update(dt)
+    this.floatings.update(dt);
   }
 
   destroy() {
@@ -139,5 +146,6 @@ export class Game extends Scene {
     this.platfroms.destroy();
     this.floatings.destroy();
     this.labelScore.destroy();
+    this.levelText.destroy();
   }
 }

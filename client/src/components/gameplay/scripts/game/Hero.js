@@ -3,6 +3,7 @@ import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Projectile } from './Projectile';
 
+// counting steps
 export class Hero {
   constructor() {
     this.createSprite();
@@ -117,6 +118,10 @@ export class Hero {
     }
 
     this.updateProjectiles();
+
+    if (this.score === 1) {
+      this.sprite.emit('level', 2);
+    }
   }
 
   destroy() {
