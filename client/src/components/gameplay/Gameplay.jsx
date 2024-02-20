@@ -99,22 +99,8 @@ const Gameplay = () => {
                         fill: ['#FF7F50'],
                     },
                 },
-
-                level: {
-                    x: 10,
-                    y: 75,
-                    anchor: 0,
-                    style: {
-                        fontFamily: 'Verdana',
-                        fontWeight: 'bold',
-                        fontSize: 24,
-                        fill: ['#FF7F50'],
-                    },
-                },
                 loader: [
                     {key: 'bg', data: new URL('./sprites/bg.png', import.meta.url).href},
-                    {key: 'bg2', data: new URL('./sprites/bg2.png', import.meta.url).href},
-                    {key: 'bg3', data: new URL('./sprites/bg3.png', import.meta.url).href},
                     {
                         key: 'diamond',
                         data: new URL('./sprites/vscode.png', import.meta.url).href,
@@ -137,7 +123,7 @@ const Gameplay = () => {
                     },
                     {
                         key: 'creature',
-                        data: new URL('./sprites/creature.png', import.meta.url).href,
+                        data: new URL('./sprites/alien.png', import.meta.url).href,
                     },
                     {
                         key: 'jump',
