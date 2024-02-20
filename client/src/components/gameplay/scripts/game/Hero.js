@@ -127,6 +127,10 @@ export class Hero {
     }
   }
 
+  die() {
+    this.sprite.emit('die');
+  }
+
   destroy() {
     App.app.ticker.remove(this.update, this);
     Matter.World.remove(App.physics.world, this.body);

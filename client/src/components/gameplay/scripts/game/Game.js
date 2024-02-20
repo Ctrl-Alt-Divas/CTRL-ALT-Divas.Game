@@ -69,8 +69,7 @@ export class Game extends Scene {
 
     // if we collide with bug restart game
     if (hero && bug) {
-      this.saveScore();
-      App.scenes.start('Game');
+     this.hero.die()
     }
 
     // if projectile collides with bug, remove bug

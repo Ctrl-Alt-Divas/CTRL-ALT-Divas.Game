@@ -1,6 +1,5 @@
 import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
-import { applyMiddleware } from 'redux';
 
 export class Background {
   constructor() {
