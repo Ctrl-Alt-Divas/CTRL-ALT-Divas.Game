@@ -5,6 +5,8 @@ import {App} from './scripts/system/App';
 import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 
+let started = false
+
 const Gameplay = () => {
     const {id} = useParams();
     const characters = useSelector((it) => it.state.characters);
@@ -13,7 +15,7 @@ const Gameplay = () => {
     // added checking for which character is selected
     useEffect(() => {
         const foundCanvas = document.querySelector('canvas');
-        if (foundCanvas && characters && characters?.length > 0 && id && player) {
+        if (foundCanvas && characters && characters?.length > 0 && id && player && !started) {
             const character = characters.find((it) => parseInt(it.id) == id);
             // focusses the game so that when you are jumping or shooting it doesn't move your scroll bar
             window.addEventListener(
@@ -99,8 +101,21 @@ const Gameplay = () => {
                         fill: ['#FF7F50'],
                     },
                 },
+                level: {
+                    x: 10,
+                    y: 75,
+                    anchor: 0,
+                    style: {
+                        fontFamily: 'Verdana',
+                        fontWeight: 'bold',
+                        fontSize: 24,
+                        fill: ['#FF7F50'],
+                    },
+                },
                 loader: [
                     {key: 'bg', data: new URL('./sprites/bg.png', import.meta.url).href},
+                    {key: 'bg2', data: new URL('./sprites/bg2.png', import.meta.url).href},
+                    {key: 'bg3', data: new URL('./sprites/bg3.png', import.meta.url).href},
                     {
                         key: 'diamond',
                         data: new URL('./sprites/vscode.png', import.meta.url).href,
@@ -174,6 +189,7 @@ const Gameplay = () => {
                     Game: Game,
                 },
             });
+            started = true
         }
     }, [characters, id]);
 
