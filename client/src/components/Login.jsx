@@ -44,6 +44,7 @@ function Login() {
         onSubmit={handleSubmit}
       >
         <h2 className="text-fuchsia-500 text-4xl">Login</h2>
+        <p className="text-red-600">please log in to access the game</p>
         {errorMsg && <p className="text-red-600">{errorMsg}</p>}
         <div className="flex gap-5">
           <label className="text-fuchsia-500 text-xl">Username:</label>
