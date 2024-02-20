@@ -46,8 +46,11 @@ export class Background {
     if (App.scenes.scene.hero.score === 5) {
       this.createSprites('bg2');
     }
-    if (App.scenes.scene.hero.score === 15) {
+    if (App.scenes.scene.hero.score === 10) {
       this.createSprites('bg3');
+    }
+    if (App.scenes.scene.hero.score === 15) {
+      this.createSprites('bg4');
     }
   }
 

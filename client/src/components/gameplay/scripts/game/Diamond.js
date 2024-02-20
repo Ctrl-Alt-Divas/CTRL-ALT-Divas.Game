@@ -1,5 +1,5 @@
-import Matter from "matter-js";
-import { App } from "../system/App";
+import Matter from 'matter-js';
+import { App } from '../system/App';
 
 export class Diamond {
   constructor(x, y) {
@@ -8,7 +8,15 @@ export class Diamond {
   }
 
   createSprite(x, y) {
-    this.sprite = App.sprite("diamond");
+    if (App.scenes.scene?.hero?.score > 15) {
+      this.sprite = App.sprite('react');
+    } else if (App.scenes.scene?.hero?.score > 10) {
+      this.sprite = App.sprite('js');
+    } else if (App.scenes.scene?.hero?.score > 5) {
+      this.sprite = App.sprite('redux');
+    } else {
+      this.sprite = App.sprite('vscode');
+    }
     this.sprite.x = x;
     this.sprite.y = y;
   }
@@ -19,7 +27,7 @@ export class Diamond {
       this.sprite.height / 2 + this.sprite.y + this.sprite.parent.y,
       this.sprite.width,
       this.sprite.height,
-      { friction: 0, isStatic: true, render: { fillStyle: "#060a19" } }
+      { friction: 0, isStatic: true, render: { fillStyle: '#060a19' } }
     );
     this.body.gameDiamond = this;
     this.body.isSensor = true;

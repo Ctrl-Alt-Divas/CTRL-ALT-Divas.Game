@@ -5,7 +5,7 @@ import {App} from './scripts/system/App';
 import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 
-let started = false
+let started = false;
 
 const Gameplay = () => {
     const {id} = useParams();
@@ -116,10 +116,11 @@ const Gameplay = () => {
                     {key: 'bg', data: new URL('./sprites/bg.png', import.meta.url).href},
                     {key: 'bg2', data: new URL('./sprites/bg2.png', import.meta.url).href},
                     {key: 'bg3', data: new URL('./sprites/bg3.png', import.meta.url).href},
-                    {
-                        key: 'diamond',
-                        data: new URL('./sprites/vscode.png', import.meta.url).href,
-                    },
+                    {key: 'bg4', data: new URL('./sprites/bg4.png', import.meta.url).href},
+                    {key: 'vscode', data: new URL('./sprites/vscode.png', import.meta.url).href},
+                    {key: 'react', data: new URL('./sprites/react.png', import.meta.url).href},
+                    {key: 'js', data: new URL('./sprites/js.png', import.meta.url).href},
+                    {key: 'redux', data: new URL('./sprites/redux.png', import.meta.url).href},
                     {
                         key: 'projectile-Fancypants',
                         data: new URL('./sprites/projectiles/projectile-Fancypants.png', import.meta.url).href,
@@ -150,7 +151,7 @@ const Gameplay = () => {
                     },
                     {
                         key: 'tile',
-                        data: new URL('./sprites/tile3.png', import.meta.url).href,
+                        data: new URL('./sprites/tilepink.png', import.meta.url).href,
                     },
                     {
                         key: 'Fancypants-walk1',
@@ -189,7 +190,7 @@ const Gameplay = () => {
                     Game: Game,
                 },
             });
-            started = true
+            started = true;
         }
     }, [characters, id]);
 

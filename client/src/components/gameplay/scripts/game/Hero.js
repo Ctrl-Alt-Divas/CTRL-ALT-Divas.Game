@@ -118,12 +118,14 @@ export class Hero {
     }
 
     this.updateProjectiles();
-
     if (this.score === 5) {
       this.sprite.emit('level', 2);
     }
-    if (this.score === 15) {
+    if (this.score === 10) {
       this.sprite.emit('level', 3);
+    }
+    if (this.score === 15) {
+      this.sprite.emit('level', 4);
     }
   }
 
