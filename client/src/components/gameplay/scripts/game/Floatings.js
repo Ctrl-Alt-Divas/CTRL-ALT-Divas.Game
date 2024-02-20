@@ -10,8 +10,8 @@ export class Floatings {
     this.createPlatform({
       rows: 1,
       cols: 2,
-      x: 200,
-      y: 800
+      x: 1000,
+      y: 600
     });
 
     
