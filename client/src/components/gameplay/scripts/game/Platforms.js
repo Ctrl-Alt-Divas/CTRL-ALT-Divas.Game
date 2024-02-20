@@ -10,8 +10,8 @@ export class Platforms {
     // added empty attribute
     this.createPlatform({
       rows: 1,
-      cols: 8,
-      x: 200,
+      cols: 20,
+      x: 0,
       empty: true,
     });
   }

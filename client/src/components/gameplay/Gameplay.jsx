@@ -106,7 +106,7 @@ const Gameplay = () => {
           },
           {
             key: "diamond",
-            data: new URL("./sprites/js.png", import.meta.url).href,
+            data: new URL("./sprites/vscode.png", import.meta.url).href,
           },
           {
             key: "projectile-Fancypants",
@@ -150,7 +150,7 @@ const Gameplay = () => {
           },
           {
             key: "tile",
-            data: new URL("./sprites/tilev1.png", import.meta.url).href,
+            data: new URL("./sprites/tilepink.png", import.meta.url).href,
           },
           {
             key: "Fancypants-walk1",
