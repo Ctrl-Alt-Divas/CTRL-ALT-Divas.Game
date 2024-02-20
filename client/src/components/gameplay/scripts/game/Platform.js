@@ -1,8 +1,8 @@
-import * as PIXI from 'pixi.js';
-import { App } from '../system/App';
-import Matter from 'matter-js';
-import { Diamond } from './Diamond';
-import { Bug } from './Bug';
+import * as PIXI from "pixi.js";
+import { App } from "../system/App";
+import Matter from "matter-js";
+import { Diamond } from "./Diamond";
+import { Bug } from "./Bug";
 
 // empty makes first platform empty
 export class Platform {
@@ -10,7 +10,7 @@ export class Platform {
     this.rows = rows;
     this.cols = cols;
     this.empty = empty;
-    this.tileSize = PIXI.Texture.from('tile').width;
+    this.tileSize = PIXI.Texture.from("tile").width;
     this.width = this.tileSize * this.cols;
     this.height = this.tileSize * this.rows;
     this.createContainer(x);
@@ -29,7 +29,10 @@ export class Platform {
   }
 
   createPlatformObjects() {
-    const yDiamond = App.config.diamonds.offset.min + Math.random() * (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
+    const yDiamond =
+      App.config.diamonds.offset.min +
+      Math.random() *
+        (App.config.diamonds.offset.max - App.config.diamonds.offset.min);
 
     // keeps diamonds and bugs off same row
     for (let i = 0; i < this.cols; i++) {
@@ -58,7 +61,10 @@ export class Platform {
 
   move() {
     if (this.body) {
-      Matter.Body.setPosition(this.body, { x: this.body.position.x + this.dx, y: this.body.position.y });
+      Matter.Body.setPosition(this.body, {
+        x: this.body.position.x + this.dx,
+        y: this.body.position.y,
+      });
       this.container.x = this.body.position.x - this.width / 2;
       this.container.y = this.body.position.y - this.height / 2;
     }
@@ -66,12 +72,18 @@ export class Platform {
 
   createBody() {
     // create a physical body
-    this.body = Matter.Bodies.rectangle(this.width / 2 + this.container.x, this.height / 2 + this.container.y, this.width, this.height, {
-      friction: 0,
-      isStatic: true,
-    });
+    this.body = Matter.Bodies.rectangle(
+      this.width / 2 + this.container.x,
+      this.height / 2 + this.container.y,
+      this.width,
+      this.height,
+      {
+        friction: 0,
+        isStatic: true,
+      }
+    );
     // add the created body to the engine
-    Matter.World.add(App.physics.world, this.body);
+    Matter.Composite.add(App.physics.world, this.body);
     // save a reference to the platform object itself for further access from the physical body object
     this.body.gamePlatform = this;
   }
@@ -85,7 +97,7 @@ export class Platform {
   }
 
   createTile(row, col) {
-    const texture = 'tile';
+    const texture = "tile";
     const tile = App.sprite(texture);
     this.container.addChild(tile);
     tile.x = col * tile.width;
@@ -99,7 +111,7 @@ export class Platform {
   }
 
   destroy() {
-    Matter.World.remove(App.physics.world, this.body);
+    Matter.Composite.remove(App.physics.world, this.body);
     this.diamonds.forEach((diamond) => diamond.destroy());
     this.bugs.forEach((bug) => bug.destroy());
 

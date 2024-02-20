@@ -1,7 +1,7 @@
-import * as PIXI from 'pixi.js';
-import { App } from '../system/App';
-import Matter from 'matter-js';
-import { Projectile } from './Projectile';
+import * as PIXI from "pixi.js";
+import { App } from "../system/App";
+import Matter from "matter-js";
+import { Projectile } from "./Projectile";
 
 export class Hero {
   constructor() {
@@ -17,18 +17,18 @@ export class Hero {
 
   collectDiamond(diamond) {
     ++this.score;
-    Matter.World.remove(App.physics.world, diamond.body);
+    Matter.Composite.remove(App.physics.world, diamond.body);
     if (diamond.sprite) {
       diamond.sprite.destroy();
       diamond.sprite = null;
     }
-    this.sprite.emit('score');
+    this.sprite.emit("score");
   }
 
   // destroys bug and projectile sprite
   killBugAndProjectile(bug, projectile) {
-    Matter.World.remove(App.physics.world, bug.body);
-    Matter.World.remove(App.physics.world, projectile.body);
+    Matter.Composite.remove(App.physics.world, bug.body);
+    Matter.Composite.remove(App.physics.world, projectile.body);
 
     if (bug.sprite) {
       bug.sprite.destroy();
@@ -44,6 +44,7 @@ export class Hero {
   stayOnPlatform(platform) {
     this.platform = platform;
     this.jumpIndex = 0;
+    //Matter.Body.setVelocity(this.platform);
   }
 
   startJump() {
@@ -68,11 +69,12 @@ export class Hero {
     for (const projectile of this.projectiles) {
       if (projectile.sprite) {
         projectile.body.position.x += 0.2;
-        projectile.sprite.x = projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
+        projectile.sprite.x =
+          projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
       } else {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
-        Matter.World.remove(App.physics.world, projectile.body);
+        Matter.Composite.remove(App.physics.world, projectile.body);
       }
     }
 
@@ -81,7 +83,7 @@ export class Hero {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
         console.log(projectile.body);
-        Matter.World.remove(App.physics.world, projectile.body);
+        Matter.Composite.remove(App.physics.world, projectile.body);
       }
     }
   }
@@ -94,12 +96,15 @@ export class Hero {
       this.sprite.height,
       { friction: 0 }
     );
-    Matter.World.add(App.physics.world, this.body);
+    Matter.Composite.add(App.physics.world, this.body);
     this.body.gameHero = this;
   }
 
   createSprite() {
-    this.sprite = new PIXI.AnimatedSprite([App.res(`${App.config.characterName}-walk1`), App.res(`${App.config.characterName}-walk2`)]);
+    this.sprite = new PIXI.AnimatedSprite([
+      App.res(`${App.config.characterName}-walk1`),
+      App.res(`${App.config.characterName}-walk2`),
+    ]);
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
@@ -112,8 +117,11 @@ export class Hero {
     this.sprite.x = this.body.position.x - this.sprite.width / 2;
     this.sprite.y = this.body.position.y - this.sprite.height / 2;
 
-    if (this.sprite.y > window.innerHeight || (this.sprite && this.sprite?.x <= 0)) {
-      this.sprite.emit('die');
+    if (
+      this.sprite.y > window.innerHeight ||
+      (this.sprite && this.sprite?.x <= 0)
+    ) {
+      this.sprite.emit("die");
     }
 
     this.updateProjectiles();
@@ -121,7 +129,7 @@ export class Hero {
 
   destroy() {
     App.app.ticker.remove(this.update, this);
-    Matter.World.remove(App.physics.world, this.body);
+    Matter.Composite.remove(App.physics.world, this.body);
     this.sprite.destroy();
   }
 }
