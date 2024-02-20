@@ -25,7 +25,7 @@ export class Floatings {
 
     data.x = this.current.container.x + this.current.container.width + offset;
     //mess with this data.y to get the appropriate height for the floating tiles eventually 
-    data.y = this.current.container.height + (400);
+    data.y = window.innerHeight - offset;
     data.cols = this.ranges.cols.min + Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
     data.rows = this.ranges.rows.min + Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
 
