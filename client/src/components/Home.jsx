@@ -125,7 +125,7 @@ function Home() {
                     <p className='text-xl'>
                         Welcome to CTRL-ALT-Divas! Join Lani, Eli, Lilypad and Fancypants as they learn the fundamentals of programming and conquer the world of software development. With each character, you have different stats that may assist or hinder your gameplay (You can find this information in the character cards above). Gain points by learning new frameworks and languages, all while fighting bugs on the way.
                         </p><br />
-                    <p className='text-xl'>Controls:</p>
+                    <p className='text-3xl'>Controls</p>
                     <br />
                         <p className='flex justify-center'><img class='w-24 h-12' alt="spacebar" src="https://art.pixilart.com/sr27cee4a862faws3.png"/>: Shoot projectile</p>
                         <p className='flex justify-center'><img className='w-12 h-10' alt="click" src="https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png" />: Jump</p><br />
