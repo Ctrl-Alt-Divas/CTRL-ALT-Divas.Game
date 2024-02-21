@@ -1,6 +1,6 @@
-import * as PIXI from 'pixi.js';
-import { App } from './App';
-import { sound } from '@pixi/sound';
+import * as PIXI from "pixi.js";
+import { App } from "./App";
+import { sound } from "@pixi/sound";
 export class ScenesManager {
   constructor() {
     this.container = new PIXI.Container();
@@ -12,7 +12,7 @@ export class ScenesManager {
     if (this.scene) {
       this.scene.remove();
       this.container.removeChildren();
-      sound.removeAll()
+      sound.removeAll();
     }
 
     this.scene = new App.config.scenes[scene]();
