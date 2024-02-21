@@ -46,7 +46,6 @@ class Application {
       for (let i = 1; i < 8; i++) {
         const texture = PIXI.Texture.from(`${key}${i}.png`);
         textures.push(texture);
-        console.log(textures);
       }
       return textures;
     }

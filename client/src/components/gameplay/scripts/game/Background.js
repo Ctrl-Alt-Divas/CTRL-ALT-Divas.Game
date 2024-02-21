@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import { App } from "../system/App";
-//import { sound } from "@pixi/sound";
+import { sound } from "@pixi/sound";
 
 export class Background {
   constructor() {
@@ -46,8 +46,8 @@ export class Background {
     });
     if (App.scenes.scene.hero.score === 5) {
       this.createSprites("bg2");
-      //sound.find('level1').stop();
-      // sound.play('level2', {loop: true, volume: 0.5});
+      sound.find("level1").stop();
+      sound.play("level2", { loop: true, volume: 0.5 });
     } else if (App.scenes.scene.hero.score === 10) {
       this.createSprites("bg3");
     } else if (App.scenes.scene.hero.score === 15) {

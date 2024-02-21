@@ -118,7 +118,7 @@ export class Hero {
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
-    //this.sprite.loop = true;
+    this.sprite.loop = true;
     this.sprite.animationSpeed = 0.1;
     this.sprite.play();
   }
