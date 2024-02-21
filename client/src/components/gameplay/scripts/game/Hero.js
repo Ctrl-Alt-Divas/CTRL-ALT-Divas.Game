@@ -100,20 +100,8 @@ export class Hero {
   }
 
   createSprite() {
-    const images = [
-      new URL('../../sprites/characters/fancy1.png', import.meta.url).href,
-      new URL('../../sprites/characters/fancy2.png', import.meta.url).href
-    ];
-    const textureArray = [];
-    
-    for (let i = 0; i < 2; i++)
-    {
-        const texture = Texture.from(images[i]);
-        textureArray.push(texture);
-    }
-    
-    this.sprite = new AnimatedSprite(textureArray);
-  
+    this.sprite = new PIXI.AnimatedSprite([App.res(`${App.config.characterName}-walk1`), App.res(`${App.config.characterName}-walk2`)]);
+
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
     this.sprite.loop = true;

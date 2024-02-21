@@ -5,8 +5,6 @@ import {App} from './scripts/system/App';
 import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 
-let started = false;
-
 const Gameplay = () => {
     const {id} = useParams();
     const characters = useSelector((it) => it.state.characters);
@@ -15,7 +13,7 @@ const Gameplay = () => {
     // added checking for which character is selected
     useEffect(() => {
         const foundCanvas = document.querySelector('canvas');
-        if (foundCanvas && characters && characters?.length > 0 && id && player && !started) {
+        if (foundCanvas && characters && characters?.length > 0 && id && player) {
             const character = characters.find((it) => parseInt(it.id) == id);
             // focusses the game so that when you are jumping or shooting it doesn't move your scroll bar
             window.addEventListener(
@@ -190,7 +188,6 @@ const Gameplay = () => {
                     Game: Game,
                 },
             });
-            started = true;
         }
     }, [characters, id]);
 
