@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Projectile } from './Projectile';
+import { AnimatedSprite, Texture } from 'pixi.js';
 
 // counting steps
 export class Hero {
@@ -81,7 +82,6 @@ export class Hero {
       if (projectile.sprite.x > window.innerWidth) {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
-        console.log(projectile.body);
         Matter.World.remove(App.physics.world, projectile.body);
       }
     }
@@ -100,8 +100,20 @@ export class Hero {
   }
 
   createSprite() {
-    this.sprite = new PIXI.AnimatedSprite([App.res(`${App.config.characterName}-walk1`), App.res(`${App.config.characterName}-walk2`)]);
-
+    const images = [
+      new URL('../../sprites/characters/fancy1.png', import.meta.url).href,
+      new URL('../../sprites/characters/fancy2.png', import.meta.url).href
+    ];
+    const textureArray = [];
+    
+    for (let i = 0; i < 2; i++)
+    {
+        const texture = Texture.from(images[i]);
+        textureArray.push(texture);
+    }
+    
+    this.sprite = new AnimatedSprite(textureArray);
+  
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
     this.sprite.loop = true;

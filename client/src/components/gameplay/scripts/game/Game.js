@@ -61,6 +61,7 @@ export class Game extends Scene {
 
     if (hero && diamond) {
       this.hero.collectDiamond(diamond.gameDiamond);
+      new Audio(new URL('../../sounds/coin.wav', import.meta.url).href).play()
     }
 
     if (hero && platform) {
