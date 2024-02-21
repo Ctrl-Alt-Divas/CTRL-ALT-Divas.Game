@@ -93,14 +93,14 @@ function Home() {
                 <div className='bg-pink-600 border-2 border-cyan-400 p-5 ml-20 mr-20'>
                     <h2 className='text-3xl mb-5'>How to Play</h2>
                     <p className='text-xl'>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.
-                    </p>
+                        Welcome to CTRL-ALT-Divas! Join Lani, Eli, Lilypad and Fancypants as they learn the fundamentals of programming and conquer the world of software development. With each character, you have different stats that may assist or hinder your gameplay (You can find this information in the character cards above). Gain points by learning new frameworks and languages, all while fighting bugs on the way.
+                        </p><br />
+                    <p className='text-xl'>Controls:</p>
+                    <br />
+                        <p className='flex justify-center'><img class='w-24 h-12' alt="spacebar" src="https://art.pixilart.com/sr27cee4a862faws3.png"/>: Shoot projectile</p>
+                        <p className='flex justify-center'><img className='w-12 h-10' alt="click" src="https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png" />: Jump</p><br />
+                        <p className='flex justify-center'><img className='w-12 h-10' alt="click" src="https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png" />(x2): Jump twice</p>
+                    
                 </div>
                 <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
                 <CarouselVideos />
