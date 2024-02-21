@@ -1,5 +1,5 @@
-import Matter from 'matter-js';
-import { App } from '../system/App';
+import Matter from "matter-js";
+import { App } from "../system/App";
 
 export class Projectile {
   constructor(x, y) {
@@ -25,7 +25,7 @@ export class Projectile {
       this.sprite.height,
       { friction: 0 }
     );
-    Matter.World.add(App.physics.world, this.body);
+    Matter.Composite.add(App.physics.world, this.body);
     this.body.gameProjectile = this;
     this.body.isSensor = true;
   }
@@ -42,7 +42,7 @@ export class Projectile {
   destroy() {
     if (this.sprite) {
       App.app.ticker.remove(this.update, this);
-      Matter.World.remove(App.physics.world, this.body);
+      Matter.Composite.remove(App.physics.world, this.body);
       this.sprite.destroy();
       this.sprite = null;
     }
