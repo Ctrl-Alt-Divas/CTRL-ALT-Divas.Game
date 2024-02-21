@@ -5,16 +5,23 @@ export class ScenesManager {
   constructor() {
     this.container = new PIXI.Container();
     this.container.interactive = true;
-    this.scene = null;
+    this.currentScene = this.newScene;
   }
 
-  start(scene) {
-    if (this.scene) {
-      this.scene.remove();
+  async gotoScene(newScene) {
+    if (this.currentScene !== undefined) {
+      await this.currentScene.remove();
       this.container.removeChildren();
-    }
+    }  
+  
+    this.newScene = new App.config.scenes[newScene]();
+    this.container.addChild(this.newScene.container);
+    
+  }
 
-    this.scene = new App.config.scenes[scene]();
-    this.container.addChild(this.scene.container);
+  update(dt) {
+    if (this.currentScene !== undefined) {
+      this.currentScene.update(dt);
+    }
   }
 }

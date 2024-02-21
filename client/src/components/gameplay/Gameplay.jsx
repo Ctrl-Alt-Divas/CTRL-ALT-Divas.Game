@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Game } from "./scripts/game/Game";
+import { Menu } from "./scripts/system/Menu";
 import { App } from "./scripts/system/App";
 
 import { useEffect } from "react";
@@ -195,6 +196,7 @@ const Gameplay = () => {
         ],
         scenes: {
           Game: Game,
+          Menu: Menu,
         },
       });
     }

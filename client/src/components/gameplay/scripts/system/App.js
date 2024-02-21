@@ -4,6 +4,7 @@ import { PixiPlugin } from "gsap/PixiPlugin";
 import { Loader } from "./Loader";
 import { ScenesManager } from "./ScenesManager";
 import * as Matter from "matter-js";
+import { Menu } from "./Menu";
 
 class Application {
   run(config) {
@@ -33,7 +34,7 @@ class Application {
     this.loader.preload().then(() => this.start());
 
     this.createPhysics();
-  }
+  } 
 
   createPhysics() {
     this.physics = Matter.Engine.create();
@@ -52,7 +53,7 @@ class Application {
   }
 
   start() {
-    this.scenes.start("Game");
+    this.container.gotoScene(new Menu(this.container))
   }
 }
 

@@ -6,6 +6,8 @@ import { Hero } from './Hero';
 import { Platforms } from './Platforms';
 import { Floatings } from './Floatings';
 import { LabelScore } from './LabelScore';
+import { Menu } from '../system/Menu';
+import * as PIXI from 'pixi.js'
 
 const keys = {};
 
@@ -16,7 +18,7 @@ export class Game extends Scene {
     this.createPlatforms();
     this.setEvents();
     this.createUI();
-
+    this.createText();
   }
 
   createUI() {
@@ -117,6 +119,27 @@ export class Game extends Scene {
         body: JSON.stringify({ id: App.config.playerId, score: this.hero.score }),
       });
     }
+  }
+
+  createText() {
+    // Text button to go back to menu screen
+    this.pauseText = new PIXI.Text('Pause to menu', {
+      fontFamily: 'Verdana',
+      fill: 0x000000,
+      fontSize: 16
+    });
+    this.pauseText.x = 35;
+    this.pauseText.y = 35;
+    // These options make the text clickable
+    this.pauseText.buttonMode = true;
+    this.pauseText.interactive = true;
+    // Go to the menu scene when clicked
+    this.pauseText.on('pointerup', () => {
+      this.container.gotoScene(new Menu(this.container));
+    });
+
+    this.container.addChild(this.pauseText);
+    this.resolve();
   }
 
   // if you can't find canvas, stop game
