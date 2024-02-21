@@ -23,7 +23,7 @@ export class Diamond {
     );
     this.body.gameDiamond = this;
     this.body.isSensor = true;
-    Matter.World.add(App.physics.world, this.body);
+    Matter.Composite.add(App.physics.world, this.body);
   }
 
   update() {
@@ -38,7 +38,7 @@ export class Diamond {
   destroy() {
     if (this.sprite) {
       App.app.ticker.remove(this.update, this);
-      Matter.World.remove(App.physics.world, this.body);
+      Matter.Composite.remove(App.physics.world, this.body);
       this.sprite.destroy();
       this.sprite = null;
     }

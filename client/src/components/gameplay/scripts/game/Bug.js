@@ -1,5 +1,5 @@
-import { App } from '../system/App';
-import Matter from 'matter-js';
+import { App } from "../system/App";
+import Matter from "matter-js";
 
 export class Bug {
   constructor(x, y) {
@@ -17,15 +17,15 @@ export class Bug {
       this.sprite.y + this.sprite.height / 2,
       this.sprite.width,
       this.sprite.height,
-      { friction: 0, isStatic: true, render: { fillStyle: '#060a19' } }
+      { friction: 0, isStatic: true, render: { fillStyle: "#060a19" } }
     );
     this.body.gameBug = this;
     this.body.isSensor = true;
-    Matter.World.add(App.physics.world, this.body);
+    Matter.Composite.add(App.physics.world, this.body);
   }
 
   createSprite(x, y) {
-    this.sprite = App.sprite('creature');
+    this.sprite = App.sprite("creature");
     this.sprite.x = x;
     this.sprite.y = y;
   }
@@ -42,7 +42,7 @@ export class Bug {
   destroy() {
     if (this.sprite) {
       App.app.ticker.remove(this.update, this);
-      Matter.World.remove(App.physics.world, this.body);
+      Matter.Composite.remove(App.physics.world, this.body);
       this.sprite.destroy();
       this.sprite = null;
     }

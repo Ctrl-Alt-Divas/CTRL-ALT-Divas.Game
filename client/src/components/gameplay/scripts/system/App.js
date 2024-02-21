@@ -1,9 +1,9 @@
-import * as PIXI from 'pixi.js';
-import { gsap } from 'gsap';
-import { PixiPlugin } from 'gsap/PixiPlugin';
-import { Loader } from './Loader';
-import { ScenesManager } from './ScenesManager';
-import * as Matter from 'matter-js';
+import * as PIXI from "pixi.js";
+import { gsap } from "gsap";
+import { PixiPlugin } from "gsap/PixiPlugin";
+import { Loader } from "./Loader";
+import { ScenesManager } from "./ScenesManager";
+import * as Matter from "matter-js";
 
 class Application {
   run(config) {
@@ -12,9 +12,14 @@ class Application {
 
     this.config = config;
 
-    this.app = new PIXI.Application({ resizeTo: window, clearBeforeRender: true, view: document.getElementById('game-canvas') });
+    this.app = new PIXI.Application({
+      resizeTo: window,
+      clearBeforeRender: true,
+      view: document.getElementById("game-canvas"),
+    });
     globalThis.__PIXI_APP__ = this.app;
-    const container = document.getElementById('container');
+    //this.app.ticker.maxFPS = 60;
+    const container = document.getElementById("container");
 
     if (container) {
       container.appendChild(this.app.view);
@@ -33,7 +38,7 @@ class Application {
   createPhysics() {
     this.physics = Matter.Engine.create();
     const runner = Matter.Runner.create();
-    Matter.Runner.run(runner, this.physics);
+    Matter.Runner.start(runner, this.physics);
   }
 
   res(key) {
@@ -47,7 +52,7 @@ class Application {
   }
 
   start() {
-    this.scenes.start('Game');
+    this.scenes.start("Game");
   }
 }
 
