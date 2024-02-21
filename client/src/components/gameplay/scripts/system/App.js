@@ -40,7 +40,17 @@ class Application {
     const runner = Matter.Runner.create();
     Matter.Runner.start(runner, this.physics);
   }
-
+  character(key) {
+    if (this.loader.resources[key]) {
+      const textures = [];
+      for (let i = 1; i < 8; i++) {
+        const texture = PIXI.Texture.from(`${key}${i}.png`);
+        textures.push(texture);
+        console.log(textures);
+      }
+      return textures;
+    }
+  }
   res(key) {
     if (this.loader.resources[key] && this.loader.resources[key]?.texture) {
       return this.loader.resources[key]?.texture;

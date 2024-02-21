@@ -1,0 +1,155 @@
+{
+	"frames": {
+		"lani1.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 64,
+				"h": 94
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 94
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 94
+			}
+		},
+		"lani2.png": {
+			"frame": {
+				"x": 67,
+				"y": 1,
+				"w": 61,
+				"h": 93
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+				"h": 93
+			},
+			"sourceSize": {
+				"w": 61,
+				"h": 93
+			}
+		},
+		"lani3.png": {
+			"frame": {
+				"x": 130,
+				"y": 1,
+				"w": 70,
+				"h": 95
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 70,
+				"h": 95
+			},
+			"sourceSize": {
+				"w": 70,
+				"h": 95
+			}
+		},
+		"lani4.png": {
+			"frame": {
+				"x": 202,
+				"y": 1,
+				"w": 55,
+				"h": 94
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 55,
+				"h": 94
+			},
+			"sourceSize": {
+				"w": 55,
+				"h": 94
+			}
+		},
+		"lani5.png": {
+			"frame": {
+				"x": 259,
+				"y": 1,
+				"w": 64,
+				"h": 91
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+				"h": 91
+			},
+			"sourceSize": {
+				"w": 64,
+				"h": 91
+			}
+		},
+		"lani6.png": {
+			"frame": {
+				"x": 325,
+				"y": 1,
+				"w": 77,
+				"h": 93
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 77,
+				"h": 93
+			},
+			"sourceSize": {
+				"w": 77,
+				"h": 93
+			}
+		},
+		"lani7.png": {
+			"frame": {
+				"x": 404,
+				"y": 1,
+				"w": 69,
+				"h": 94
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 69,
+				"h": 94
+			},
+			"sourceSize": {
+				"w": 69,
+				"h": 94
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "lani.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 474,
+			"h": 97
+		},
+		"scale": "1"
+	}
+}

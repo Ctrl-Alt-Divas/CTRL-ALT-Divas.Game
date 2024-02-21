@@ -101,6 +101,7 @@ export class Hero {
   }
 
   createSprite() {
+    /*
     this.sprite = new PIXI.AnimatedSprite([
       App.res(`${App.config.characterName}-walk1`),
       App.res(`${App.config.characterName}-walk2`),
@@ -110,10 +111,14 @@ export class Hero {
       App.res(`${App.config.characterName}-walk6`),
       App.res(`${App.config.characterName}-walk7`),
     ]);
+    */
+    this.sprite = new PIXI.AnimatedSprite(
+      App.character(`${App.config.characterName.toLowerCase()}`)
+    );
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
-    this.sprite.loop = true;
+    //this.sprite.loop = true;
     this.sprite.animationSpeed = 0.1;
     this.sprite.play();
   }
@@ -131,18 +136,18 @@ export class Hero {
 
     this.updateProjectiles();
     if (this.score === 5) {
-      this.sprite.emit('level', 2);
+      this.sprite.emit("level", 2);
     }
     if (this.score === 10) {
-      this.sprite.emit('level', 3);
+      this.sprite.emit("level", 3);
     }
     if (this.score === 15) {
-      this.sprite.emit('level', 4);
+      this.sprite.emit("level", 4);
     }
   }
 
   die() {
-    this.sprite.emit('die');
+    this.sprite.emit("die");
   }
 
   destroy() {
