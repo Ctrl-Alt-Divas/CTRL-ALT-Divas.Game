@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@pixi/react": "^7.1.1",
+    "@pixi/sound": "^5.2.3",
     "@reduxjs/toolkit": "^2.1.0",
     "bootstrap": "^5.3.2",
     "gsap": "^3.12.5",

@@ -104,6 +104,11 @@ export class Hero {
     this.sprite = new PIXI.AnimatedSprite([
       App.res(`${App.config.characterName}-walk1`),
       App.res(`${App.config.characterName}-walk2`),
+      App.res(`${App.config.characterName}-walk3`),
+      App.res(`${App.config.characterName}-walk4`),
+      App.res(`${App.config.characterName}-walk5`),
+      App.res(`${App.config.characterName}-walk6`),
+      App.res(`${App.config.characterName}-walk7`),
     ]);
 
     this.sprite.x = App.config.hero.position.x;
@@ -125,6 +130,19 @@ export class Hero {
     }
 
     this.updateProjectiles();
+    if (this.score === 5) {
+      this.sprite.emit('level', 2);
+    }
+    if (this.score === 10) {
+      this.sprite.emit('level', 3);
+    }
+    if (this.score === 15) {
+      this.sprite.emit('level', 4);
+    }
+  }
+
+  die() {
+    this.sprite.emit('die');
   }
 
   destroy() {

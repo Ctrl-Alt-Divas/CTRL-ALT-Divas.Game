@@ -37,8 +37,6 @@ export class Platforms {
   }
 
   update() {
-
-
     // Calculate the visible area of the screen
     const visibleArea = {
       minX: -this.container.x, // Left edge of the screen
@@ -63,9 +61,8 @@ export class Platforms {
         // Remove the platform from the container and the platforms array
         this.container.removeChild(platform.container);
         this.platforms.splice(i, 1);
-        console.log(this.platforms);
       }
-    } 
+    }
   }
 
   destroy() {

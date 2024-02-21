@@ -11,10 +11,8 @@ export class Floatings {
       rows: 1,
       cols: 2,
       x: 1000,
-      y: 600
+      y: 600,
     });
-
-    
   }
 
   get randomData() {
@@ -24,7 +22,7 @@ export class Floatings {
     const offset = this.ranges.offset.min + Math.round(Math.random() * (this.ranges.offset.max - this.ranges.offset.min));
 
     data.x = this.current.container.x + this.current.container.width + offset;
-    //mess with this data.y to get the appropriate height for the floating tiles eventually 
+    //mess with this data.y to get the appropriate height for the floating tiles eventually
     data.y = window.innerHeight - offset;
     data.cols = this.ranges.cols.min + Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
     data.rows = this.ranges.rows.min + Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
@@ -49,7 +47,7 @@ export class Floatings {
     if (this.current.container.x + this.current.container.width < window.innerWidth) {
       this.createPlatform(this.randomData);
     }
-   // Iterate through each platform to move left and check if it's within the visible area
+    // Iterate through each platform to move left and check if it's within the visible area
     for (let i = this.floatings.length - 1; i >= 0; i--) {
       const platform = this.floatings[i];
 
@@ -62,9 +60,8 @@ export class Floatings {
         // Remove the platform from the container and the floatings array
         this.container.removeChild(platform.container);
         this.floatings.splice(i, 1);
-        console.log(this.floatings);
       }
-    } 
+    }
   }
 
   destroy() {

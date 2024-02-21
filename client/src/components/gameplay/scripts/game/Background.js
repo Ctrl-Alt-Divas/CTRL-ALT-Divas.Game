@@ -1,23 +1,24 @@
-import * as PIXI from "pixi.js";
-import { App } from "../system/App";
+import * as PIXI from 'pixi.js';
+import { App } from '../system/App';
+import { sound } from '@pixi/sound';
 
 export class Background {
   constructor() {
     this.speed = App.config.bgSpeed;
     this.container = new PIXI.Container();
-    this.createSprites();
+    this.createSprites('bg');
   }
 
-  createSprites() {
+  createSprites(image) {
     this.sprites = [];
 
     for (let i = 0; i < 3; i++) {
-      this.createSprite(i);
+      this.createSprite(image, i);
     }
   }
 
-  createSprite(i) {
-    const sprite = App.sprite("bg");
+  createSprite(image, i) {
+    const sprite = App.sprite(image);
 
     sprite.x = sprite.width * i;
     sprite.y = 0;
@@ -43,6 +44,15 @@ export class Background {
     this.sprites.forEach((sprite) => {
       this.move(sprite, offset);
     });
+    if (App.scenes.scene.hero.score === 5) {
+      this.createSprites('bg2');
+      sound.find('level1').stop();
+      sound.play('level2', {loop: true, volume: 0.5});
+    } else if (App.scenes.scene.hero.score === 10) {
+      this.createSprites('bg3');
+    } else if (App.scenes.scene.hero.score === 15) {
+      this.createSprites('bg4');
+    }
   }
 
   destroy() {
