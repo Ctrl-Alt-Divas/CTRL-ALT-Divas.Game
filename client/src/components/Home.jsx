@@ -9,6 +9,8 @@ import { updateLeaderboard } from "../app/slice";
 import CarouselVideos from "./CarouselVideos";
 
 function Home() {
+  const token = useSelector((it) => it.state?.token);
+
   const [getLeaderboard] = useGetLeaderboardMutation();
   const [getCharacters] = useGetCharactersMutation();
 
@@ -92,12 +94,18 @@ function Home() {
       <div className="flex flex-col gap-20">
         <div className="flex w-full border-2 border-cyan-400">
           <div className="flex flex-col hero-bg h-[900px] basis-3/4 items-center justify-end">
-            <Link
+           {token && <Link
               to="/character-select"
               className="bg-purple-500 w-24 p-2 rounded-md text-lg mb-10"
             >
               Play Now
-            </Link>
+            </Link>}
+            {!token && <Link
+              to="/login"
+              className="bg-purple-500 w-24 p-2 rounded-md text-lg mb-10"
+            >
+              Play Now
+            </Link>}
           </div>
           <div className="flex flex-col basis-1/4 items-center border-2 border-cyan-400">
             <div className="text-pink-500 text-2xl mb-5 mt-2">Top Players</div>
