@@ -5,7 +5,7 @@ import {Dialog, Transition, RadioGroup} from '@headlessui/react';
 import {useUpdateImageMutation} from '../../api/divasApi';
 import { updatePlayer } from "../app/slice";
 
-const images = ['hotdog.png', 'evee.png', 'default.png', 'jesse.png', 'lifeline.png', 'astro.jpeg', 'cat.png', 'cinna.jpeg', 'froggy.jpeg', 'gamer.webp'];
+const images = ['hotdog.png', 'evee.png', 'default.png', 'jesse.png', 'lifeline.png', 'astro.jpeg', 'cat.png', 'cinna.jpeg', 'froggy.jpeg', 'gamer.webp', 'mushroom.png', 'leaf.jpeg', 'switch.jpeg', 'star.jpeg', 'virus.jpeg'];
 
 function Account() {
     const player = useSelector((it) => it.state.player);
