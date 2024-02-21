@@ -2,9 +2,7 @@ import * as PIXI from 'pixi.js';
 import { App } from '../system/App';
 import Matter from 'matter-js';
 import { Projectile } from './Projectile';
-import { AnimatedSprite, Texture } from 'pixi.js';
 
-// counting steps
 export class Hero {
   constructor() {
     this.createSprite();
@@ -100,7 +98,15 @@ export class Hero {
   }
 
   createSprite() {
-    this.sprite = new PIXI.AnimatedSprite([App.res(`${App.config.characterName}-walk1`), App.res(`${App.config.characterName}-walk2`)]);
+    this.sprite = new PIXI.AnimatedSprite([
+      App.res(`${App.config.characterName}-walk1`),
+      App.res(`${App.config.characterName}-walk2`),
+      App.res(`${App.config.characterName}-walk3`),
+      App.res(`${App.config.characterName}-walk4`),
+      App.res(`${App.config.characterName}-walk5`),
+      App.res(`${App.config.characterName}-walk6`),
+      App.res(`${App.config.characterName}-walk7`),
+    ]);
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;

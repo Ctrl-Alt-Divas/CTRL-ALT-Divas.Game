@@ -153,35 +153,115 @@ const Gameplay = () => {
                     },
                     {
                         key: 'Fancypants-walk1',
-                        data: new URL('./sprites/characters/fancy1.png', import.meta.url).href,
+                        data: new URL('./sprites/characters/Fancypants/1.png', import.meta.url).href,
                     },
                     {
                         key: 'Fancypants-walk2',
-                        data: new URL('./sprites/characters/fancy2.png', import.meta.url).href,
+                        data: new URL('./sprites/characters/Fancypants/2.png', import.meta.url).href,
                     },
                     {
-                        key: 'Lani-walk1',
-                        data: new URL('./sprites/characters/lani1.png', import.meta.url).href,
+                        key: 'Fancypants-walk3',
+                        data: new URL('./sprites/characters/Fancypants/3.png', import.meta.url).href,
                     },
                     {
-                        key: 'Lani-walk2',
-                        data: new URL('./sprites/characters/lani2.png', import.meta.url).href,
+                        key: 'Fancypants-walk4',
+                        data: new URL('./sprites/characters/Fancypants/4.png', import.meta.url).href,
                     },
                     {
-                        key: 'Lilypad-walk1',
-                        data: new URL('./sprites/characters/lilypad1.png', import.meta.url).href,
+                        key: 'Fancypants-walk5',
+                        data: new URL('./sprites/characters/Fancypants/5.png', import.meta.url).href,
                     },
                     {
-                        key: 'Lilypad-walk2',
-                        data: new URL('./sprites/characters/lilypad2.png', import.meta.url).href,
+                        key: 'Fancypants-walk6',
+                        data: new URL('./sprites/characters/Fancypants/6.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Fancypants-walk7',
+                        data: new URL('./sprites/characters/Fancypants/7.png', import.meta.url).href,
                     },
                     {
                         key: 'Eli-walk1',
-                        data: new URL('./sprites/characters/Eli1.png', import.meta.url).href,
+                        data: new URL('./sprites/characters/Eli/1.png', import.meta.url).href,
                     },
                     {
                         key: 'Eli-walk2',
-                        data: new URL('./sprites/characters/Eli2.png', import.meta.url).href,
+                        data: new URL('./sprites/characters/Eli/2.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk3',
+                        data: new URL('./sprites/characters/Eli/3.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk4',
+                        data: new URL('./sprites/characters/Eli/4.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk5',
+                        data: new URL('./sprites/characters/Eli/5.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk6',
+                        data: new URL('./sprites/characters/Eli/6.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Eli-walk7',
+                        data: new URL('./sprites/characters/Eli/7.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk1',
+                        data: new URL('./sprites/characters/Lilypad/1.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk2',
+                        data: new URL('./sprites/characters/Lilypad/2.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk3',
+                        data: new URL('./sprites/characters/Lilypad/3.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk4',
+                        data: new URL('./sprites/characters/Lilypad/4.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk5',
+                        data: new URL('./sprites/characters/Lilypad/5.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk6',
+                        data: new URL('./sprites/characters/Lilypad/6.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lilypad-walk7',
+                        data: new URL('./sprites/characters/Lilypad/7.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk1',
+                        data: new URL('./sprites/characters/Lani/1.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk2',
+                        data: new URL('./sprites/characters/Lani/2.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk3',
+                        data: new URL('./sprites/characters/Lani/3.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk4',
+                        data: new URL('./sprites/characters/Lani/4.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk5',
+                        data: new URL('./sprites/characters/Lani/5.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk6',
+                        data: new URL('./sprites/characters/Lani/6.png', import.meta.url).href,
+                    },
+                    {
+                        key: 'Lani-walk7',
+                        data: new URL('./sprites/characters/Lani/7.png', import.meta.url).href,
                     },
                 ],
                 scenes: {
@@ -189,7 +269,7 @@ const Gameplay = () => {
                 },
             });
         }
-    }, [characters, id]);
+    }, []);
 
     function fitToContainer(foundCanvas) {
         foundCanvas.style.width = '100vw';

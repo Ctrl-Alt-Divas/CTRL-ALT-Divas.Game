@@ -7,6 +7,7 @@ import { Platforms } from './Platforms';
 import { Floatings } from './Floatings';
 import { LabelScore } from './LabelScore';
 import { LevelText } from './LevelText';
+import { sound } from '@pixi/sound';
 
 const keys = {};
 
@@ -17,6 +18,16 @@ export class Game extends Scene {
     this.createPlatforms();
     this.setEvents();
     this.createUI();
+    this.createSounds();
+  }
+
+  createSounds() {
+    sound.add('level1', new URL('../../sounds/level1.mp3', import.meta.url).href);
+    sound.add('level2', new URL('../../sounds/level2.mp3', import.meta.url).href);
+    sound.add('level3', new URL('../../sounds/level1.mp3', import.meta.url).href);
+    sound.add('level4', new URL('../../sounds/level2.mp3', import.meta.url).href);
+
+    sound.play('level1', {loop: true, volume: 0.5});
   }
 
   createUI() {
@@ -126,10 +137,11 @@ export class Game extends Scene {
     }
   }
 
-  // if you can't find canvas, stop game
+  // if you can't find canvas, stop game and sounds
   update(dt) {
     const foundCanvas = document.querySelector('canvas');
     if (!foundCanvas) {
+      sound.removeAll();
       App.app.stop();
       App.app.destroy();
     }
