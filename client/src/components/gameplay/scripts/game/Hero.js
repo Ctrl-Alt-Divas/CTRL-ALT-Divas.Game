@@ -109,7 +109,7 @@ export class Hero {
       App.res(`${App.config.characterName}-walk6`),
       App.res(`${App.config.characterName}-walk7`),
     ]);
-    this.sprite = new PIXI.AnimatedSprite(App.character(`${App.config.characterName.toLowerCase()}`));
+    // this.sprite = new PIXI.AnimatedSprite(App.character(`${App.config.characterName.toLowerCase()}`));
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
