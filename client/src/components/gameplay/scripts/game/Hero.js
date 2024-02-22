@@ -100,6 +100,15 @@ export class Hero {
   }
 
   createSprite() {
+    this.sprite = new PIXI.AnimatedSprite([
+      App.res(`${App.config.characterName}-walk1`),
+      App.res(`${App.config.characterName}-walk2`),
+      App.res(`${App.config.characterName}-walk3`),
+      App.res(`${App.config.characterName}-walk4`),
+      App.res(`${App.config.characterName}-walk5`),
+      App.res(`${App.config.characterName}-walk6`),
+      App.res(`${App.config.characterName}-walk7`),
+    ]);
     this.sprite = new PIXI.AnimatedSprite(App.character(`${App.config.characterName.toLowerCase()}`));
 
     this.sprite.x = App.config.hero.position.x;
