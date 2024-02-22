@@ -10,7 +10,7 @@ const images = ['hotdog.png', 'evee.png', 'default.png', 'jesse.png', 'lifeline.
 function Account() {
     const player = useSelector((it) => it.state.player);
     const token = useSelector((it) => it.state.token);
-    const leaderboard = useSelector((it) => it.state.leaderboard);
+    const leaderboard = useSelector((it) => it.state.leaderboards);
     let [isOpen, setIsOpen] = useState(false);
     const [updateImage] = useUpdateImageMutation();
     const dispatch = useDispatch();
@@ -34,28 +34,28 @@ function Account() {
 
     return (
         <>
-            <div className='p-10 flex items-center gap-20'>
-                {/* Maybe add logic to change our profile picture? */}
+            <div className='p-24 flex items-center gap-60'>
                 <div>
                     <img
-                        className='rounded-full h-[250px] border-2'
+                        className='rounded-full h-[200px] border-2 border-purple-400'
                         src={
                             new URL(
                               `../assets/images/profile/${player.image}`,
                               import.meta.url
                             ).href
                           }
-                        width={250}
+                        width={200}
                     />
                     <RiImageEditLine
-                        className='text-fuchsia-600 text-2xl bg-gray-800 hover:text-cyan-600'
+                        className='text-purple-400 text-2xl bg-gray-800 hover:text-cyan-600'
                         onClick={() => openModal()}
                     />
                 </div>
                 <div className='flex flex-col items-start'>
-                    <h1 className='text-4xl text-slate-300'>{player.username}</h1>
-                    {/* <p className='text-slate-400'>Rank: {leaderboard.findIndex(it => it.username === player.username) + 1 }</p> */}
-                    <p className='text-slate-400'>Score: {player.score} </p>
+                    <h1 className='text-5xl text-purple-300 mb-5'>{player.username}</h1>
+                    <p className='text-3xl text-purple-300'>Player Details</p>
+                    <p className='text-xl text-purple-400'>Rank: {leaderboard.findIndex(it => it.username === player.username) + 1 }</p>
+                    <p className='text-xl text-purple-400'>Your Score: {player.score} </p>
                 </div>
             </div>
             <Transition appear show={isOpen} as={Fragment}>

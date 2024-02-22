@@ -43,31 +43,31 @@ function Login() {
         className="flex flex-col gap-5 items-center justify-center mt-20"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-fuchsia-500 text-4xl">Login</h2>
+        <h2 className="text-indigo-400 text-4xl">Login</h2>
         <p className="text-red-600">please log in to access the game</p>
         {errorMsg && <p className="text-red-600">{errorMsg}</p>}
         <div className="flex gap-5">
-          <label className="text-fuchsia-500 text-xl">Username:</label>
+          <label className="text-indigo-300 text-xl">Username:</label>
           <input
             autoFocus
             onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
         </div>
         <div className="flex gap-5">
-          <label className="text-fuchsia-500 text-xl">Password:</label>
+          <label className="text-indigo-300 text-xl">Password:</label>
           <input
             type="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
         </div>
-        <button className="text-white text-xl bg-fuchsia-500 p-1 rounded-lg">
+        <button className="bg-indigo-900 w-26 p-2 rounded-md text-lg mb-10 text-indigo-300 font-semibold">
           Login
         </button>
         <div className="flex gap-3">
           {" "}
-          <p className="text-xl text-fuchsia-600">New to the game?</p>
+          <p className="text-xl text-indigo-300">New to the game?</p>
           <a
-            className="text-xl text-fuchsia-600 hover:text-cyan-500"
+            className="text-xl text-indigo-300 hover:text-cyan-500"
             href="/register"
           >
             Sign Up

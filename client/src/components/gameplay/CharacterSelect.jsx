@@ -26,10 +26,10 @@ const CharacterSelect = () => {
                 <Link
                     key={char.id}
                     to={`/gameplay/${char.id}`}
-                    className='flex flex-col hover:bg-indigo-800 rounded-md p-5'
+                    className='flex flex-col hover:bg-indigo-950 rounded-md p-5'
                 >
                     <img src={new URL(`../../assets/images/${char.image}`, import.meta.url).href} width={200} className='h-[200px]'/>
-                    <p className='text-white text-2xl'>{char.name}</p>
+                    <p className='text-purple-300 text-2xl'>{char.name}</p>
                 </Link>
             );
         }
@@ -37,12 +37,12 @@ const CharacterSelect = () => {
     }
 
     return (
-        <>
-            <h1 className='text-white text-4xl mt-5'>Select your Character</h1>
+        <div className='text-center'>
+            <h1 className='text-purple-300 text-4xl mt-5'>Select your Character</h1>
             <div className='flex flex-wrap gap-5 justify-center items-center mb-auto h-[70vh]'>
                 {characters && characters.length > 0 && createCharacters()}
             </div>
-        </>
+        </div>
     );
 };
 

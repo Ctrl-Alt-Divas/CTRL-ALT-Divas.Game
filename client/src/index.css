@@ -24,3 +24,10 @@ body > div {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+input {
+  background-color: #312e81;
+  color: #c7d2fe;
+  padding: 5px;
+  border-radius: 5px;
+}
