@@ -1,12 +1,12 @@
-import * as PIXI from "pixi.js";
-import { App } from "../system/App";
-import { sound } from "@pixi/sound";
+import * as PIXI from 'pixi.js';
+import { App } from '../system/App';
+import { sound } from '@pixi/sound';
 
 export class Background {
   constructor() {
     this.speed = App.config.bgSpeed;
     this.container = new PIXI.Container();
-    this.createSprites("bg");
+    this.createSprites('bg');
   }
 
   createSprites(image) {
@@ -44,14 +44,18 @@ export class Background {
     this.sprites.forEach((sprite) => {
       this.move(sprite, offset);
     });
-    if (App.scenes.scene.hero.score === 5) {
-      this.createSprites("bg2");
-      sound.find("level1").stop();
-      sound.play("level2", { loop: true, volume: 0.5 });
-    } else if (App.scenes.scene.hero.score === 10) {
-      this.createSprites("bg3");
-    } else if (App.scenes.scene.hero.score === 15) {
-      this.createSprites("bg4");
+    if (App.scenes.scene.hero.score === 15) {
+      this.createSprites('bg2');
+      sound.find('level1').stop();
+      sound.play('level2', { loop: true, volume: 0.5 });
+    } else if (App.scenes.scene.hero.score === 30) {
+      this.createSprites('bg3');
+      sound.find('level2').stop();
+      sound.play('level3', { loop: true, volume: 0.5 });
+    } else if (App.scenes.scene.hero.score === 60) {
+      this.createSprites('bg4');
+      sound.find('level3').stop();
+      sound.play('level4', { loop: true, volume: 0.5 });
     }
   }
 
