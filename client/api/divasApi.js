@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const divasApi = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://ctrl-alt-divas-api.onrender.com/api',
+    baseUrl: 'http://localhost:8080/api',
   }),
   endpoints: (builder) => ({
     register: builder.mutation({
