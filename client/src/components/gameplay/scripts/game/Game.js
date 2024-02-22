@@ -126,7 +126,7 @@ export class Game extends Scene {
 
   async saveScore() {
     if (App.config.playerId && this.hero?.score > 1) {
-      await fetch('http://localhost:8080/api/players/score', {
+      await fetch('https://ctrl-alt-divas-api.onrender.com/api/players/score', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
