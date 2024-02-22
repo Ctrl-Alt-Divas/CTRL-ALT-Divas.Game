@@ -18,7 +18,7 @@ function Footer() {
                     <p>{`Copyright © 2023-${year} CTRL_ALT_DIVAS.com`}</p>
                 </div>
                 <div className='text-xl hover:text-cyan-500'>
-                    <Link to='/home'>Home</Link>
+                    <Link to='/'>Home</Link>
                 </div>
                 <div className='text-xl hover:text-cyan-500'>
                     <Link to='/leaderboard'>Leaderboard</Link>

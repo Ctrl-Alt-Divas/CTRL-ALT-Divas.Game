@@ -83,7 +83,7 @@ function Account() {
                                 leaveFrom='opacity-100 scale-100'
                                 leaveTo='opacity-0 scale-95'
                             >
-                                <Dialog.Panel className='w-full max-w-8xl transform overflow-hidden rounded-2xl bg-black text-center align-middle shadow-xl transition-all'>
+                                <Dialog.Panel className='w-full max-w-8xl transform overflow-hidden rounded-2xl bg-indigo-900 text-center align-middle shadow-xl transition-all p-5'>
                                     <Dialog.Title as='h3' className='text-xl font-medium leading-6 text-purple-200'>
                                         Choose your image
                                     </Dialog.Title>

@@ -103,7 +103,7 @@ function Home() {
                 <div className='flex flex-col gap-10 items-center'>
                     <h2 className='text-purple-300 text-3xl'>Characters</h2>
                     {characters && characters.length > 0 && (
-                        <div className='flex gap-20 text-md text-purple-300 font-semibold'>{createCharacters()}</div>
+                        <div className='flex gap-20 text-md text-purple-300 font-semibold flex-wrap'>{createCharacters()}</div>
                     )}
                 </div>
                 <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
