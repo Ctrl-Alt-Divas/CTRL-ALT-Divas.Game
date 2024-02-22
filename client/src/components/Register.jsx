@@ -76,6 +76,7 @@ function Register() {
                 <div className='flex gap-5'>
                     <label className='text-indigo-300 text-xl'>Username:</label>
                     <input
+                        maxLength={20}
                         autoFocus
                         value={player.username}
                         onChange={(e) => setPlayer({...player, username: e.target.value})}
