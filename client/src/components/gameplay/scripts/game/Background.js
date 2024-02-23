@@ -10,6 +10,15 @@ export class Background {
   }
 
   createSprites(image) {
+
+    if(this.sprites && this.sprites?.length > 0) {
+      for(const sprite of this.sprites) {
+        if(sprite) {
+          sprite.destroy()
+        }
+      }
+    }
+
     this.sprites = [];
 
     for (let i = 0; i < 3; i++) {
@@ -26,24 +35,7 @@ export class Background {
     this.sprites.push(sprite);
   }
 
-  move(sprite, offset) {
-    const spriteRightX = sprite.x + sprite.width;
-
-    const screenLeftX = 0;
-
-    if (spriteRightX <= screenLeftX) {
-      sprite.x += sprite.width * this.sprites.length;
-    }
-
-    sprite.x -= offset;
-  }
-
-  update(dt) {
-    const offset = this.speed * dt;
-
-    this.sprites.forEach((sprite) => {
-      this.move(sprite, offset);
-    });
+  update() {
     if (App.scenes.scene.hero.score === 15) {
       this.createSprites('bg2');
       sound.find('level1').stop();

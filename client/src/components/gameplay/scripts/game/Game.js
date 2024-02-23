@@ -147,7 +147,7 @@ export class Game extends Scene {
       App.app.stop();
       App.app.destroy();
     }
-    this.bg.update(dt);
+    this.bg.update();
     this.platfroms.update(dt);
     this.floatings.update(dt);
   }

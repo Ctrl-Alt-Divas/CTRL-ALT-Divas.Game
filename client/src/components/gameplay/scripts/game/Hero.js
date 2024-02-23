@@ -44,7 +44,6 @@ export class Hero {
   stayOnPlatform(platform) {
     this.platform = platform;
     this.jumpIndex = 0;
-    //Matter.Body.setVelocity(this.platform);
   }
 
   startJump() {
@@ -81,7 +80,6 @@ export class Hero {
       if (projectile.sprite.x > window.innerWidth) {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
-        console.log(projectile.body);
         Matter.Composite.remove(App.physics.world, projectile.body);
       }
     }
