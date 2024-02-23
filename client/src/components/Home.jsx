@@ -59,7 +59,7 @@ function Home() {
         for (const character of characters) {
             rows.push(
                 <Link key={character.id} to={`/characters/${character.id}`}>
-                    <div className='bg-indigo-950 border-2 border-purple-300 w-[300px] h-[400px] flex justify-between flex-col p-5 rounded-md items-center'>
+                    <div className='bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 w-[300px] h-[400px] flex justify-between flex-col p-5 rounded-md items-center'>
                         <p>{character.name}</p>
                         <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href} width={250} />
                         <p>{character.shrtdescription}</p>
@@ -103,7 +103,9 @@ function Home() {
                 <div className='flex flex-col gap-10 items-center'>
                     <h2 className='text-purple-300 text-3xl'>Characters</h2>
                     {characters && characters.length > 0 && (
-                        <div className='flex gap-20 text-md text-purple-300 font-semibold flex-wrap'>{createCharacters()}</div>
+                        <div className='flex gap-20 text-md text-purple-300 font-semibold flex-wrap'>
+                            {createCharacters()}
+                        </div>
                     )}
                 </div>
                 <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
