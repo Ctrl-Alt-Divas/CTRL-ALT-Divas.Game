@@ -39,15 +39,15 @@ export class Background {
     if (App.scenes.scene.hero.score === 15) {
       this.createSprites('bg2');
       sound.find('level1').stop();
-      sound.play('level2', { loop: true, volume: 0.5 });
+      sound.play('level2', { loop: true, volume: 0.1 });
     } else if (App.scenes.scene.hero.score === 30) {
       this.createSprites('bg3');
       sound.find('level2').stop();
-      sound.play('level3', { loop: true, volume: 0.5 });
+      sound.play('level3', { loop: true, volume: 0.2 });
     } else if (App.scenes.scene.hero.score === 60) {
       this.createSprites('bg4');
       sound.find('level3').stop();
-      sound.play('level4', { loop: true, volume: 0.5 });
+      sound.play('level4', { loop: true, volume: 0.2 });
     }
   }
 

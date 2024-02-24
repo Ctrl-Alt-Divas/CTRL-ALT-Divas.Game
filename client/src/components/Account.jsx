@@ -98,8 +98,8 @@ function Account() {
                                                     {({active, checked}) => (
                                                         <>
                                                             <img
-                                                                width={200}
-                                                                height={200}
+                                                                width={150}
+                                                                height={150}
                                                                 className={`${
                                                                     active
                                                                         ? 'ring-2 ring-white/60 ring-offset-4 ring-offset-sky-300'

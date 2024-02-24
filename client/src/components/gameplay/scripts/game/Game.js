@@ -26,7 +26,7 @@ export class Game extends Scene {
     sound.add('level2', new URL('../../sounds/level2.mp3', import.meta.url).href);
     sound.add('level3', new URL('../../sounds/level3.mp3', import.meta.url).href);
     sound.add('level4', new URL('../../sounds/level4.mp3', import.meta.url).href);
-    sound.play('level1', { loop: true, volume: 0.5 });
+    sound.play('level1', { loop: true, volume: 0.2 });
   }
 
   createUI() {

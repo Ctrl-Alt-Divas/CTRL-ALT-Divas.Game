@@ -30,6 +30,8 @@ const CharacterSelect = () => {
                 >
                     <img src={new URL(`../../assets/images/${char.image}`, import.meta.url).href} width={200} className='h-[200px]'/>
                     <p className='text-purple-300 text-2xl'>{char.name}</p>
+                    <p className='text-purple-300 text-2xl'>Run Speed: {char.speed * -1}</p>
+                    <p className='text-purple-300 text-2xl'>Jump Height: {char.jump}</p>
                 </Link>
             );
         }
@@ -38,7 +40,9 @@ const CharacterSelect = () => {
 
     return (
         <div className='text-center'>
-            <h1 className='text-purple-300 text-4xl mt-5'>Select your Character</h1>
+            <h1 className='text-purple-400 text-4xl mt-5 pb-5'>Select your Character</h1>
+            <h2 className='text-2xl text-purple-300 p-2'>Game will begin once you chose your character.</h2>  
+            <p className='text-xl text-purple-300'>Controls: Left click to jump, Spacebar to shoot</p>
             <div className='flex flex-wrap gap-5 justify-center items-center mb-auto h-[70vh]'>
                 {characters && characters.length > 0 && createCharacters()}
             </div>
