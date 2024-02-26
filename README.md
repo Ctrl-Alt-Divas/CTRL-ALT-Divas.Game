@@ -8,13 +8,11 @@ Join them as they sprint through a pixelated landscape, collecting skills and co
 ### Links
 
 - Repo URL: [GitHub repo](https://github.com/Ctrl-Alt-Divas/CTRL-ALT-Divas.Game)
-- Live URL: [Live site](#)
+- Live URL: [Live site](https://ctrl-alt-divas-game.onrender.com/)
 
 ### Screenshot
 
-Desktop view
-
-![](./client/src/assets/images/city.png)
+![](./client/src/assets/images/Macbook-home.png)
 
 ### Built with
 
@@ -33,22 +31,22 @@ Desktop view
 ## Developers
 
 - Fancy
-  [GitHub](#)
+  [GitHub](https://github.com/FancyStrittholt)
   [LinkedIn](https://www.linkedin.com/in/fancystrittholt/)
   [Portfolio](#)
 
 - Liliana:
-  [GitHub](#)
+  [GitHub](https://github.com/lcontr1)
   [LinkedIn](https://www.linkedin.com/in/lilianacontreras/)
   [Portfolio](#)
 
 - Elizabeth
-  [GitHub](#)
+  [GitHub](https://github.com/ElizabethLankford)
   [LinkedIn](https://www.linkedin.com/in/elizabethlankford/)
   [Portfolio](#)
 
 - Xolani
-  [GitHub](#)
+  [GitHub](https://github.com/xlvictory)
   [LinkedIn](https://www.linkedin.com/in/xolanivictory/)
   [Portfolio](#)
 
