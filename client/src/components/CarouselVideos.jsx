@@ -9,7 +9,7 @@ function CarouselVideos() {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/FEARARPNS6I?si=z2IOUb2S5rLWjPnK"
+            src="https://youtube.com/embed/eyu9604Envk?si=otuascUOyvUX1gr1"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -20,7 +20,7 @@ function CarouselVideos() {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/-39kuBXyKWo?si=iYu8VS7y0dRFmu5A"
+            src="https://youtube.com/embed/k-mOyjjWTfc?si=SK_0VzRjTcMHPmVa"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
@@ -31,7 +31,18 @@ function CarouselVideos() {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/pu76c3HCKg4?si=cvuuG1Pmb47tLr8K"
+            src="https://youtube.com/embed/vtcDrXM-ChQ?si=tT2vREy7B_WXYbGg"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            origin="true"
+          ></iframe>
+        </Carousel.Item>
+        <Carousel.Item>
+          <iframe
+            width="560"
+            height="315"
+            src="https://youtube.com/embed/OmwCdyokZ5k?si=Juwovxb2TYrVFhyH"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
