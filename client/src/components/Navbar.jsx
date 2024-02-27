@@ -31,32 +31,32 @@ function Navbar() {
     return (
               
 
-    <header className='bg-gray-900'>
+    <header className='bg-indigo-950'>
         <div className='flex items-center justify-between px-8 py-2'>
 
            
             <div >
-                    <Link to='/' className='flex items-center text-cyan-600 hover:text-purple-600'>
+                    <Link to='/' className='flex items-center text-cyan-600 font-semibold hover:text-fuchsia-500'>
                         <img className='h-12' src={new URL(`../assets/images/icon.png`, import.meta.url).href} alt='Arcade Machine'/>
                         CTRL-ALT-DIVAS
                     </Link>
             </div>
             <div >
-                <button type='button' className='text-purple-500 hover:text-cyan-600 focus:text-cyan-600 lg:hidden' onClick={toggleMenu}>
+                <button type='button' className='text-purple-300 hover:text-cyan-600 focus:text-cyan-600 lg:hidden' onClick={toggleMenu}>
                     <CiMenuBurger className='h-6 w-6 fill-current'/>
                     {isMenuOpen ? 'Close' : 'Menu'}
                 </button>
             </div>
         <div className='hidden lg:flex'>
-        <Link to='/' className='flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'><IoHome />Home
+        <Link to='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'><IoHome />Home
             </Link>
             
-            <Link to='/leaderboard' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <Link to='/leaderboard' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                 <GiTrophyCup />
                 Leaderboard
             </Link>
             {!token && (
-                    <Link to='/login' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+                    <Link to='/login' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
                             <IoMdLogIn />
                             Login
@@ -64,13 +64,13 @@ function Navbar() {
             </Link>
             )}
             {token && (
-            <Link to='/character-select' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <Link to='/character-select' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                 <SlGameController />
                 Game
             </Link>
             )}
             {token && (
-            <Link to='/account' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <Link to='/account' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
                             <BiSolidUserAccount />
                             Account
@@ -78,7 +78,7 @@ function Navbar() {
             </Link>
             )}
             {token && (
-            <a onClick={() => logout()} href='/' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <a onClick={() => logout()} href='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
                             <IoMdLogOut />
                             Logout
@@ -89,15 +89,15 @@ function Navbar() {
         </div>
         {isMenuOpen && (
         <div className='lg:hidden px-6 pt-2 pb-4'>
-            <Link to='/' className='flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'><IoHome />Home
+            <Link to='/' className='flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'><IoHome />Home
             </Link>
             
-            <Link to='/leaderboard' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <Link to='/leaderboard' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                 <GiTrophyCup />
                 Leaderboard
             </Link>
             {!token && (
-                    <Link to='/login' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+                    <Link to='/login' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
                             <IoMdLogIn />
                             Login
@@ -105,13 +105,13 @@ function Navbar() {
             </Link>
             )}
             {token && (
-            <Link to='/character-select' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <Link to='/character-select' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                 <SlGameController />
                 Game
             </Link>
             )}
             {token && (
-            <Link to='/account' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <Link to='/account' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
                             <BiSolidUserAccount />
                             Account
@@ -119,7 +119,7 @@ function Navbar() {
             </Link>
             )}
             {token && (
-            <a onClick={() => logout()} href='/' className='mt-1 flex items-center px-2 text-purple-600 rounded hover:bg-cyan-900 font-semibold'>
+            <a onClick={() => logout()} href='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
                             <IoMdLogOut />
                             Logout
