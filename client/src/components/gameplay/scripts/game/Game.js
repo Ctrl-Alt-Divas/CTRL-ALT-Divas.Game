@@ -72,20 +72,24 @@ export class Game extends Scene {
     if (hero && diamond) {
       this.hero.collectDiamond(diamond.gameDiamond);
       new Audio(new URL('../../sounds/coin.wav', import.meta.url).href).play();
+      return;
     }
 
     if (hero && platform) {
       this.hero.stayOnPlatform(platform.gamePlatform);
+      return;
     }
 
     // if we collide with bug restart game
     if (hero && bug) {
       this.hero.die();
+      return;
     }
 
     // if projectile collides with bug, remove bug
     if (bug && projectile) {
       this.hero.killBugAndProjectile(bug.gameBug, projectile.gameProjectile);
+      return;
     }
   }
 
