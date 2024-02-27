@@ -8,13 +8,9 @@ Join them as they sprint through a pixelated landscape, collecting skills and co
 ### Links
 
 - Repo URL: [GitHub repo](https://github.com/Ctrl-Alt-Divas/CTRL-ALT-Divas.Game)
-- Live URL: [Live site](#)
+- Live URL: [Live site](https://ctrl-alt-divas-game.onrender.com/)
 
-### Screenshot
-
-Desktop view
-
-![](./client/src/assets/images/city.png)
+![](./client/src/assets/images/Macbook-home.png)
 
 ### Built with
 
@@ -33,23 +29,26 @@ Desktop view
 ## Developers
 
 - Fancy
-  [GitHub](#)
-  [LinkedIn](https://www.linkedin.com/in/fancystrittholt/)
-  [Portfolio](#)
+
+  - :octocat: [GitHub](https://github.com/FancyStrittholt)
+  - :link: [LinkedIn](https://www.linkedin.com/in/fancystrittholt/)
+  - :woman_technologist: [Portfolio](#)
 
 - Liliana:
-  [GitHub](#)
-  [LinkedIn](https://www.linkedin.com/in/lilianacontreras/)
-  [Portfolio](#)
+
+  - :octocat: [GitHub](https://github.com/lcontr1)
+  - :link: [LinkedIn](https://www.linkedin.com/in/lilianacontreras/)
+  - :woman_technologist: [Portfolio](#)
 
 - Elizabeth
-  [GitHub](#)
-  [LinkedIn](https://www.linkedin.com/in/elizabethlankford/)
-  [Portfolio](#)
+
+  - :octocat: [GitHub](https://github.com/ElizabethLankford)
+  - :link: [LinkedIn](https://www.linkedin.com/in/elizabethlankford/)
+  - :woman_technologist: [Portfolio](#)
 
 - Xolani
-  [GitHub](#)
-  [LinkedIn](https://www.linkedin.com/in/xolanivictory/)
-  [Portfolio](#)
+  - :octocat: [GitHub](https://github.com/xlvictory)
+  - :link: [LinkedIn](https://www.linkedin.com/in/xolanivictory/)
+  - :woman_technologist: [Portfolio](#)
 
 Any suggestions or other feedback? Send us an email at [ctrlaltdivas@gmail.com](mailto:ctrlaltdivas@gmail.com?subject=CTRL%20ALT%20DIVAS%20Feedback!)
