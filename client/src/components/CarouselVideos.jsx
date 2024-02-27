@@ -7,6 +7,7 @@ function CarouselVideos() {
       <Carousel slide={false}>
         <Carousel.Item>
           <iframe
+            className="d-block w-100"
             width="560"
             height="315"
             src="https://youtube.com/embed/eyu9604Envk?si=otuascUOyvUX1gr1"
@@ -18,6 +19,7 @@ function CarouselVideos() {
         </Carousel.Item>
         <Carousel.Item>
           <iframe
+          className="d-block w-100"
             width="560"
             height="315"
             src="https://youtube.com/embed/k-mOyjjWTfc?si=SK_0VzRjTcMHPmVa"
@@ -29,6 +31,7 @@ function CarouselVideos() {
         </Carousel.Item>
         <Carousel.Item>
           <iframe
+          className="d-block w-100"
             width="560"
             height="315"
             src="https://youtube.com/embed/vtcDrXM-ChQ?si=tT2vREy7B_WXYbGg"
@@ -40,6 +43,7 @@ function CarouselVideos() {
         </Carousel.Item>
         <Carousel.Item>
           <iframe
+          className="d-block w-100"
             width="560"
             height="315"
             src="https://youtube.com/embed/OmwCdyokZ5k?si=Juwovxb2TYrVFhyH"
