@@ -22,7 +22,10 @@ function Leaderboard() {
     const rows = [];
     for (const player of leaderboard) {
       rows.push(
-        <div className="flex gap-10 items-center justify-between">
+        <div
+          key={player.id}
+          className="flex gap-10 items-center justify-between"
+        >
           <div className="flex gap-10 items-center">
             <p className="text-3xl text-purple-300">
               {leaderboard.indexOf(player) + 1}
