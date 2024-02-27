@@ -18,7 +18,7 @@ async function createTables() {
     await client.query(`
       CREATE TABLE player (
         id SERIAL PRIMARY KEY,
-        username VARCHAR(255) UNIQUE NOT NULL,
+        username VARCHAR(20) UNIQUE NOT NULL,
         password TEXT NOT NULL,
         score INTEGER,
         image VARCHAR(255)

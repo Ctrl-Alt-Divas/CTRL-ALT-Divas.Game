@@ -1,51 +1,51 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const divasApi = createApi({
-  reducerPath: "api",
+  reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080/api",
+    baseUrl: 'https://ctrl-alt-divas-api.onrender.com/api',
   }),
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (data) => ({
         url: `/auth/register`,
-        method: "POST",
+        method: 'POST',
         body: { ...data },
       }),
     }),
     login: builder.mutation({
       query: (data) => ({
-        url: "/auth/login",
-        method: "POST",
+        url: '/auth/login',
+        method: 'POST',
         body: { ...data },
       }),
     }),
     score: builder.mutation({
       query: (data) => ({
         url: `/players/score`,
-        method: "POST",
+        method: 'POST',
         body: { ...data },
       }),
     }),
     updateImage: builder.mutation({
       query: (data) => ({
         url: `/players/image`,
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "content-type": "application/json",
+          'content-type': 'application/json',
           authorization: `Bearer ${data.token}`,
         },
         body: { ...data },
       }),
     }),
     getCharacters: builder.mutation({
-      query: () => "/characters",
+      query: () => '/characters',
     }),
     getCharacterById: builder.query({
       query: (id) => `/characters/${id}`,
     }),
     getLeaderboard: builder.mutation({
-      query: () => "/players/leaderboard",
+      query: () => '/players/leaderboard',
     }),
   }),
 });

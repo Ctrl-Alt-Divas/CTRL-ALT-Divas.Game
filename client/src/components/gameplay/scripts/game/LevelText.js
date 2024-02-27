@@ -11,6 +11,22 @@ export class LevelText extends PIXI.Text {
     this.renderLevel();
   }
   renderLevel(level = 1) {
-    this.text = `Level: ${level}`;
+
+    let levelName = ''
+
+    if(level === 1){
+      levelName = 'Check Your Terminal'
+    }
+    else if(level === 2){
+      levelName = 'Console.log'
+    }
+    else if(level === 3){
+      levelName = 'Component Chaos'
+    }
+    else if(level === 4){
+      levelName = 'Redux Hell'
+    }
+
+    this.text = `Level: ${level} - ${levelName}`;
   }
 }

@@ -22,12 +22,9 @@ function Leaderboard() {
     const rows = [];
     for (const player of leaderboard) {
       rows.push(
-        <div
-          key={player.id}
-          className="flex gap-10 items-center justify-between"
-        >
+        <div className="flex gap-10 items-center justify-between">
           <div className="flex gap-10 items-center">
-            <p className="text-3xl text-pink-400">
+            <p className="text-3xl text-purple-300">
               {leaderboard.indexOf(player) + 1}
             </p>
             <div className="flex items-center gap-2">
@@ -41,7 +38,7 @@ function Leaderboard() {
                 }
                 width={50}
               />
-              <p className="text-3xl text-pink-400">{player.username}</p>
+              <p className="text-3xl text-purple-400">{player.username}</p>
             </div>
           </div>
           <p className="text-3xl text-cyan-400">{player.score}</p>
@@ -55,7 +52,7 @@ function Leaderboard() {
     <>
       <div className="flex w-full items-center justify-center">
         <div className="flex flex-col items-center">
-          <div className="text-pink-500 text-4xl mb-5 mt-2">Leaderboards</div>
+          <div className="text-fuchsia-500 text-4xl mb-5 mt-5">Leaderboard</div>
           {leaderboard && leaderboard.length > 0 && (
             <div className="flex flex-col gap-3">{createLeaderboard()}</div>
           )}
