@@ -187,7 +187,6 @@ const Gameplay = () => {
             key: "tile",
             data: new URL("./sprites/tilepink.png", import.meta.url).href,
           },
-          /**
           {
             key: "Fancypants-walk1",
             data: new URL(
@@ -342,33 +341,33 @@ const Gameplay = () => {
             data: new URL("./sprites/characters/Lani/7.png", import.meta.url)
               .href,
           },
-           */
-          {
-            key: "eli",
-            data: new URL("./sprites/characters/Eli/eli.json", import.meta.url)
-              .href,
-          },
-          {
-            key: "fancypants",
-            data: new URL(
-              "./sprites/characters/Fancypants/fancypants.json",
-              import.meta.url
-            ).href,
-          },
-          {
-            key: "lani",
-            data: new URL(
-              "./sprites/characters/Lani/lani.json",
-              import.meta.url
-            ).href,
-          },
-          {
-            key: "lilypad",
-            data: new URL(
-              "./sprites/characters/Lilypad/lilypad.json",
-              import.meta.url
-            ).href,
-          },
+
+          // {
+          //   key: "eli",
+          //   data: new URL("./sprites/characters/Eli/eli.json", import.meta.url)
+          //     .href,
+          // },
+          // {
+          //   key: "fancypants",
+          //   data: new URL(
+          //     "./sprites/characters/Fancypants/fancypants.json",
+          //     import.meta.url
+          //   ).href,
+          // },
+          // {
+          //   key: "lani",
+          //   data: new URL(
+          //     "./sprites/characters/Lani/lani.json",
+          //     import.meta.url
+          //   ).href,
+          // },
+          // {
+          //   key: "lilypad",
+          //   data: new URL(
+          //     "./sprites/characters/Lilypad/lilypad.json",
+          //     import.meta.url
+          //   ).href,
+          // },
         ],
         scenes: {
           Game: Game,

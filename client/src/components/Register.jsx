@@ -71,11 +71,12 @@ function Register() {
     return (
         <>
             <form className='flex flex-col gap-5 items-center justify-center mt-20' onSubmit={handleSubmit}>
-                <h2 className='text-fuchsia-500 text-4xl'>Register</h2>
+                <h2 className='text-indigo-400 text-4xl'>Register</h2>
 
                 <div className='flex gap-5'>
-                    <label className='text-fuchsia-500 text-xl'>Username:</label>
+                    <label className='text-indigo-300 text-xl'>Username:</label>
                     <input
+                        maxLength={20}
                         autoFocus
                         value={player.username}
                         onChange={(e) => setPlayer({...player, username: e.target.value})}
@@ -83,7 +84,7 @@ function Register() {
                 </div>
 
                 <div className='flex gap-5'>
-                    <label className='text-fuchsia-500 text-xl'>Password:</label>
+                    <label className='text-indigo-300 text-xl'>Password:</label>
                     <input
                         type='password'
                         value={player.password}
@@ -92,7 +93,9 @@ function Register() {
                 </div>
                 <div className='flex flex-col gap-2'>{displayErrors()}</div>
 
-                <button className='text-white text-xl bg-fuchsia-500 p-1 rounded-lg'>Register</button>
+                <button className='bg-indigo-900 w-26 p-2 rounded-md text-lg mb-10 text-indigo-300 font-semibold'>
+                    Register
+                </button>
             </form>
         </>
     );

@@ -8,12 +8,12 @@ export class Diamond {
   }
 
   createSprite(x, y) {
-    if (App.scenes.scene?.hero?.score > 15) {
+    if (App.scenes.scene?.hero?.score > 55) {
+      this.sprite = App.sprite('redux');
+    } else if (App.scenes.scene?.hero?.score > 25) {
       this.sprite = App.sprite('react');
     } else if (App.scenes.scene?.hero?.score > 10) {
       this.sprite = App.sprite('js');
-    } else if (App.scenes.scene?.hero?.score > 5) {
-      this.sprite = App.sprite('redux');
     } else {
       this.sprite = App.sprite('vscode');
     }

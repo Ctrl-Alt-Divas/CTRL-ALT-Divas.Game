@@ -1,7 +1,7 @@
-import * as PIXI from "pixi.js";
-import { App } from "../system/App";
-import Matter from "matter-js";
-import { Projectile } from "./Projectile";
+import * as PIXI from 'pixi.js';
+import { App } from '../system/App';
+import Matter from 'matter-js';
+import { Projectile } from './Projectile';
 
 export class Hero {
   constructor() {
@@ -22,7 +22,7 @@ export class Hero {
       diamond.sprite.destroy();
       diamond.sprite = null;
     }
-    this.sprite.emit("score");
+    this.sprite.emit('score');
   }
 
   // destroys bug and projectile sprite
@@ -44,7 +44,6 @@ export class Hero {
   stayOnPlatform(platform) {
     this.platform = platform;
     this.jumpIndex = 0;
-    //Matter.Body.setVelocity(this.platform);
   }
 
   startJump() {
@@ -69,8 +68,7 @@ export class Hero {
     for (const projectile of this.projectiles) {
       if (projectile.sprite) {
         projectile.body.position.x += 0.2;
-        projectile.sprite.x =
-          projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
+        projectile.sprite.x = projectile.body.position.x - projectile.sprite.width / 2 + 0.2;
       } else {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
@@ -82,7 +80,6 @@ export class Hero {
       if (projectile.sprite.x > window.innerWidth) {
         this.container.removeChild(projectile.sprite);
         this.projectiles.splice(this.projectiles.indexOf(projectile), 1);
-        console.log(projectile.body);
         Matter.Composite.remove(App.physics.world, projectile.body);
       }
     }
@@ -101,7 +98,6 @@ export class Hero {
   }
 
   createSprite() {
-    /*
     this.sprite = new PIXI.AnimatedSprite([
       App.res(`${App.config.characterName}-walk1`),
       App.res(`${App.config.characterName}-walk2`),
@@ -111,10 +107,7 @@ export class Hero {
       App.res(`${App.config.characterName}-walk6`),
       App.res(`${App.config.characterName}-walk7`),
     ]);
-    */
-    this.sprite = new PIXI.AnimatedSprite(
-      App.character(`${App.config.characterName.toLowerCase()}`)
-    );
+    // this.sprite = new PIXI.AnimatedSprite(App.character(`${App.config.characterName.toLowerCase()}`));
 
     this.sprite.x = App.config.hero.position.x;
     this.sprite.y = App.config.hero.position.y;
@@ -127,27 +120,24 @@ export class Hero {
     this.sprite.x = this.body.position.x - this.sprite.width / 2;
     this.sprite.y = this.body.position.y - this.sprite.height / 2;
 
-    if (
-      this.sprite.y > window.innerHeight ||
-      (this.sprite && this.sprite?.x <= 0)
-    ) {
-      this.sprite.emit("die");
+    if (this.sprite.y > window.innerHeight || (this.sprite && this.sprite?.x <= 0)) {
+      this.sprite.emit('die');
     }
 
     this.updateProjectiles();
-    if (this.score === 5) {
-      this.sprite.emit("level", 2);
-    }
-    if (this.score === 10) {
-      this.sprite.emit("level", 3);
-    }
     if (this.score === 15) {
-      this.sprite.emit("level", 4);
+      this.sprite.emit('level', 2);
+    }
+    if (this.score === 30) {
+      this.sprite.emit('level', 3);
+    }
+    if (this.score === 60) {
+      this.sprite.emit('level', 4);
     }
   }
 
   die() {
-    this.sprite.emit("die");
+    this.sprite.emit('die');
   }
 
   destroy() {

@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="min-h-[100vh] m-0 p-0 flex flex-col justify-between">
       <Navbar />
-      <div id="container" className="mb-auto flex-1 bg-zinc-950">
+      <div id="container" className="mb-auto flex-1 bg-slate-950">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

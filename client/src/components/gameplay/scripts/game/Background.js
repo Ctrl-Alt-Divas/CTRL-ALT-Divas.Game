@@ -1,15 +1,24 @@
-import * as PIXI from "pixi.js";
-import { App } from "../system/App";
-import { sound } from "@pixi/sound";
+import * as PIXI from 'pixi.js';
+import { App } from '../system/App';
+import { sound } from '@pixi/sound';
 
 export class Background {
   constructor() {
     this.speed = App.config.bgSpeed;
     this.container = new PIXI.Container();
-    this.createSprites("bg");
+    this.createSprites('bg');
   }
 
   createSprites(image) {
+
+    if(this.sprites && this.sprites?.length > 0) {
+      for(const sprite of this.sprites) {
+        if(sprite) {
+          sprite.destroy()
+        }
+      }
+    }
+
     this.sprites = [];
 
     for (let i = 0; i < 3; i++) {
@@ -26,32 +35,19 @@ export class Background {
     this.sprites.push(sprite);
   }
 
-  move(sprite, offset) {
-    const spriteRightX = sprite.x + sprite.width;
-
-    const screenLeftX = 0;
-
-    if (spriteRightX <= screenLeftX) {
-      sprite.x += sprite.width * this.sprites.length;
-    }
-
-    sprite.x -= offset;
-  }
-
-  update(dt) {
-    const offset = this.speed * dt;
-
-    this.sprites.forEach((sprite) => {
-      this.move(sprite, offset);
-    });
-    if (App.scenes.scene.hero.score === 5) {
-      this.createSprites("bg2");
-      sound.find("level1").stop();
-      sound.play("level2", { loop: true, volume: 0.5 });
-    } else if (App.scenes.scene.hero.score === 10) {
-      this.createSprites("bg3");
-    } else if (App.scenes.scene.hero.score === 15) {
-      this.createSprites("bg4");
+  update() {
+    if (App.scenes.scene.hero.score === 15) {
+      this.createSprites('bg2');
+      sound.find('level1').stop();
+      sound.play('level2', { loop: true, volume: 0.1 });
+    } else if (App.scenes.scene.hero.score === 30) {
+      this.createSprites('bg3');
+      sound.find('level2').stop();
+      sound.play('level3', { loop: true, volume: 0.2 });
+    } else if (App.scenes.scene.hero.score === 60) {
+      this.createSprites('bg4');
+      sound.find('level3').stop();
+      sound.play('level4', { loop: true, volume: 0.2 });
     }
   }
 
