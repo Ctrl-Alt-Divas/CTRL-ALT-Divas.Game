@@ -34,22 +34,22 @@ function Home() {
         for (const player of leaderboard) {
             if (counter === 10) break;
             rows.push(
-                <div key={player.id} className='flex items-center justify-between '>
-                <div className='flex items-center '>
+                <div key={player.id} className='flex items-center justify-between lg:flex gap-10 items-center justify-between'>
+                <div className='flex items-center lg:flex gap-10 items-center'>
 
                             <p className='text-xl text-fuchsia-400'>{leaderboard.indexOf(player) + 1}</p>
                             <img
-                                className='rounded-full h-[50px] border-2 ml-2'
+                                className='rounded-full h-[50px] border-2'
                                 src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
                                 width={50}
                             />
 
-                            <p className='text-xl text-fuchsia-400 pr-5'>{player.username}</p>
+                            <p className='text-xl text-fuchsia-400 pr-5 lg:text-xl text-fuchsia-400'>{player.username}</p>
                            
                 </div>
                         <div className='flex gap-10 items-center'>
 
-                            <p className='text-3xl text-cyan-400 '>{player.score}</p>
+                            <p className='text-3xl text-cyan-400 lg:text-xl text-cyan-400'>{player.score}</p>
                         </div>
 
                        
@@ -65,9 +65,9 @@ function Home() {
         for (const character of characters) {
             rows.push(
                 <Link key={character.id} to={`/characters/${character.id}`}>
-                    <div className='m-4 pt-20 pl-2 pr-2 bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 flex flex-col rounded-md items-center md:w-[200px] h-[400px] xlg:w-[300px] h-[400px]'>
+                    <div className='m-4 pt-20 pl-2 pr-2 bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 flex flex-col rounded-md items-center md:w-[200px] h-[400px] xlg:w-[300px] h-[400px] lg:w-[300px] h-[400px] flex justify-between flex-col p-5 rounded-md items-center'>
                         <p>{character.name}</p>
-                        <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href} className='h-[25vh]' />
+                        <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href}  className='h-[40vh]' />
                         <p>{character.shrtdescription}</p>
                     </div>
                 </Link>
@@ -150,11 +150,11 @@ function Home() {
                             </div>
                         )}
                     </div>
-                    <div className='hidden lg:flex flex-col gap-10 text-center'>
+                    <div className='hidden lg:flex flex-col gap-10 items-center'>
                     <h2 className='text-purple-300 text-3xl'>Characters</h2>
                     <p className='text-purple-400'>Click to see more details about these heroes</p>
                     {characters && characters.length > 0 && (
-                        <div className='flex gap-auto text-lg text-purple-300 font-semibold'>
+                        <div className='flex gap-20 text-md text-purple-300 font-semibold flex-wrap'>
                             {createCharacters()}
                         </div>
                     )}
