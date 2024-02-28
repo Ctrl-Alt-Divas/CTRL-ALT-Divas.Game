@@ -80,7 +80,7 @@ function Home() {
         <>
             <div className='flex flex-col gap-20 items-center'>
 
-                    <div className='w-full border-2 border-purple-300'>
+                    <div className='w-full border-2 border-purple-300 lg:hidden'>
 
                         <div className='relative'>
                         
@@ -113,7 +113,35 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-10 items-center'>
+<div className='hidden lg:flex w-full border-2 border-purple-300'>
+                    <div className='flex flex-col hero-bg h-[80vh] basis-3/4 items-center justify-end'>
+                        {token && (
+                            <Link
+                                to='/character-select'
+                                className='bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 mb-10 text-purple-300 font-semibold'
+                            >
+                                Play Now
+                            </Link>
+                        )}
+                        {!token && (
+                            <Link
+                                to='/login'
+                                className='bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 mb-10 text-purple-300 font-semibold'
+                            >
+                                Play Now
+                            </Link>
+                        )}
+                    </div>
+                    <div className='flex flex-col basis-1/4 items-center border-2 border-purple-300'>
+                        <div className='text-fuchsia-500 text-2xl mb-5 mt-2'>Top Players</div>
+                        {leaderboard && leaderboard.length > 0 && (
+                            <div className='flex flex-col gap-3'>{createLeaderboard()}</div>
+                        )}
+                    </div>
+                </div>
+
+
+                    <div className='flex flex-col gap-10 items-center lg:hidden'>
                         <h2 className='text-purple-300 text-3xl'>Characters</h2>
                         <p className='text-purple-400'>Click to see more details about these heroes</p>
                         {characters && characters.length > 0 && (
@@ -122,7 +150,15 @@ function Home() {
                             </div>
                         )}
                     </div>
-
+                    <div className='hidden lg:flex flex-col gap-10 items-center'>
+                    <h2 className='text-purple-300 text-3xl'>Characters</h2>
+                    <p className='text-purple-400'>Click to see more details about these heroes</p>
+                    {characters && characters.length > 0 && (
+                        <div className='flex gap-20 text-md text-purple-300 font-semibold flex-wrap'>
+                            {createCharacters()}
+                        </div>
+                    )}
+                </div>
                         <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
 
                     <div className='how to play bg-indigo-950 border-2 border-purple-300 p-5 ml-20 mr-20 w-[80vw] text-purple-300'>
@@ -167,9 +203,10 @@ function Home() {
                     
                         
 
-                    <div className='mb-20'>
+                    <div className='mb-20 lg:hidden'>
                         <CarouselVideos className='w-[80vw]'/>
                     </div>
+                    
             </div>
         </>
     );
