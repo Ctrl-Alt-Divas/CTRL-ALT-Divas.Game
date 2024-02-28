@@ -36,7 +36,7 @@ function Home() {
             rows.push(
                 <div key={player.id} className='flex gap-10 items-center justify-between'>
                     <div className='flex gap-10 items-center'>
-                        <p className='text-xl text-fuchsia-400'>{leaderboard.indexOf(player) + 1}</p>
+                        <p className='text-xl text-fuchsia-400 ml-5'>{leaderboard.indexOf(player) + 1}</p>
                         <div className='flex items-center gap-2'>
                             <img
                                 className='rounded-full h-[50px] border-2'
@@ -46,7 +46,7 @@ function Home() {
                             <p className='text-xl text-fuchsia-400'>{player.username}</p>
                         </div>
                     </div>
-                    <p className='text-xl text-cyan-400'>{player.score}</p>
+                    <p className='text-xl text-cyan-400 mr-5'>{player.score}</p>
                 </div>
             );
             counter++;
@@ -59,9 +59,9 @@ function Home() {
         for (const character of characters) {
             rows.push(
                 <Link key={character.id} to={`/characters/${character.id}`}>
-                    <div className='bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 w-[300px] h-[400px] flex justify-between flex-col p-5 rounded-md items-center'>
+                    <div className='m-4 pt-20 pl-2 pr-2 bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 flex flex-col rounded-md items-center md:w-[200px] h-[400px] xlg:w-[300px] h-[400px] lg:w-[300px] h-[400px] flex justify-between flex-col p-5 rounded-md items-center'>
                         <p>{character.name}</p>
-                        <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href} width={250} />
+                        <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href}  className='h-[40vh]' />
                         <p>{character.shrtdescription}</p>
                     </div>
                 </Link>
@@ -73,7 +73,41 @@ function Home() {
     return (
         <>
             <div className='flex flex-col gap-20 items-center'>
-                <div className='flex w-full border-2 border-purple-300'>
+
+                    <div className='w-full border-2 border-purple-300 lg:hidden'>
+
+                        <div className='relative'>
+                        
+                        <img src={new URL(`../assets/images/city.png`, import.meta.url).href}  /> 
+
+                        {token && (
+                                    <Link
+                                        to='/character-select'
+                                        className='flex justify-center bg-indigo-950 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
+                                    >
+                                        Play Now
+                                    </Link>
+                                )}
+                                {!token && (
+                                    <Link
+                                        to='/login'
+                                        className='flex justify-center bg-indigo-950 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
+                                    >
+                                        Play Now
+                                    </Link>
+                                )}
+                    </div>
+                        
+                        
+                        <div className='flex flex-col items-center border-2 border-purple-300'>
+                            <div className='text-fuchsia-500 text-4xl mt-5'>Top Players</div>
+                            {leaderboard && leaderboard.length > 0 && (
+                                <div className='flex flex-col'>{createLeaderboard()}</div>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className='hidden lg:flex w-full border-2 border-purple-300'>
                     <div className='flex flex-col hero-bg h-[80vh] basis-3/4 items-center justify-end'>
                         {token && (
                             <Link
@@ -100,7 +134,17 @@ function Home() {
                     </div>
                 </div>
 
-                <div className='flex flex-col gap-10 items-center'>
+
+                    <div className='flex flex-col gap-10 items-center lg:hidden'>
+                        <h2 className='text-purple-300 text-3xl'>Characters</h2>
+                        <p className='text-purple-400'>Click to see more details about these heroes</p>
+                        {characters && characters.length > 0 && (
+                            <div className='flex flex-col gap-20 text-md text-purple-300 font-semibold flex-wrap'>
+                                {createCharacters()}
+                            </div>
+                        )}
+                    </div>
+                    <div className='hidden lg:flex flex-col gap-10 items-center'>
                     <h2 className='text-purple-300 text-3xl'>Characters</h2>
                     <p className='text-purple-400'>Click to see more details about these heroes</p>
                     {characters && characters.length > 0 && (
@@ -109,49 +153,54 @@ function Home() {
                         </div>
                     )}
                 </div>
-                <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
-                <div className='bg-indigo-950 border-2 border-purple-300 p-5 ml-20 mr-20 w-[80vw] text-purple-300'>
-                    <h2 className='text-3xl mb-5'>How to Play</h2>
-                    <p className='text-xl'>
-                        Welcome to CTRL-ALT-Divas! Join Lani, Eli, Lilypad and Fancypants as they learn the fundamentals
-                        of programming and conquer the world of software development. With each character, you have
-                        different stats that may assist or hinder your gameplay (You can find this information in the
-                        character cards above). Gain points by learning new frameworks and languages, all while fighting
-                        bugs on the way.
-                    </p>
-                    <br />
-                    <p className='text-3xl'>Controls</p>
-                    <br />
-                    <p className='flex justify-center'>
-                        <img
-                            className='w-24 h-12'
-                            alt='spacebar'
-                            src='https://art.pixilart.com/sr27cee4a862faws3.png'
-                        />
-                        : Shoot projectile
-                    </p>
-                    <p className='flex justify-center'>
-                        <img
-                            className='w-12 h-10'
-                            alt='click'
-                            src='https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png'
-                        />
-                        : Jump
-                    </p>
-                    <br />
-                    <p className='flex justify-center'>
-                        <img
-                            className='w-12 h-10'
-                            alt='click'
-                            src='https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png'
-                        />
-                        (x2): Jump twice
-                    </p>
-                </div>
-                <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
-                <div className='mb-10'>
-                    <CarouselVideos />
-                </div>
+                        <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
+
+                    <div className='how to play bg-indigo-950 border-2 border-purple-300 p-5 ml-20 mr-20 w-[80vw] text-purple-300'>
+                        <h2 className='text-3xl mb-5'>How to Play</h2>
+                        <p className='text-xl'>
+                            Welcome to CTRL-ALT-Divas! Join Lani, Eli, Lilypad and Fancypants as they learn the fundamentals
+                            of programming and conquer the world of software development. With each character, you have
+                            different stats that may assist or hinder your gameplay (You can find this information in the
+                            character cards above). Gain points by learning new frameworks and languages, all while fighting
+                            bugs on the way.
+                        </p>
+                        <br />
+                        <p className='text-3xl'>Controls</p>
+                        <br />
+                        <p className='flex justify-center'>
+                            <img
+                                className='w-24 h-12'
+                                alt='spacebar'
+                                src='https://art.pixilart.com/sr27cee4a862faws3.png'
+                            />
+                            : Shoot projectile
+                        </p>
+                        <p className='flex justify-center'>
+                            <img
+                                className='w-12 h-10'
+                                alt='click'
+                                src='https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png'
+                            />
+                            : Jump
+                        </p>
+                        <br />
+                        <p className='flex justify-center'>
+                            <img
+                                className='w-12 h-10'
+                                alt='click'
+                                src='https://cdn.freebiesupply.com/logos/large/2x/windows-cursor-logo-png-transparent.png'
+                            />
+                            (x2): Jump twice
+                        </p>
+                    </div>
+                    <hr className='border-0 bg-indigo-800 rounded w-2/3 h-1 mx-auto' />
+                    
+                        
+
+                    <div className='mb-20'>
+                        <CarouselVideos className='w-[80vw]'/>
+                    </div>
+                    
             </div>
         </>
     );

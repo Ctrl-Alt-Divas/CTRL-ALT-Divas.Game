@@ -3,40 +3,63 @@ import Carousel from "react-bootstrap/Carousel";
 
 function CarouselVideos() {
   return (
-    <div className="carousel-container">
-      <Carousel slide={false}>
+    <div className="carousel-contianer">
+      <Carousel className="carousel" slide={false} data-pause="mouseenter">
         <Carousel.Item>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/FEARARPNS6I?si=z2IOUb2S5rLWjPnK"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            origin="true"
-          ></iframe>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              className="embed-responsive-item"
+              width="560"
+              height="315"
+              src="https://youtube.com/embed/eyu9604Envk?si=otuascUOyvUX1gr1"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              origin="true"
+            ></iframe>
+          </div>
         </Carousel.Item>
         <Carousel.Item>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/-39kuBXyKWo?si=iYu8VS7y0dRFmu5A"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            origin="true"
-          ></iframe>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              className="embed-responsive-item"
+              width="560"
+              height="315"
+              src="https://youtube.com/embed/k-mOyjjWTfc?si=SK_0VzRjTcMHPmVa"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              origin="true"
+            ></iframe>
+          </div>
         </Carousel.Item>
         <Carousel.Item>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/pu76c3HCKg4?si=cvuuG1Pmb47tLr8K"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            origin="true"
-          ></iframe>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              className="embed-responsive-item"
+              width="560"
+              height="315"
+              src="https://youtube.com/embed/vtcDrXM-ChQ?si=tT2vREy7B_WXYbGg"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              origin="true"
+            ></iframe>
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe
+              className="embed-responsive-item"
+              width="560"
+              height="315"
+              src="https://youtube.com/embed/OmwCdyokZ5k?si=Juwovxb2TYrVFhyH"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              origin="true"
+            ></iframe>
+          </div>
         </Carousel.Item>
       </Carousel>
     </div>

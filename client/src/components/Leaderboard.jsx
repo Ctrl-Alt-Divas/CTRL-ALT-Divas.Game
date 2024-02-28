@@ -41,10 +41,10 @@ function Leaderboard() {
                 }
                 width={50}
               />
-              <p className="text-3xl text-purple-400">{player.username}</p>
+              <p className="text-purple-400 lg:text-3xl">{player.username}</p>
             </div>
           </div>
-          <p className="text-3xl text-cyan-400">{player.score}</p>
+          <p className="text-3xl text-cyan-400 pr-5 lg:pr-0">{player.score}</p>
         </div>
       );
     }
