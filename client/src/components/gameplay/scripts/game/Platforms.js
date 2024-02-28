@@ -1,6 +1,6 @@
-import * as PIXI from 'pixi.js';
-import { App } from '../system/App';
-import { Platform } from './Platform';
+import * as PIXI from "pixi.js";
+import { App } from "../system/App";
+import { Platform } from "./Platform";
 
 export class Platforms {
   constructor() {
@@ -20,11 +20,19 @@ export class Platforms {
     this.ranges = App.config.platforms.ranges;
     let data = { rows: 0, cols: 0, x: 0 };
 
-    const offset = this.ranges.offset.min + Math.round(Math.random() * (this.ranges.offset.max - this.ranges.offset.min));
+    const offset =
+      this.ranges.offset.min +
+      Math.round(
+        Math.random() * (this.ranges.offset.max - this.ranges.offset.min)
+      );
 
     data.x = this.current.container.x + this.current.container.width + offset;
-    data.cols = this.ranges.cols.min + Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
-    data.rows = this.ranges.rows.min + Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
+    data.cols =
+      this.ranges.cols.min +
+      Math.round(Math.random() * (this.ranges.cols.max - this.ranges.cols.min));
+    data.rows =
+      this.ranges.rows.min +
+      Math.round(Math.random() * (this.ranges.rows.max - this.ranges.rows.min));
 
     return data;
   }
@@ -44,7 +52,10 @@ export class Platforms {
     };
 
     // Generate and add new platforms if needed
-    if (this.container.x + this.container.width < window.innerWidth) {
+    if (
+      this.current.container.x + this.current.container.width <
+      window.innerWidth
+    ) {
       this.createPlatform(this.randomData);
     }
 
