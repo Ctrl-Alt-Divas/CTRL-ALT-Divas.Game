@@ -65,9 +65,9 @@ function Home() {
         for (const character of characters) {
             rows.push(
                 <Link key={character.id} to={`/characters/${character.id}`}>
-                    <div className='bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 w-[300px] h-[400px] flex justify-between flex-col p-5 rounded-md items-center'>
+                    <div className='m-4 pt-20 pl-2 pr-2 bg-indigo-950 border-2 hover:bg-indigo-800 border-purple-300 flex flex-col rounded-md items-center md:w-[200px] h-[400px] xlg:w-[300px] h-[400px]'>
                         <p>{character.name}</p>
-                        <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href} width={250} />
+                        <img src={new URL(`../assets/images/${character.image}`, import.meta.url).href} className='h-[25vh]' />
                         <p>{character.shrtdescription}</p>
                     </div>
                 </Link>
@@ -89,7 +89,7 @@ function Home() {
                         {token && (
                                     <Link
                                         to='/character-select'
-                                        className='flex justify-center bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
+                                        className='flex justify-center bg-indigo-950 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
                                     >
                                         Play Now
                                     </Link>
@@ -97,7 +97,7 @@ function Home() {
                                 {!token && (
                                     <Link
                                         to='/login'
-                                        className='flex justify-center bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
+                                        className='flex justify-center bg-indigo-950 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
                                     >
                                         Play Now
                                     </Link>
@@ -113,7 +113,7 @@ function Home() {
                         </div>
                     </div>
 
-<div className='hidden lg:flex w-full border-2 border-purple-300'>
+                    <div className='hidden lg:flex w-full border-2 border-purple-300'>
                     <div className='flex flex-col hero-bg h-[80vh] basis-3/4 items-center justify-end'>
                         {token && (
                             <Link
@@ -150,11 +150,11 @@ function Home() {
                             </div>
                         )}
                     </div>
-                    <div className='hidden lg:flex flex-col gap-10 items-center'>
+                    <div className='hidden lg:flex flex-col gap-10 text-center'>
                     <h2 className='text-purple-300 text-3xl'>Characters</h2>
                     <p className='text-purple-400'>Click to see more details about these heroes</p>
                     {characters && characters.length > 0 && (
-                        <div className='flex gap-20 text-md text-purple-300 font-semibold flex-wrap'>
+                        <div className='flex gap-auto text-lg text-purple-300 font-semibold'>
                             {createCharacters()}
                         </div>
                     )}
@@ -203,7 +203,7 @@ function Home() {
                     
                         
 
-                    <div className='mb-20 lg:hidden'>
+                    <div className='mb-20'>
                         <CarouselVideos className='w-[80vw]'/>
                     </div>
                     
