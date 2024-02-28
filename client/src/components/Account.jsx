@@ -34,14 +34,14 @@ function Account() {
 
     return (
         <>
-            <div className='flex items-center justify-center p-5'>
+            <div className='flex items-center justify-center p-5 lg:hidden'>
                 <div className='mr-5'>
                     <h1 className=' col-span-2 text-2xl text-purple-300 mb-5'>Welcome, {player.username}!</h1>
 
                     <div className='row-span-2 col-span-2'>
                     <p className='text-xl text-purple-300'>Player Details</p>
                     <p className='text-md text-purple-400'>Rank: {leaderboard.findIndex(it => it.username === player.username) + 1 }</p>
-                    <p className='text-md text-purple-400'>Your Score: {player.score} </p>
+                    <p className='text-md text-purple-400'>Your Score: {getScore(player)}</p>
                     </div>
                 </div>
                 <div className=''>
@@ -59,6 +59,27 @@ function Account() {
                         className='text-purple-400 text-2xl bg-gray-800 hover:text-cyan-600'
                         onClick={() => openModal()}
                     />
+                </div>
+            </div>
+            <div className='hidden lg:p-24 flex items-center gap-60'>
+                <div>
+                    <img
+                        className='rounded-full h-[200px] border-2 border-purple-400'
+                        src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
+                        width={200}
+                    />
+                    <RiImageEditLine
+                        className='text-purple-400 text-2xl bg-gray-800 hover:text-cyan-600'
+                        onClick={() => openModal()}
+                    />
+                </div>
+                <div className='flex flex-col items-start'>
+                    <h1 className='text-5xl text-purple-300 mb-5'>{player.username}</h1>
+                    <p className='text-3xl text-purple-300'>Player Details</p>
+                    <p className='text-xl text-purple-400'>
+                        Rank: {leaderboard.findIndex((it) => it.username === player.username) + 1}
+                    </p>
+                    <p className='text-xl text-purple-400'>Your Score: {getScore(player)}</p>
                 </div>
             </div>
             <Transition appear show={isOpen} as={Fragment}>
