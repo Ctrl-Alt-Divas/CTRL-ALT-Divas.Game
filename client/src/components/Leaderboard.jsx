@@ -22,15 +22,15 @@ function Leaderboard() {
         const rows = [];
         for (const player of leaderboard) {
             rows.push(
-                <div className='flex items-center justify-between'>
-                    <div className='flex items-center'>
-                            <p className='text-xl text-purple-300 pr-2'>{leaderboard.indexOf(player) + 1}</p>
+                <div key={player.id} className='flex items-center justify-between  lg:flex gap-10 items-center justify-between'>
+                    <div className='flex items-center lg:flex gap-10 items-center'>
+                            <p className='text-xl text-purple-300 pr-2 lg:text-3xl text-purple-300'>{leaderboard.indexOf(player) + 1}</p>
                             <img
                                 className='rounded-full h-[50px] border-2'
                                 src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
                                 width={50}
                             />
-                            <p className='text-xl text-purple-400 pr-5'>{player.username}</p>
+                            <p className='text-xl text-purple-400 pr-5 lg:text-3xl text-purple-400'>{player.username}</p>
                     </div>
                        
                 <div className='flex gap-10 items-center'>
@@ -48,7 +48,7 @@ function Leaderboard() {
                 <div className='flex flex-col items-center'>
                     <div className='text-fuchsia-500 text-4xl mb-5 mt-5'>Leaderboard</div>
                     {leaderboard && leaderboard.length > 0 && (
-                        <div className='flex flex-col gap-3 pb-5'>{createLeaderboard()}</div>
+                        <div className='flex flex-col gap-3'>{createLeaderboard()}</div>
                     )}
                 </div>
             </div>
