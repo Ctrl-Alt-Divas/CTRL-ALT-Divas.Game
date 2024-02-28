@@ -34,21 +34,24 @@ function Home() {
         for (const player of leaderboard) {
             if (counter === 10) break;
             rows.push(
-                <div key={player.id} className='grid grid-cols-3 gap-4'>
-                            <p className='text-xl text-fuchsia-400 ml-20'>{leaderboard.indexOf(player) + 1}</p>
-                            <div className='flex'>
+                <div key={player.id} className='flex items-center justify-between '>
+                <div className='flex items-center '>
 
+                            <p className='text-xl text-fuchsia-400'>{leaderboard.indexOf(player) + 1}</p>
                             <img
-                                className='rounded-full h-[50px] border-2'
+                                className='rounded-full h-[50px] border-2 ml-2'
                                 src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
                                 width={50}
                             />
 
-                            <p className='text-xl text-fuchsia-400'>{player.username}</p>
-                            </div>
-                        
+                            <p className='text-xl text-fuchsia-400 pr-5'>{player.username}</p>
+                           
+                </div>
+                        <div className='flex gap-10 items-center'>
 
-                            <p className='text-xl text-cyan-400 '>{player.score}</p>
+                            <p className='text-3xl text-cyan-400 '>{player.score}</p>
+                        </div>
+
                        
                 </div>
             );
@@ -86,7 +89,7 @@ function Home() {
                         {token && (
                                     <Link
                                         to='/character-select'
-                                        className='flex justify-center bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 mb-10 text-purple-300 font-semibold'
+                                        className='flex justify-center bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
                                     >
                                         Play Now
                                     </Link>
@@ -94,7 +97,7 @@ function Home() {
                                 {!token && (
                                     <Link
                                         to='/login'
-                                        className='flex justify-center bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 mb-10 text-purple-300 font-semibold'
+                                        className='flex justify-center bg-indigo-950 w-26 p-3 rounded-md text-lg border-2 border-purple-300 text-purple-300 font-semibold'
                                     >
                                         Play Now
                                     </Link>
@@ -103,9 +106,9 @@ function Home() {
                         
                         
                         <div className='flex flex-col items-center border-2 border-purple-300'>
-                            <div className='text-fuchsia-500 text-2xl mb-5 mt-2 '>Top Players</div>
+                            <div className='text-fuchsia-500 text-4xl mb-5 mt-5 '>Top Players</div>
                             {leaderboard && leaderboard.length > 0 && (
-                                <div className='flex flex-col gap-3 mb-5 '>{createLeaderboard()}</div>
+                                <div className='flex flex-col gap-3 pb-5 '>{createLeaderboard()}</div>
                             )}
                         </div>
                     </div>

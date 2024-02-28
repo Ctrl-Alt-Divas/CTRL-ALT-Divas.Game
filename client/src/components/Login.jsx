@@ -56,7 +56,7 @@ function Login() {
                 </button>
                 <div className='flex gap-3'>
                     {' '}
-                    <p className='text-xl text-indigo-300'>New to the game?</p>
+                    <p className='text-xl text-indigo-300 mb-5'>New to the game?</p>
                     <a className='text-xl text-indigo-300 hover:text-cyan-500' href='/register'>
                         Sign Up
                     </a>

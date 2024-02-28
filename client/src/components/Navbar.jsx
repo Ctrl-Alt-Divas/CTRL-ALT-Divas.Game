@@ -36,7 +36,7 @@ function Navbar() {
 
            
             <div >
-                    <Link to='/' className='flex items-center text-cyan-600 font-semibold hover:text-fuchsia-500'>
+                    <Link to='/' className='flex items-center text-fuchsia-500 font-semibold hover:text-cyan-500'>
                         <img className='h-12' src={new URL(`../assets/images/icon.png`, import.meta.url).href} alt='Arcade Machine'/>
                         CTRL-ALT-DIVAS
                     </Link>
@@ -44,35 +44,35 @@ function Navbar() {
             <div >
                 <button type='button' className='text-purple-300 hover:text-cyan-600 focus:text-cyan-600 lg:hidden' onClick={toggleMenu}>
                     <CiMenuBurger className='h-6 w-6 fill-current'/>
-                    {isMenuOpen ? 'Close' : 'Menu'}
+                    {isMenuOpen ? '' : ''}
                 </button>
             </div>
         <div className='hidden lg:flex'>
-        <Link to='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'><IoHome />Home
+        <Link to='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'><IoHome className='text-fuchsia-500 size-6' />Home
             </Link>
             
             <Link to='/leaderboard' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
-                <GiTrophyCup />
+                <GiTrophyCup className='text-[#dd784b] size-6'/>
                 Leaderboard
             </Link>
             {!token && (
                     <Link to='/login' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
-                            <IoMdLogIn />
+                            <IoMdLogIn className='text-purple-600 size-6'/>
                             Login
                         
             </Link>
             )}
             {token && (
             <Link to='/character-select' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
-                <SlGameController />
+                <SlGameController className='text-blue-600 size-6'/>
                 Game
             </Link>
             )}
             {token && (
             <Link to='/account' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
-                            <BiSolidUserAccount />
+                            <BiSolidUserAccount className='text-green-600 size-6'/>
                             Account
                         
             </Link>
@@ -80,7 +80,7 @@ function Navbar() {
             {token && (
             <a onClick={() => logout()} href='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
-                            <IoMdLogOut />
+                            <IoMdLogOut className='text-purple-600 size-6'/>
                             Logout
                         
             </a>
@@ -89,31 +89,31 @@ function Navbar() {
         </div>
         {isMenuOpen && (
         <div className='lg:hidden px-6 pt-2 pb-4'>
-            <Link to='/' className='flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'><IoHome />Home
+            <Link to='/' className='flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'><IoHome className='text-fuchsia-500 size-6'/>Home
             </Link>
             
             <Link to='/leaderboard' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
-                <GiTrophyCup />
+                <GiTrophyCup className='text-[#dd784b] size-6'/>
                 Leaderboard
             </Link>
             {!token && (
                     <Link to='/login' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
-                            <IoMdLogIn />
+                            <IoMdLogIn className='text-purple-600 size-6'/>
                             Login
                         
             </Link>
             )}
             {token && (
             <Link to='/character-select' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
-                <SlGameController />
+                <SlGameController className='text-blue-600 size-6'/>
                 Game
             </Link>
             )}
             {token && (
             <Link to='/account' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
-                            <BiSolidUserAccount />
+                            <BiSolidUserAccount className='text-green-600 size-6'/>
                             Account
                         
             </Link>
@@ -121,7 +121,7 @@ function Navbar() {
             {token && (
             <a onClick={() => logout()} href='/' className='mt-1 flex items-center px-2 text-purple-300 rounded hover:bg-cyan-500 font-semibold'>
                         
-                            <IoMdLogOut />
+                            <IoMdLogOut className='text-purple-600 size-6'/>
                             Logout
                         
             </a>
