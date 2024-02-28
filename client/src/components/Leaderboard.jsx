@@ -1,22 +1,22 @@
-import {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
-import {useGetLeaderboardMutation} from '../../api/divasApi';
-import {updateLeaderboard} from '../app/slice';
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useGetLeaderboardMutation } from "../../api/divasApi";
+import { updateLeaderboard } from "../app/slice";
 
 function Leaderboard() {
-    const [getLeaderboard] = useGetLeaderboardMutation();
+  const [getLeaderboard] = useGetLeaderboardMutation();
 
-    const dispatch = useDispatch();
-    let [leaderboard, setLeaderboard] = useState();
+  const dispatch = useDispatch();
+  let [leaderboard, setLeaderboard] = useState();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const leaderboard = await getLeaderboard();
-            dispatch(updateLeaderboard(leaderboard));
-            setLeaderboard(leaderboard.data);
-        };
-        fetchData().catch(console.error);
-    }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const leaderboard = await getLeaderboard();
+      dispatch(updateLeaderboard(leaderboard));
+      setLeaderboard(leaderboard.data);
+    };
+    fetchData().catch(console.error);
+  }, []);
 
     function createLeaderboard() {
         const rows = [];

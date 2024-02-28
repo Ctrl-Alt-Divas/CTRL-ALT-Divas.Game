@@ -1,11 +1,28 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {RiImageEditLine} from 'react-icons/ri';
-import {useState, Fragment} from 'react';
+import {useState, Fragment, useEffect} from 'react';
 import {Dialog, Transition, RadioGroup} from '@headlessui/react';
-import {useUpdateImageMutation} from '../../api/divasApi';
-import { updatePlayer } from "../app/slice";
+import {useUpdateImageMutation, useGetLeaderboardMutation} from '../../api/divasApi';
+import {updatePlayer, updateLeaderboard} from '../app/slice';
 
-const images = ['hotdog.png', 'evee.png', 'default.png', 'jesse.png', 'lifeline.png', 'astro.jpeg', 'cat.png', 'cinna.jpeg', 'froggy.jpeg', 'gamer.webp', 'mushroom.png', 'leaf.jpeg', 'switch.jpeg', 'star.jpeg', 'virus.jpeg'];
+
+const images = [
+    'hotdog.png',
+    'evee.png',
+    'default.png',
+    'jesse.png',
+    'lifeline.png',
+    'astro.jpeg',
+    'cat.png',
+    'cinna.jpeg',
+    'froggy.jpeg',
+    'gamer.webp',
+    'mushroom.png',
+    'leaf.jpeg',
+    'switch.jpeg',
+    'star.jpeg',
+    'virus.jpeg',
+];
 
 function Account() {
     const player = useSelector((it) => it.state.player);
@@ -13,7 +30,16 @@ function Account() {
     const leaderboard = useSelector((it) => it.state.leaderboards);
     let [isOpen, setIsOpen] = useState(false);
     const [updateImage] = useUpdateImageMutation();
+    const [getLeaderboard] = useGetLeaderboardMutation();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const leaderboard = await getLeaderboard();
+        dispatch(updateLeaderboard(leaderboard));
+      };
+      fetchData().catch(console.error);
+    }, []);
 
     function openModal() {
         setIsOpen(true);
@@ -31,11 +57,18 @@ function Account() {
         dispatch(updatePlayer(updatedUser.data));
         closeModal();
     }
+    
+
+    function getScore(player) {
+        const playerInfo = leaderboard.find((user) => user.username == player.username);
+        const score = playerInfo?.score;
+        return score;
+    }
 
     return (
         <>
             <div className='flex items-center justify-center p-5 lg:hidden'>
-                <div className='mr-5'>
+                <div className='mr-5 lg:hidden'>
                     <h1 className=' col-span-2 text-2xl text-purple-300 mb-5'>Welcome, {player.username}!</h1>
 
                     <div className='row-span-2 col-span-2'>
@@ -61,8 +94,8 @@ function Account() {
                     />
                 </div>
             </div>
-            <div className='hidden lg:p-24 flex items-center gap-60'>
-                <div>
+            <div className='hidden lg:flex items-center p-20 gap-60'>
+                <div className='flex items-end'>
                     <img
                         className='rounded-full h-[200px] border-2 border-purple-400'
                         src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
