@@ -34,25 +34,19 @@ function Home() {
         for (const player of leaderboard) {
             if (counter === 10) break;
             rows.push(
-                <div key={player.id} className='flex items-center justify-between lg:flex gap-10 items-center justify-between'>
-                <div className='flex items-center lg:flex gap-10 items-center'>
-
-                            <p className='text-xl text-fuchsia-400'>{leaderboard.indexOf(player) + 1}</p>
+                <div key={player.id} className='flex gap-10 items-center justify-between'>
+                    <div className='flex gap-10 items-center'>
+                        <p className='text-xl text-fuchsia-400 ml-5'>{leaderboard.indexOf(player) + 1}</p>
+                        <div className='flex items-center gap-2'>
                             <img
                                 className='rounded-full h-[50px] border-2'
                                 src={new URL(`../assets/images/profile/${player.image}`, import.meta.url).href}
                                 width={50}
                             />
-
-                            <p className='text-xl text-fuchsia-400 pr-5 lg:text-xl text-fuchsia-400'>{player.username}</p>
-                           
-                </div>
-                        <div className='flex gap-10 items-center'>
-
-                            <p className='text-3xl text-cyan-400 lg:text-xl text-cyan-400'>{player.score}</p>
+                            <p className='text-xl text-fuchsia-400'>{player.username}</p>
                         </div>
-
-                       
+                    </div>
+                    <p className='text-xl text-cyan-400 mr-5'>{player.score}</p>
                 </div>
             );
             counter++;
@@ -106,9 +100,9 @@ function Home() {
                         
                         
                         <div className='flex flex-col items-center border-2 border-purple-300'>
-                            <div className='text-fuchsia-500 text-4xl mb-5 mt-5 '>Top Players</div>
+                            <div className='text-fuchsia-500 text-4xl mt-5'>Top Players</div>
                             {leaderboard && leaderboard.length > 0 && (
-                                <div className='flex flex-col gap-3 pb-5 '>{createLeaderboard()}</div>
+                                <div className='flex flex-col'>{createLeaderboard()}</div>
                             )}
                         </div>
                     </div>
