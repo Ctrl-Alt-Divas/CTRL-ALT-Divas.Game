@@ -18,10 +18,13 @@ Join them as they sprint through a pixelated landscape, collecting skills and co
 - JavaScript
 - React
 - React Router
+- React Icons
 - Redux
 - Pixi.js
 - Matter.js
 - GSAP
+- Node.js
+- Express.js
 - PostgreSQL
 - TailwindCSS
 - Bootstrap
@@ -44,7 +47,7 @@ Join them as they sprint through a pixelated landscape, collecting skills and co
 
   - :octocat: [GitHub](https://github.com/ElizabethLankford)
   - :link: [LinkedIn](https://www.linkedin.com/in/elizabethlankford/)
-  - :woman_technologist: [Portfolio](#)
+  - :woman_technologist: [Portfolio](https://elizabeth-lankford.com/)
 
 - Xolani
   - :octocat: [GitHub](https://github.com/xlvictory)
