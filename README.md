@@ -52,6 +52,6 @@ Join them as they sprint through a pixelated landscape, collecting skills and co
 - Xolani
   - :octocat: [GitHub](https://github.com/xlvictory)
   - :link: [LinkedIn](https://www.linkedin.com/in/xolanivictory/)
-  - :woman_technologist: [Portfolio](#)
+  - :woman_technologist: [Portfolio](https://xolanivictory.vercel.app/)
 
 Any suggestions or other feedback? Send us an email at [ctrlaltdivas@gmail.com](mailto:ctrlaltdivas@gmail.com?subject=CTRL%20ALT%20DIVAS%20Feedback!)
